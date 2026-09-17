@@ -286,6 +286,16 @@ export default function ReelItem({
                   <div style={{ fontSize: '13px', fontWeight: 700, color: '#047857' }}>{property.status}</div>
                 </div>
               </div>
+
+              {property.facing && (
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <Compass size={16} color="#b45309" />
+                  <div>
+                    <div style={{ fontSize: '10px', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 600 }}>Facing</div>
+                    <div style={{ fontSize: '13px', fontWeight: 700, color: '#b45309' }}>{property.facing}</div>
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Signature Amenities */}
@@ -963,6 +973,26 @@ export default function ReelItem({
             }}>
               {property.status}
             </span>
+
+            {/* Direction Facing Badge */}
+            {property.facing && (
+              <span style={{
+                background: 'rgba(180, 83, 9, 0.6)',
+                backdropFilter: 'blur(8px)',
+                border: '1px solid rgba(255,255,255,0.25)',
+                color: '#ffffff',
+                padding: '2px 8px',
+                borderRadius: '6px',
+                fontSize: '10px',
+                fontWeight: 700,
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '3px'
+              }}>
+                <Compass size={10} />
+                {property.facing}
+              </span>
+            )}
           </div>
 
           {/* Quick Dual Action Buttons */}

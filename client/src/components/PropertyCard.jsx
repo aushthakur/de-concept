@@ -10,7 +10,8 @@ import {
   Maximize2, 
   CheckCircle2,
   MessageCircle,
-  Share2
+  Share2,
+  Compass
 } from 'lucide-react';
 
 export default function PropertyCard({
@@ -278,7 +279,49 @@ export default function PropertyCard({
           </div>
         </div>
 
-        {/* Compare Checkbox Row */}
+        {/* Availability & Facing Tags Row */}
+        <div style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: '6px',
+          marginBottom: '14px'
+        }}>
+          {/* Availability / Status */}
+          <span style={{
+            background: 'rgba(5, 150, 105, 0.1)',
+            border: '1px solid rgba(5, 150, 105, 0.25)',
+            color: '#047857',
+            padding: '4px 10px',
+            borderRadius: 'var(--radius-full)',
+            fontSize: '11px',
+            fontWeight: 700,
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '4px'
+          }}>
+            ✓ {property.status}
+          </span>
+
+          {/* Direction Facing */}
+          {property.facing && (
+            <span style={{
+              background: 'rgba(217, 119, 6, 0.08)',
+              border: '1px solid rgba(217, 119, 6, 0.22)',
+              color: '#b45309',
+              padding: '4px 10px',
+              borderRadius: 'var(--radius-full)',
+              fontSize: '11px',
+              fontWeight: 700,
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '4px'
+            }}>
+              <Compass size={11} />
+              {property.facing}
+            </span>
+          )}
+        </div>
+
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
           <label style={{
             display: 'flex',
