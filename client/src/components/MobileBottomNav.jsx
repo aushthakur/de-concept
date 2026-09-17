@@ -1,5 +1,5 @@
 import React from 'react';
-import { Clapperboard, LayoutGrid, PlusCircle, Heart, User } from 'lucide-react';
+import { Zap, LayoutGrid, PlusCircle, Heart, User } from 'lucide-react';
 
 export default function MobileBottomNav({
   viewMode,
@@ -25,7 +25,7 @@ export default function MobileBottomNav({
       zIndex: 50,
       boxShadow: '0 -4px 20px rgba(11, 28, 61, 0.08)'
     }}>
-      {/* 1. Reels */}
+      {/* 1. Instants */}
       <button
         onClick={() => setViewMode('reels')}
         style={{
@@ -40,8 +40,8 @@ export default function MobileBottomNav({
           padding: '6px'
         }}
       >
-        <Clapperboard size={20} strokeWidth={viewMode === 'reels' ? 2.5 : 1.8} />
-        <span style={{ fontSize: '10px', fontWeight: viewMode === 'reels' ? 700 : 500 }}>Reels</span>
+        <Zap size={20} strokeWidth={viewMode === 'reels' ? 2.5 : 1.8} />
+        <span style={{ fontSize: '10px', fontWeight: viewMode === 'reels' ? 700 : 500 }}>Instants</span>
       </button>
 
       {/* 2. Inventory */}

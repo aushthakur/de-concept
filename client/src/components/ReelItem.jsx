@@ -347,9 +347,7 @@ export default function ReelItem({
                       <img 
                         src={img} 
                         alt="Property Preview" 
-                        style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.3s ease' }}
-                        onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
-                        onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1.0)'}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                       />
                     </div>
                   ))}
@@ -679,73 +677,131 @@ export default function ReelItem({
           </div>
         )}
 
-        {/* Right Floating Action Column */}
+        {/* Right Floating Action Column (No White BG, Filled Visible Icons) */}
         <div className="reel-actions-column">
-          {/* Wishlist Button */}
+          {/* Wishlist Heart Button */}
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <button
               id={`btn-reel-heart-${property.id}`}
               onClick={handleLike}
-              className={`reel-action-btn ${isWishlisted ? 'active-heart' : ''}`}
+              style={{
+                background: 'transparent',
+                border: 'none',
+                cursor: 'pointer',
+                padding: '4px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}
               title="Add to Wishlist"
             >
               <Heart 
-                size={20} 
-                fill={isWishlisted ? 'currentColor' : 'none'} 
-                strokeWidth={2.2}
+                size={32} 
+                fill={isWishlisted ? '#f43f5e' : 'rgba(255, 255, 255, 0.95)'} 
+                color={isWishlisted ? '#f43f5e' : '#ffffff'}
+                style={{ filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.8))' }}
               />
             </button>
-            <span className="reel-action-label">
+            <span style={{ fontSize: '11px', fontWeight: 800, color: '#ffffff', textShadow: '0 1px 4px rgba(0,0,0,0.9)', marginTop: '1px' }}>
               {likesCount > 999 ? (likesCount / 1000).toFixed(1) + 'k' : likesCount}
             </span>
           </div>
 
-          {/* WhatsApp Share Button */}
+          {/* WhatsApp Share Button (Filled Vibrant Green) */}
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <button
               id={`btn-reel-whatsapp-${property.id}`}
               onClick={handleShareWhatsApp}
-              className="reel-action-btn"
-              style={{ color: '#16a34a' }}
+              style={{
+                background: 'transparent',
+                border: 'none',
+                cursor: 'pointer',
+                padding: '4px'
+              }}
               title="Share Estate on WhatsApp"
             >
-              <MessageCircle size={20} strokeWidth={2.4} />
+              <div style={{
+                width: '42px',
+                height: '42px',
+                borderRadius: '50%',
+                background: '#22c55e',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 4px 14px rgba(0,0,0,0.45)'
+              }}>
+                <MessageCircle size={22} color="#ffffff" fill="#ffffff" />
+              </div>
             </button>
-            <span className="reel-action-label">WhatsApp</span>
+            <span style={{ fontSize: '10px', fontWeight: 800, color: '#ffffff', textShadow: '0 1px 4px rgba(0,0,0,0.9)', marginTop: '1px' }}>
+              WhatsApp
+            </span>
           </div>
 
-          {/* Know More Specs Button */}
+          {/* Know More Specs Button (Filled Sapphire Blue) */}
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <button
               id={`btn-reel-know-more-${property.id}`}
               onClick={() => onOpenDetail(property)}
-              className="reel-action-btn"
+              style={{
+                background: 'transparent',
+                border: 'none',
+                cursor: 'pointer',
+                padding: '4px'
+              }}
               title="Deep Specs & EMI"
             >
-              <Info size={20} strokeWidth={2.2} />
+              <div style={{
+                width: '42px',
+                height: '42px',
+                borderRadius: '50%',
+                background: '#2563eb',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 4px 14px rgba(0,0,0,0.45)'
+              }}>
+                <Info size={22} color="#ffffff" strokeWidth={2.4} />
+              </div>
             </button>
-            <span className="reel-action-label">Specs</span>
+            <span style={{ fontSize: '10px', fontWeight: 800, color: '#ffffff', textShadow: '0 1px 4px rgba(0,0,0,0.9)', marginTop: '1px' }}>
+              Specs
+            </span>
           </div>
 
-          {/* Call Back Button */}
+          {/* Call Back Button (Filled Royal Navy) */}
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <button
               id={`btn-reel-callback-${property.id}`}
               onClick={() => onOpenCallback(property)}
-              className="reel-action-btn"
               style={{
-                background: 'var(--accent-primary)',
-                color: '#ffffff',
-                boxShadow: '0 4px 18px rgba(11, 28, 61, 0.35)'
+                background: 'transparent',
+                border: 'none',
+                cursor: 'pointer',
+                padding: '4px'
               }}
               title="Get a Call Back"
             >
-              <PhoneCall size={18} strokeWidth={2.4} />
+              <div style={{
+                width: '42px',
+                height: '42px',
+                borderRadius: '50%',
+                background: 'var(--accent-primary)',
+                border: '1.5px solid rgba(255,255,255,0.4)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 4px 14px rgba(0,0,0,0.45)'
+              }}>
+                <PhoneCall size={19} color="#ffffff" strokeWidth={2.4} />
+              </div>
             </button>
-            <span className="reel-action-label">Call Back</span>
+            <span style={{ fontSize: '10px', fontWeight: 800, color: '#ffffff', textShadow: '0 1px 4px rgba(0,0,0,0.9)', marginTop: '1px' }}>
+              Call
+            </span>
           </div>
 
-          {/* Sound Toggle */}
+          {/* Sound Toggle (Translucent Dark Glass) */}
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <button
               id="btn-reel-sound-toggle"
@@ -753,135 +809,199 @@ export default function ReelItem({
                 e.stopPropagation();
                 onToggleMute();
               }}
-              className="reel-action-btn"
+              style={{
+                background: 'transparent',
+                border: 'none',
+                cursor: 'pointer',
+                padding: '4px'
+              }}
               title={isMuted ? 'Unmute Sound' : 'Mute Sound'}
             >
-              {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} color="#2563eb" />}
+              <div style={{
+                width: '38px',
+                height: '38px',
+                borderRadius: '50%',
+                background: 'rgba(0,0,0,0.5)',
+                backdropFilter: 'blur(8px)',
+                border: '1px solid rgba(255,255,255,0.3)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.4)'
+              }}>
+                {isMuted ? <VolumeX size={18} color="#ffffff" /> : <Volume2 size={18} color="#38bdf8" />}
+              </div>
             </button>
-            <span className="reel-action-label">{isMuted ? 'Muted' : 'Audio'}</span>
+            <span style={{ fontSize: '10px', fontWeight: 800, color: '#ffffff', textShadow: '0 1px 4px rgba(0,0,0,0.9)', marginTop: '1px' }}>
+              {isMuted ? 'Muted' : 'Audio'}
+            </span>
           </div>
         </div>
 
-        {/* Reel Bottom Meta Overlay (Pure White Luxury Bottom Sheet) */}
-        <div className="reel-meta-content">
-          <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: '6px' }}>
-            <div>
-              <span style={{
-                fontFamily: 'var(--font-display)',
-                fontSize: '26px',
-                fontWeight: 800,
-                color: 'var(--accent-primary)',
-                letterSpacing: '-0.02em'
-              }}>
-                {property.priceFormatted}
-              </span>
-              <span style={{ fontSize: '12px', color: 'var(--text-secondary)', marginLeft: '8px', fontWeight: 600 }}>
-                ({property.pricePerSqFt})
-              </span>
-            </div>
-
-            <div style={{
-              fontSize: '11px',
-              color: 'var(--text-secondary)',
-              background: '#f8fafc',
-              border: '1px solid var(--border-subtle)',
-              padding: '2px 7px',
-              borderRadius: 'var(--radius-sm)'
+        {/* Reel Bottom Meta Overlay: Transparent & Short so Video is 100% Visible */}
+        <div style={{
+          position: 'absolute',
+          bottom: '12px',
+          left: '16px',
+          right: '72px',
+          zIndex: 15,
+          color: '#ffffff',
+          pointerEvents: 'auto'
+        }}>
+          {/* Price Header with EMI Tag */}
+          <div style={{ display: 'flex', alignItems: 'baseline', flexWrap: 'wrap', gap: '6px', marginBottom: '2px' }}>
+            <span style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '24px',
+              fontWeight: 900,
+              color: '#ffffff',
+              letterSpacing: '-0.02em',
+              textShadow: '0 2px 8px rgba(0,0,0,0.95)'
             }}>
-              EMI ~₹{estMonthlyEmi}L
-            </div>
+              {property.priceFormatted}
+            </span>
+            <span style={{ fontSize: '11px', color: 'rgba(255,255,255,0.9)', fontWeight: 600, textShadow: '0 1px 4px rgba(0,0,0,0.85)' }}>
+              ({property.pricePerSqFt})
+            </span>
+            <span style={{
+              fontSize: '10px',
+              color: '#38bdf8',
+              background: 'rgba(0,0,0,0.55)',
+              backdropFilter: 'blur(6px)',
+              border: '1px solid rgba(255,255,255,0.25)',
+              padding: '2px 6px',
+              borderRadius: '4px',
+              fontWeight: 700
+            }}>
+              EMI ~₹{estMonthlyEmi}L/mo*
+            </span>
           </div>
 
+          {/* Property Title */}
           <h2 style={{
             fontSize: '16px',
             fontWeight: 800,
-            color: 'var(--text-primary)',
-            lineHeight: 1.25,
-            marginBottom: '4px'
+            color: '#ffffff',
+            lineHeight: 1.2,
+            marginBottom: '3px',
+            textShadow: '0 2px 8px rgba(0,0,0,0.95)'
           }}>
             {property.title}
           </h2>
           
+          {/* Compact Tagline (1 Line Ellipsis) */}
           <p style={{
-            fontSize: '12px',
-            color: 'var(--text-secondary)',
-            lineHeight: 1.35,
-            marginBottom: '10px',
-            maxWidth: '100%',
+            fontSize: '11px',
+            color: 'rgba(255,255,255,0.9)',
+            lineHeight: 1.3,
+            marginBottom: '8px',
             display: '-webkit-box',
-            WebkitLineClamp: 2,
+            WebkitLineClamp: 1,
             WebkitBoxOrient: 'vertical',
-            overflow: 'hidden'
+            overflow: 'hidden',
+            textShadow: '0 1px 4px rgba(0,0,0,0.85)'
           }}>
             {property.tagline}
           </p>
 
-          {/* Spec Badges Row */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap', marginBottom: '12px' }}>
+          {/* Spec Badges Row (Translucent Glass Badges) */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '5px', flexWrap: 'wrap', marginBottom: '10px' }}>
             <span style={{
-              background: 'var(--bg-secondary)',
-              border: '1px solid var(--border-subtle)',
-              color: 'var(--accent-primary)',
-              padding: '3px 8px',
-              borderRadius: 'var(--radius-sm)',
-              fontSize: '11px',
+              background: 'rgba(0,0,0,0.5)',
+              backdropFilter: 'blur(8px)',
+              border: '1px solid rgba(255,255,255,0.25)',
+              color: '#ffffff',
+              padding: '2px 8px',
+              borderRadius: '6px',
+              fontSize: '10px',
               fontWeight: 700,
               display: 'flex',
               alignItems: 'center',
               gap: '4px'
             }}>
-              <BedDouble size={13} color="#2563eb" />
+              <BedDouble size={12} color="#38bdf8" />
               {property.bhk} BHK
             </span>
 
             <span style={{
-              background: 'var(--bg-secondary)',
-              border: '1px solid var(--border-subtle)',
-              color: 'var(--accent-primary)',
-              padding: '3px 8px',
-              borderRadius: 'var(--radius-sm)',
-              fontSize: '11px',
+              background: 'rgba(0,0,0,0.5)',
+              backdropFilter: 'blur(8px)',
+              border: '1px solid rgba(255,255,255,0.25)',
+              color: '#ffffff',
+              padding: '2px 8px',
+              borderRadius: '6px',
+              fontSize: '10px',
               fontWeight: 700,
               display: 'flex',
               alignItems: 'center',
               gap: '4px'
             }}>
-              <Maximize2 size={13} color="#2563eb" />
+              <Maximize2 size={12} color="#38bdf8" />
               {property.areaSqFt.toLocaleString()} sq.ft
             </span>
 
             <span style={{
-              background: '#eff6ff',
-              border: '1px solid #bfdbfe',
-              color: '#1d4ed8',
-              padding: '3px 8px',
-              borderRadius: 'var(--radius-sm)',
-              fontSize: '11px',
+              background: 'rgba(37,99,235,0.65)',
+              backdropFilter: 'blur(8px)',
+              border: '1px solid rgba(255,255,255,0.3)',
+              color: '#ffffff',
+              padding: '2px 8px',
+              borderRadius: '6px',
+              fontSize: '10px',
               fontWeight: 700
             }}>
               {property.status}
             </span>
           </div>
 
-          {/* Quick Action Buttons */}
+          {/* Quick Dual Action Buttons */}
           <div style={{ display: 'flex', gap: '8px' }}>
             <button
               id={`btn-bottom-knowmore-${property.id}`}
               onClick={() => onOpenDetail(property)}
-              className="btn-secondary"
-              style={{ flex: 1, justifyContent: 'center', fontSize: '12px', padding: '9px 10px' }}
+              style={{
+                flex: 1,
+                justifyContent: 'center',
+                fontSize: '11px',
+                fontWeight: 700,
+                padding: '7px 12px',
+                background: 'rgba(255, 255, 255, 0.2)',
+                backdropFilter: 'blur(12px)',
+                border: '1px solid rgba(255, 255, 255, 0.4)',
+                borderRadius: 'var(--radius-full)',
+                color: '#ffffff',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '5px',
+                cursor: 'pointer',
+                boxShadow: '0 2px 10px rgba(0,0,0,0.3)'
+              }}
             >
-              <Info size={14} />
-              <span>Specs & EMI</span>
+              <Info size={13} />
+              <span>Specs & Tour</span>
             </button>
 
             <button
               id={`btn-bottom-callback-${property.id}`}
               onClick={() => onOpenCallback(property)}
-              className="btn-primary"
-              style={{ flex: 1, justifyContent: 'center', fontSize: '12px', padding: '9px 10px' }}
+              style={{
+                flex: 1,
+                justifyContent: 'center',
+                fontSize: '11px',
+                fontWeight: 700,
+                padding: '7px 12px',
+                background: 'var(--accent-primary)',
+                border: '1px solid rgba(255, 255, 255, 0.3)',
+                borderRadius: 'var(--radius-full)',
+                color: '#ffffff',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '5px',
+                cursor: 'pointer',
+                boxShadow: '0 4px 14px rgba(0,0,0,0.4)'
+              }}
             >
-              <PhoneCall size={14} />
+              <PhoneCall size={13} />
               <span>Call Back</span>
             </button>
           </div>

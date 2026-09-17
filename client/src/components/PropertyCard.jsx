@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { 
   Heart, 
-  Clapperboard, 
+  Zap, 
   Info, 
   PhoneCall, 
   MapPin, 
@@ -60,8 +60,7 @@ export default function PropertyCard({
             width: '100%',
             height: '100%',
             objectFit: 'cover',
-            transition: 'transform 0.5s ease',
-            transform: isHovered ? 'scale(1.06)' : 'scale(1)'
+            transform: 'none'
           }}
         />
 
@@ -102,8 +101,8 @@ export default function PropertyCard({
                 boxShadow: '0 4px 12px rgba(0,0,0,0.2)'
               }}
             >
-              <Clapperboard size={13} color="var(--accent-primary)" />
-              Watch Reel 🎬
+              <Zap size={13} color="#2563eb" fill="#2563eb" />
+              Watch Instant
             </button>
           )}
 

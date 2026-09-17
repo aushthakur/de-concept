@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { 
-  Building2, 
-  Clapperboard, 
+  Zap, 
   LayoutGrid, 
   MapPin, 
   Heart, 
@@ -17,6 +16,7 @@ import {
   CheckCircle2,
   CalendarCheck
 } from 'lucide-react';
+import OyeLogo from './OyeLogo';
 
 export default function Navbar({
   currentCity,
@@ -52,19 +52,9 @@ export default function Navbar({
         {/* Brand Logo */}
         <div 
           onClick={() => setViewMode('reels')}
-          className="brand-logo-container"
+          style={{ cursor: 'pointer' }}
         >
-          <div className="brand-logo-icon">
-            <Building2 size={20} color="#ffffff" strokeWidth={2.4} />
-          </div>
-          <div>
-            <div className="brand-logo-title">
-              Oye Properties
-            </div>
-            <div className="brand-logo-subtitle">
-              Luxury Real Estate
-            </div>
-          </div>
+          <OyeLogo />
         </div>
 
         {/* Dropdown 1: Explore Menu (Desktop Only) */}
@@ -302,8 +292,8 @@ export default function Navbar({
             boxShadow: viewMode === 'reels' ? 'var(--shadow-sm)' : 'none'
           }}
         >
-          <Clapperboard size={15} />
-          Reels Catalogue
+          <Zap size={15} />
+          Instants
         </button>
 
         <button
