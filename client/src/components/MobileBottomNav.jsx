@@ -1,5 +1,5 @@
 import React from 'react';
-import { Zap, LayoutGrid, PlusCircle, Heart, User } from 'lucide-react';
+import { Zap, LayoutGrid, Plus, Heart, User } from 'lucide-react';
 
 export default function MobileBottomNav({
   viewMode,
@@ -67,22 +67,24 @@ export default function MobileBottomNav({
       <button
         onClick={onOpenListProperty}
         style={{
-          background: 'var(--accent-primary)',
+          background: 'linear-gradient(135deg, #0b1c3d 0%, #1e3a8a 100%)',
           color: '#ffffff',
-          border: 'none',
+          border: '2.5px solid #ffffff',
           borderRadius: '50%',
-          width: '46px',
-          height: '46px',
+          width: '48px',
+          height: '48px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           cursor: 'pointer',
-          boxShadow: '0 4px 14px rgba(11, 28, 61, 0.4)',
-          transform: 'translateY(-10px)'
+          boxShadow: '0 4px 16px rgba(11, 28, 61, 0.4)',
+          transform: 'translateY(-12px)',
+          padding: 0,
+          margin: 0
         }}
         title="List Inventory"
       >
-        <PlusCircle size={26} strokeWidth={2.4} />
+        <Plus size={24} strokeWidth={2.8} />
       </button>
 
       {/* 4. Wishlist */}

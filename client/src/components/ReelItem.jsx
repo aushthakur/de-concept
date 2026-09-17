@@ -848,12 +848,12 @@ export default function ReelItem({
           </div>
         </div>
 
-        {/* Reel Bottom Meta Overlay: Transparent & Positioned safely above mobile bottom bar */}
+        {/* Reel Bottom Meta Overlay: Transparent & Positioned snug above mobile bottom bar */}
         <div style={{
           position: 'absolute',
-          bottom: '76px',
-          left: '14px',
-          right: '72px',
+          bottom: '14px',
+          left: '12px',
+          right: '70px',
           zIndex: 15,
           color: '#ffffff',
           pointerEvents: 'auto'

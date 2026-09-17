@@ -616,8 +616,8 @@ html, body {
     height: calc(100dvh - 64px); /* Full viewport minus mobile bottom navigation */
   }
   .reel-actions-column {
-    bottom: 95px;
-    right: 12px;
+    bottom: 14px;
+    right: 10px;
     gap: 10px;
     z-index: 20;
   }
