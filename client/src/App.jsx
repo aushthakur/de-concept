@@ -289,7 +289,7 @@ export default function App() {
   ].filter(Boolean).length;
 
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--bg-primary)', paddingBottom: viewMode === 'reels' ? 0 : '70px' }}>
+    <div style={{ minHeight: '100vh', background: 'var(--bg-primary)' }}>
       {/* Top Sticky Navbar */}
       <Navbar
         currentCity={currentCity === 'all' ? 'All Cities' : currentCity}

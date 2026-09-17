@@ -29,61 +29,76 @@ export default function FilterBar({
       background: '#ffffff',
       border: '1px solid var(--border-card)',
       borderRadius: 'var(--radius-lg)',
-      padding: 'clamp(12px, 4vw, 20px)',
-      marginBottom: '20px',
-      boxShadow: 'var(--shadow-sm)'
+      padding: '16px 20px',
+      marginBottom: '24px',
+      boxShadow: 'var(--shadow-sm)',
+      display: 'flex',
+      flexWrap: 'wrap',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      gap: '14px'
     }}>
-      {/* Search Row */}
-      <div style={{ display: 'flex', gap: '8px', alignItems: 'center', marginBottom: '12px' }}>
-        {/* Search Input */}
-        <div style={{ position: 'relative', flex: 1, minWidth: 0 }}>
-          <Search
-            size={16}
-            color="var(--accent-primary)"
-            style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', flexShrink: 0 }}
-          />
-          <input
-            id="input-catalogue-search"
-            type="text"
-            placeholder="Search locality, builder, type…"
-            value={filters.search}
-            onChange={(e) => onFilterChange('search', e.target.value)}
-            style={{
-              width: '100%',
-              background: 'var(--bg-secondary)',
-              border: '1px solid var(--border-subtle)',
-              borderRadius: 'var(--radius-full)',
-              padding: '10px 36px 10px 36px',
-              color: 'var(--text-primary)',
-              fontSize: '13px',
-              outline: 'none',
-              transition: 'border-color 0.2s ease'
-            }}
-            onFocus={e => e.target.style.borderColor = 'var(--accent-primary)'}
-            onBlur={e => e.target.style.borderColor = 'var(--border-subtle)'}
-          />
-          {filters.search && (
+      {/* Left: Quick BHK & Category Filter Pills */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+        <span style={{ fontSize: '12px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+          Bedrooms:
+        </span>
+        <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+          {BHK_OPTIONS.map(b => (
             <button
-              onClick={() => onFilterChange('search', '')}
+              key={b}
+              type="button"
+              onClick={() => onFilterChange('bhk', b)}
               style={{
-                position: 'absolute',
-                right: '10px',
-                top: '50%',
-                transform: 'translateY(-50%)',
-                background: 'transparent',
-                border: 'none',
-                color: 'var(--text-muted)',
+                background: filters.bhk === b ? '#0b1c3d' : 'var(--bg-secondary)',
+                color: filters.bhk === b ? '#ffffff' : 'var(--text-secondary)',
+                border: filters.bhk === b ? '1px solid #0b1c3d' : '1px solid var(--border-subtle)',
+                borderRadius: 'var(--radius-full)',
+                padding: '6px 14px',
+                fontSize: '12px',
+                fontWeight: filters.bhk === b ? 700 : 500,
                 cursor: 'pointer',
-                display: 'flex',
-                padding: 0
+                transition: 'all 0.2s ease',
+                boxShadow: filters.bhk === b ? '0 2px 8px rgba(11, 28, 61, 0.2)' : 'none'
               }}
             >
-              <X size={14} />
+              {b === 'all' ? 'All BHK' : `${b} BHK`}
             </button>
-          )}
+          ))}
         </div>
 
-        {/* Sort Dropdown */}
+        <div style={{ width: '1px', height: '20px', background: 'var(--border-subtle)', margin: '0 4px' }} className="hidden-mobile" />
+
+        <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }} className="hidden-mobile">
+          {TYPE_OPTIONS.slice(1).map(t => (
+            <button
+              key={t.value}
+              type="button"
+              onClick={() => onFilterChange('propertyType', filters.propertyType === t.value ? 'all' : t.value)}
+              style={{
+                background: filters.propertyType === t.value ? '#0b1c3d' : 'var(--bg-secondary)',
+                color: filters.propertyType === t.value ? '#ffffff' : 'var(--text-secondary)',
+                border: filters.propertyType === t.value ? '1px solid #0b1c3d' : '1px solid var(--border-subtle)',
+                borderRadius: 'var(--radius-full)',
+                padding: '6px 14px',
+                fontSize: '12px',
+                fontWeight: filters.propertyType === t.value ? 700 : 500,
+                cursor: 'pointer',
+                transition: 'all 0.2s ease'
+              }}
+            >
+              {t.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Right: Results Count & Sort Dropdown */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginLeft: 'auto' }}>
+        <span style={{ fontSize: '12.5px', color: 'var(--text-muted)', fontWeight: 600 }}>
+          <strong style={{ color: 'var(--accent-primary)' }}>{totalResults}</strong> Residences Found
+        </span>
+
         <select
           id="select-sort"
           value={filters.sort}
@@ -93,44 +108,18 @@ export default function FilterBar({
             border: '1px solid var(--border-subtle)',
             borderRadius: 'var(--radius-full)',
             color: 'var(--text-primary)',
-            padding: '10px 10px',
+            padding: '7px 14px',
             fontSize: '12px',
             fontWeight: 600,
             outline: 'none',
             cursor: 'pointer',
-            flexShrink: 0,
-            maxWidth: '130px'
+            flexShrink: 0
           }}
         >
           {SORT_OPTIONS.map(opt => (
             <option key={opt.value} value={opt.value}>{opt.label}</option>
           ))}
         </select>
-
-        {/* Filters Toggle Button (mobile-friendly) */}
-        <button
-          onClick={() => setFiltersOpen(o => !o)}
-          style={{
-            background: filtersOpen ? 'var(--accent-primary)' : 'var(--bg-secondary)',
-            border: '1px solid var(--border-subtle)',
-            borderRadius: 'var(--radius-full)',
-            color: filtersOpen ? '#ffffff' : 'var(--text-secondary)',
-            padding: '10px 12px',
-            fontSize: '12px',
-            fontWeight: 600,
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '4px',
-            flexShrink: 0,
-            transition: 'all 0.2s ease'
-          }}
-          title="Toggle Filters"
-        >
-          <SlidersHorizontal size={14} />
-          <span style={{ display: 'none' }} className="filter-label-desktop">Filters</span>
-          <ChevronDown size={12} style={{ transform: filtersOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }} />
-        </button>
       </div>
 
       {/* Expandable Advanced Filters */}

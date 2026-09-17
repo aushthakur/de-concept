@@ -355,19 +355,7 @@ export default function Navbar({
         {/* WhatsApp Share Button */}
         <button
           onClick={handleShareWhatsApp}
-          className="btn-whatsapp"
-          style={{ 
-            height: '34px', 
-            padding: '0 10px', 
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'center',
-            gap: '4px',
-            fontSize: '12px',
-            borderRadius: 'var(--radius-full)',
-            boxSizing: 'border-box',
-            flexShrink: 0
-          }}
+          className="btn-whatsapp navbar-whatsapp-btn"
           title="Share Portal on WhatsApp"
         >
           <Share2 size={13} />

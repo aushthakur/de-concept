@@ -11,20 +11,7 @@ export default function MobileBottomNav({
   onOpenAuth
 }) {
   return (
-    <nav className="hidden-desktop" style={{
-      position: 'fixed',
-      bottom: 0,
-      left: 0,
-      right: 0,
-      height: '64px',
-      background: '#ffffff',
-      borderTop: '1px solid rgba(15, 23, 42, 0.1)',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-around',
-      zIndex: 50,
-      boxShadow: '0 -4px 20px rgba(11, 28, 61, 0.08)'
-    }}>
+    <nav className="mobile-bottom-nav-bar">
       {/* 1. Instants */}
       <button
         onClick={() => setViewMode('reels')}

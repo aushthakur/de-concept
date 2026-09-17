@@ -7,6 +7,8 @@ export default function TopSearchFilterStrip({
   onOpenFilterModal,
   activeFilterCount = 0
 }) {
+  const QUICK_CHIPS = ['Worli', 'Bandra', 'DLF Phase 5', 'Palm Jumeirah', 'Penthouses', 'Sea View'];
+
   return (
     <div className="top-search-filter-strip">
       <div className="top-search-filter-inner">
@@ -32,6 +34,23 @@ export default function TopSearchFilterStrip({
           )}
         </div>
 
+        {/* Quick Search Chips (Desktop Only) */}
+        <div className="top-search-desktop-chips hidden-mobile">
+          {QUICK_CHIPS.map(chip => {
+            const isChipActive = searchQuery?.toLowerCase() === chip.toLowerCase();
+            return (
+              <button
+                key={chip}
+                type="button"
+                onClick={() => onSearchChange(isChipActive ? '' : chip)}
+                className={`top-chip-btn ${isChipActive ? 'active' : ''}`}
+              >
+                {chip}
+              </button>
+            );
+          })}
+        </div>
+
         {/* Filter Trigger Button */}
         <button
           id="btn-open-filter-modal"
@@ -39,7 +58,7 @@ export default function TopSearchFilterStrip({
           className={`top-filter-btn ${activeFilterCount > 0 ? 'has-active-filters' : ''}`}
           title="Open Filters"
         >
-          <SlidersHorizontal size={16} />
+          <SlidersHorizontal size={15} />
           <span className="top-filter-text">Filters</span>
           {activeFilterCount > 0 && (
             <span className="top-filter-badge">{activeFilterCount}</span>
