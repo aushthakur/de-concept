@@ -52,7 +52,7 @@ export default function PropertyCard({
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Cover Image with Badges */}
-      <div style={{ position: 'relative', width: '100%', height: '240px', overflow: 'hidden' }}>
+      <div style={{ position: 'relative', width: '100%', height: 'clamp(180px, 45vw, 240px)', overflow: 'hidden' }}>
         <img
           src={property.images[0]}
           alt={property.title}
@@ -212,7 +212,7 @@ export default function PropertyCard({
       </div>
 
       {/* Card Content */}
-      <div style={{ padding: '18px', display: 'flex', flexDirection: 'column', flex: 1 }}>
+      <div style={{ padding: 'clamp(12px, 4vw, 18px)', display: 'flex', flexDirection: 'column', flex: 1 }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '6px' }}>
           <span style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.1em', color: '#2563eb', fontWeight: 700 }}>
             {property.propertyType}
@@ -310,7 +310,7 @@ export default function PropertyCard({
             id={`btn-card-know-more-${property.id}`}
             onClick={() => onOpenDetail(property)}
             className="btn-secondary"
-            style={{ flex: 1, justifyContent: 'center', fontSize: '12px', padding: '8px 10px' }}
+            style={{ flex: 1, justifyContent: 'center', fontSize: '12px', padding: '10px 8px', minHeight: '42px' }}
           >
             <Info size={14} />
             Know More
@@ -320,7 +320,7 @@ export default function PropertyCard({
             id={`btn-card-callback-${property.id}`}
             onClick={() => onOpenCallback(property)}
             className="btn-primary"
-            style={{ flex: 1, justifyContent: 'center', fontSize: '12px', padding: '8px 10px' }}
+            style={{ flex: 1, justifyContent: 'center', fontSize: '12px', padding: '10px 8px', minHeight: '42px' }}
           >
             <PhoneCall size={14} />
             Call Back

@@ -307,19 +307,21 @@ export default function App() {
             onSwitchToCatalogue={() => setViewMode('catalogue')}
           />
         ) : (
-          <PropertyGrid
-            properties={properties}
-            filters={filters}
-            onFilterChange={(key, val) => setFilters(prev => ({ ...prev, [key]: val }))}
-            onResetFilters={() => setFilters({ search: '', bhk: 'all', propertyType: 'all', maxPrice: 650000000, sort: 'popular' })}
-            wishlist={wishlist}
-            onToggleWishlist={handleToggleWishlist}
-            onOpenDetail={(prop) => setActiveDetailProperty(prop)}
-            onOpenCallback={(prop) => setActiveCallbackProperty(prop)}
-            onWatchReel={handleWatchReel}
-            comparedIds={comparedProperties.map(p => p.id)}
-            onToggleCompare={handleToggleCompare}
-          />
+          <div className="catalogue-page-wrapper">
+            <PropertyGrid
+              properties={properties}
+              filters={filters}
+              onFilterChange={(key, val) => setFilters(prev => ({ ...prev, [key]: val }))}
+              onResetFilters={() => setFilters({ search: '', bhk: 'all', propertyType: 'all', maxPrice: 650000000, sort: 'popular' })}
+              wishlist={wishlist}
+              onToggleWishlist={handleToggleWishlist}
+              onOpenDetail={(prop) => setActiveDetailProperty(prop)}
+              onOpenCallback={(prop) => setActiveCallbackProperty(prop)}
+              onWatchReel={handleWatchReel}
+              comparedIds={comparedProperties.map(p => p.id)}
+              onToggleCompare={handleToggleCompare}
+            />
+          </div>
         )}
       </main>
 

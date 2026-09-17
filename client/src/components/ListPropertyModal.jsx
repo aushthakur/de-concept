@@ -155,21 +155,35 @@ export default function ListPropertyModal({
   };
 
   return (
-    <div className="modal-backdrop" onClick={onClose}>
+    <div
+      className="modal-backdrop"
+      onClick={onClose}
+      style={{ alignItems: window.innerWidth <= 768 ? 'flex-end' : 'center', padding: window.innerWidth <= 768 ? 0 : '16px' }}
+    >
       <div
         className="glass-panel-heavy"
         onClick={e => e.stopPropagation()}
         style={{
           width: '100%',
-          maxWidth: '740px',
-          maxHeight: '92vh',
+          maxWidth: window.innerWidth <= 768 ? '100%' : '740px',
+          maxHeight: window.innerWidth <= 768 ? '92dvh' : '92vh',
           overflowY: 'auto',
-          padding: '28px',
+          overscrollBehavior: 'contain',
+          padding: window.innerWidth <= 768 ? '0 16px 28px' : '28px',
           background: '#ffffff',
-          borderRadius: 'var(--radius-lg)',
-          position: 'relative'
+          borderTopLeftRadius: '24px',
+          borderTopRightRadius: '24px',
+          borderBottomLeftRadius: window.innerWidth <= 768 ? 0 : 'var(--radius-lg)',
+          borderBottomRightRadius: window.innerWidth <= 768 ? 0 : 'var(--radius-lg)',
+          position: 'relative',
+          boxShadow: window.innerWidth <= 768 ? '0 -10px 40px rgba(0,0,0,0.25)' : 'var(--shadow-lg)'
         }}
       >
+        {window.innerWidth <= 768 && (
+          <div style={{ width: '100%', display: 'flex', justifyContent: 'center', padding: '10px 0 6px' }}>
+            <div style={{ width: '40px', height: '4px', borderRadius: '999px', background: 'rgba(0,0,0,0.15)' }} />
+          </div>
+        )}
         {/* Close Button */}
         <button
           onClick={onClose}

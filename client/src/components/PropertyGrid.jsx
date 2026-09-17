@@ -1,7 +1,7 @@
 import React from 'react';
 import PropertyCard from './PropertyCard';
 import FilterBar from './FilterBar';
-import { Building2, Sparkles } from 'lucide-react';
+import { Building2 } from 'lucide-react';
 
 export default function PropertyGrid({
   properties,
@@ -17,20 +17,20 @@ export default function PropertyGrid({
   onToggleCompare
 }) {
   return (
-    <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '24px 20px 80px' }}>
+    <div style={{ maxWidth: '1400px', margin: '0 auto', padding: 'clamp(12px, 4vw, 24px) clamp(12px, 4vw, 20px) 100px' }}>
       {/* Title & Introduction Banner */}
-      <div style={{ marginBottom: '24px' }}>
+      <div style={{ marginBottom: '20px' }}>
         <h1 style={{
           fontFamily: 'var(--font-serif)',
-          fontSize: '32px',
+          fontSize: 'clamp(20px, 5vw, 32px)',
           fontWeight: 700,
           color: 'var(--text-primary)',
-          marginBottom: '6px'
+          marginBottom: '4px'
         }}>
           Curated Luxury Inventory & Residences
         </h1>
-        <p style={{ color: 'var(--text-secondary)', fontSize: '14px' }}>
-          Explore prime penthouses, beachfront estates, and signature golf course residences across leading global hubs.
+        <p style={{ color: 'var(--text-secondary)', fontSize: 'clamp(12px, 3vw, 14px)', lineHeight: 1.4 }}>
+          Explore prime penthouses, beachfront estates, and signature residences.
         </p>
       </div>
 
@@ -48,13 +48,13 @@ export default function PropertyGrid({
           background: 'var(--bg-secondary)',
           border: '1px solid var(--border-subtle)',
           borderRadius: 'var(--radius-lg)',
-          padding: '60px 20px',
+          padding: '48px 20px',
           textAlign: 'center',
           color: 'var(--text-secondary)'
         }}>
           <Building2 size={42} color="var(--accent-primary)" style={{ margin: '0 auto 16px' }} />
-          <h3 style={{ fontSize: '20px', color: 'var(--text-primary)', marginBottom: '8px' }}>No properties match your current filters</h3>
-          <p style={{ fontSize: '14px', marginBottom: '20px' }}>Try widening your budget slider or clearing the keyword search.</p>
+          <h3 style={{ fontSize: '18px', color: 'var(--text-primary)', marginBottom: '8px' }}>No properties match your filters</h3>
+          <p style={{ fontSize: '13px', marginBottom: '20px' }}>Try widening your budget or clearing the search.</p>
           <button onClick={onResetFilters} className="btn-primary">
             Clear All Filters
           </button>
@@ -62,8 +62,8 @@ export default function PropertyGrid({
       ) : (
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
-          gap: '24px'
+          gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 340px), 1fr))',
+          gap: 'clamp(14px, 3vw, 24px)'
         }}>
           {properties.map(prop => (
             <PropertyCard

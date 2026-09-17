@@ -37,13 +37,23 @@ export default function WishlistDrawer({
     window.open(`https://wa.me/?text=${text}`, '_blank');
   };
 
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== 'undefined' ? window.innerWidth <= 768 : false
+  );
+
+  React.useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <div className="modal-backdrop" onClick={onClose}>
       <div
         className="drawer-right"
         onClick={e => e.stopPropagation()}
         style={{
-          padding: '28px',
+          padding: isMobile ? '20px 16px' : '28px',
           display: 'flex',
           flexDirection: 'column',
           background: '#ffffff',
@@ -251,9 +261,12 @@ export default function WishlistDrawer({
             borderTop: '1px solid var(--border-subtle)',
             paddingTop: '16px',
             marginTop: '16px',
+            paddingBottom: 'max(16px, env(safe-area-inset-bottom, 16px))',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'space-between'
+            justifyContent: 'space-between',
+            gap: '8px',
+            flexWrap: 'wrap'
           }}>
             <button
               onClick={onClearWishlist}

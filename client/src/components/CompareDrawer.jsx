@@ -14,22 +14,25 @@ export default function CompareDrawer({
 
   return (
     <>
-      {/* Floating Bottom Bar (Light Theme) */}
+      {/* Floating Bottom Bar — sits above mobile nav (64px) */}
       <div style={{
         position: 'fixed',
-        bottom: '24px',
+        bottom: 'max(80px, env(safe-area-inset-bottom, 80px))',
         left: '50%',
         transform: 'translateX(-50%)',
         background: '#ffffff',
         border: '1px solid rgba(11, 28, 61, 0.2)',
         borderRadius: 'var(--radius-full)',
-        padding: '10px 24px',
+        padding: '8px 16px',
         display: 'flex',
         alignItems: 'center',
-        gap: '18px',
+        gap: '10px',
         zIndex: 40,
         boxShadow: 'var(--shadow-lg)',
-        animation: 'floatUp 0.3s ease-out'
+        animation: 'floatUp 0.3s ease-out',
+        maxWidth: 'calc(100vw - 24px)',
+        flexWrap: 'wrap',
+        justifyContent: 'center'
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           <Layers size={18} color="var(--accent-primary)" />

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { API_BASE } from '../config';
 import { 
   X, 
@@ -15,6 +15,16 @@ export default function CallbackModal({
   onClose
 }) {
   if (!isOpen || !property) return null;
+
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== 'undefined' ? window.innerWidth <= 768 : false
+  );
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -75,19 +85,39 @@ export default function CallbackModal({
   };
 
   return (
-    <div className="modal-backdrop" onClick={handleClose}>
+    <div
+      className="modal-backdrop"
+      onClick={handleClose}
+      style={{
+        alignItems: isMobile ? 'flex-end' : 'center',
+        padding: isMobile ? 0 : '16px'
+      }}
+    >
       <div 
         className="glass-panel-heavy"
         onClick={e => e.stopPropagation()}
         style={{
           width: '100%',
-          maxWidth: '520px',
-          padding: '28px',
+          maxWidth: isMobile ? '100%' : '520px',
+          maxHeight: isMobile ? '85dvh' : '92vh',
+          overflowY: 'auto',
+          overscrollBehavior: 'contain',
+          padding: isMobile ? '0 20px 24px' : '28px',
           position: 'relative',
           background: '#ffffff',
-          boxShadow: 'var(--shadow-lg)'
+          boxShadow: isMobile ? '0 -10px 40px rgba(0,0,0,0.3)' : 'var(--shadow-lg)',
+          borderTopLeftRadius: isMobile ? '24px' : 'var(--radius-lg)',
+          borderTopRightRadius: isMobile ? '24px' : 'var(--radius-lg)',
+          borderBottomLeftRadius: isMobile ? 0 : 'var(--radius-lg)',
+          borderBottomRightRadius: isMobile ? 0 : 'var(--radius-lg)',
         }}
       >
+        {/* Mobile Pull Handle */}
+        {isMobile && (
+          <div style={{ width: '100%', display: 'flex', justifyContent: 'center', padding: '10px 0 6px' }}>
+            <div style={{ width: '40px', height: '4px', borderRadius: '999px', background: 'rgba(0,0,0,0.18)' }} />
+          </div>
+        )}
         {/* Close Button */}
         <button
           onClick={handleClose}

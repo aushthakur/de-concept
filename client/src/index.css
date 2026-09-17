@@ -510,7 +510,12 @@ html, body {
   z-index: 110;
   overflow-y: auto;
   box-shadow: -10px 0 50px rgba(11, 28, 61, 0.18);
-  animation: floatUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: slideInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideInRight {
+  0% { opacity: 0; transform: translateX(60px); }
+  100% { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes floatUp {
@@ -604,6 +609,17 @@ html, body {
   }
   .drawer-right {
     max-width: 100%;
+    /* Slide up from bottom on mobile */
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-height: 90dvh;
+    border-left: none;
+    border-top: 1px solid var(--border-subtle);
+    border-radius: 24px 24px 0 0;
+    box-shadow: 0 -10px 40px rgba(11, 28, 61, 0.2);
+    animation: slideUpDrawer 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .hidden-mobile {
     display: none !important;
@@ -625,6 +641,15 @@ html, body {
     align-items: flex-end !important;
     padding: 0 !important;
   }
+  /* Catalogue page bottom safe area above mobile nav */
+  .catalogue-page-wrapper {
+    padding-bottom: 80px;
+  }
+}
+
+@keyframes slideUpDrawer {
+  0% { opacity: 0; transform: translateY(60px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 @media (min-width: 769px) {

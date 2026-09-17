@@ -75,20 +75,36 @@ export default function AuthModal({
   };
 
   return (
-    <div className="modal-backdrop" onClick={onClose}>
+    <div
+      className="modal-backdrop"
+      onClick={onClose}
+      style={{ alignItems: window.innerWidth <= 768 ? 'flex-end' : 'center', padding: window.innerWidth <= 768 ? 0 : '16px' }}
+    >
       <div
         className="glass-panel-heavy"
         onClick={e => e.stopPropagation()}
         style={{
           width: '100%',
-          maxWidth: '480px',
-          padding: '28px',
+          maxWidth: window.innerWidth <= 768 ? '100%' : '480px',
+          maxHeight: '90dvh',
+          overflowY: 'auto',
+          overscrollBehavior: 'contain',
+          padding: window.innerWidth <= 768 ? '0 20px 28px' : '28px',
           background: '#ffffff',
           border: '1px solid rgba(15, 23, 42, 0.12)',
-          borderRadius: 'var(--radius-lg)',
-          position: 'relative'
+          borderTopLeftRadius: '24px',
+          borderTopRightRadius: '24px',
+          borderBottomLeftRadius: window.innerWidth <= 768 ? 0 : 'var(--radius-lg)',
+          borderBottomRightRadius: window.innerWidth <= 768 ? 0 : 'var(--radius-lg)',
+          position: 'relative',
+          boxShadow: window.innerWidth <= 768 ? '0 -10px 40px rgba(0,0,0,0.2)' : 'var(--shadow-lg)'
         }}
       >
+        {window.innerWidth <= 768 && (
+          <div style={{ width: '100%', display: 'flex', justifyContent: 'center', padding: '10px 0 6px' }}>
+            <div style={{ width: '40px', height: '4px', borderRadius: '999px', background: 'rgba(0,0,0,0.15)' }} />
+          </div>
+        )}
         {/* Close Button */}
         <button
           onClick={onClose}

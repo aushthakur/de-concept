@@ -1,5 +1,5 @@
-import React from 'react';
-import { Search, X } from 'lucide-react';
+import React, { useState } from 'react';
+import { Search, X, SlidersHorizontal, ChevronDown } from 'lucide-react';
 
 export default function FilterBar({
   filters,
@@ -7,6 +7,8 @@ export default function FilterBar({
   onResetFilters,
   totalResults
 }) {
+  const [filtersOpen, setFiltersOpen] = useState(false);
+
   const BHK_OPTIONS = ['all', '3', '4', '5'];
   const TYPE_OPTIONS = [
     { value: 'all', label: 'All Types' },
@@ -17,9 +19,9 @@ export default function FilterBar({
 
   const SORT_OPTIONS = [
     { value: 'popular', label: 'Most Popular' },
-    { value: 'price_desc', label: 'Price: High to Low' },
-    { value: 'price_asc', label: 'Price: Low to High' },
-    { value: 'area', label: 'Largest Carpet Area' }
+    { value: 'price_desc', label: 'Price: High → Low' },
+    { value: 'price_asc', label: 'Price: Low → High' },
+    { value: 'area', label: 'Largest Area' }
   ];
 
   return (
@@ -27,34 +29,23 @@ export default function FilterBar({
       background: '#ffffff',
       border: '1px solid var(--border-card)',
       borderRadius: 'var(--radius-lg)',
-      padding: '20px',
-      marginBottom: '28px',
+      padding: 'clamp(12px, 4vw, 20px)',
+      marginBottom: '20px',
       boxShadow: 'var(--shadow-sm)'
     }}>
-      {/* Top Search & Stats Row */}
-      <div style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        gap: '16px',
-        flexWrap: 'wrap',
-        marginBottom: '18px'
-      }}>
-        {/* Instant Search Bar */}
-        <div style={{
-          position: 'relative',
-          flex: '1',
-          minWidth: '260px'
-        }}>
-          <Search 
-            size={18} 
-            color="var(--accent-primary)" 
-            style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)' }} 
+      {/* Search Row */}
+      <div style={{ display: 'flex', gap: '8px', alignItems: 'center', marginBottom: '12px' }}>
+        {/* Search Input */}
+        <div style={{ position: 'relative', flex: 1, minWidth: 0 }}>
+          <Search
+            size={16}
+            color="var(--accent-primary)"
+            style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', flexShrink: 0 }}
           />
           <input
             id="input-catalogue-search"
             type="text"
-            placeholder="Search by locality, builder (e.g. Worli, Lodha, Camellias, Pool)..."
+            placeholder="Search locality, builder, type…"
             value={filters.search}
             onChange={(e) => onFilterChange('search', e.target.value)}
             style={{
@@ -62,11 +53,11 @@ export default function FilterBar({
               background: 'var(--bg-secondary)',
               border: '1px solid var(--border-subtle)',
               borderRadius: 'var(--radius-full)',
-              padding: '12px 18px 12px 42px',
+              padding: '10px 36px 10px 36px',
               color: 'var(--text-primary)',
-              fontSize: '14px',
+              fontSize: '13px',
               outline: 'none',
-              transition: 'all 0.2s ease'
+              transition: 'border-color 0.2s ease'
             }}
             onFocus={e => e.target.style.borderColor = 'var(--accent-primary)'}
             onBlur={e => e.target.style.borderColor = 'var(--border-subtle)'}
@@ -76,158 +67,185 @@ export default function FilterBar({
               onClick={() => onFilterChange('search', '')}
               style={{
                 position: 'absolute',
-                right: '12px',
+                right: '10px',
                 top: '50%',
                 transform: 'translateY(-50%)',
                 background: 'transparent',
                 border: 'none',
                 color: 'var(--text-muted)',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                display: 'flex',
+                padding: 0
               }}
             >
-              <X size={16} />
+              <X size={14} />
             </button>
           )}
         </div>
 
         {/* Sort Dropdown */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <span style={{ fontSize: '12px', color: 'var(--text-muted)', fontWeight: 600 }}>Sort by:</span>
-          <select
-            id="select-sort"
-            value={filters.sort}
-            onChange={(e) => onFilterChange('sort', e.target.value)}
-            style={{
-              background: 'var(--bg-secondary)',
-              border: '1px solid var(--border-subtle)',
-              borderRadius: 'var(--radius-full)',
-              color: 'var(--text-primary)',
-              padding: '9px 16px',
-              fontSize: '13px',
-              fontWeight: 600,
-              outline: 'none',
-              cursor: 'pointer'
-            }}
-          >
-            {SORT_OPTIONS.map(opt => (
-              <option key={opt.value} value={opt.value}>
-                {opt.label}
-              </option>
-            ))}
-          </select>
+        <select
+          id="select-sort"
+          value={filters.sort}
+          onChange={(e) => onFilterChange('sort', e.target.value)}
+          style={{
+            background: 'var(--bg-secondary)',
+            border: '1px solid var(--border-subtle)',
+            borderRadius: 'var(--radius-full)',
+            color: 'var(--text-primary)',
+            padding: '10px 10px',
+            fontSize: '12px',
+            fontWeight: 600,
+            outline: 'none',
+            cursor: 'pointer',
+            flexShrink: 0,
+            maxWidth: '130px'
+          }}
+        >
+          {SORT_OPTIONS.map(opt => (
+            <option key={opt.value} value={opt.value}>{opt.label}</option>
+          ))}
+        </select>
 
-          {/* Reset Filters button */}
-          <button
-            onClick={onResetFilters}
-            style={{
-              background: 'var(--bg-secondary)',
-              border: '1px solid var(--border-subtle)',
-              borderRadius: 'var(--radius-full)',
-              color: 'var(--text-secondary)',
-              padding: '9px 14px',
-              fontSize: '12px',
-              fontWeight: 600,
-              cursor: 'pointer',
-              transition: 'all 0.2s ease'
-            }}
-            title="Reset All Filters"
-          >
-            Reset Filters
-          </button>
-        </div>
+        {/* Filters Toggle Button (mobile-friendly) */}
+        <button
+          onClick={() => setFiltersOpen(o => !o)}
+          style={{
+            background: filtersOpen ? 'var(--accent-primary)' : 'var(--bg-secondary)',
+            border: '1px solid var(--border-subtle)',
+            borderRadius: 'var(--radius-full)',
+            color: filtersOpen ? '#ffffff' : 'var(--text-secondary)',
+            padding: '10px 12px',
+            fontSize: '12px',
+            fontWeight: 600,
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '4px',
+            flexShrink: 0,
+            transition: 'all 0.2s ease'
+          }}
+          title="Toggle Filters"
+        >
+          <SlidersHorizontal size={14} />
+          <span style={{ display: 'none' }} className="filter-label-desktop">Filters</span>
+          <ChevronDown size={12} style={{ transform: filtersOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }} />
+        </button>
       </div>
 
-      {/* Filter Controls Row */}
-      <div style={{
-        display: 'flex',
-        alignItems: 'center',
-        gap: '20px',
-        flexWrap: 'wrap',
-        paddingTop: '14px',
-        borderTop: '1px solid var(--border-subtle)'
-      }}>
-        {/* BHK Filter */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <span style={{ fontSize: '12px', fontWeight: 700, color: 'var(--text-secondary)' }}>Bedrooms:</span>
-          <div style={{ display: 'flex', gap: '4px' }}>
-            {BHK_OPTIONS.map(b => (
-              <button
-                key={b}
-                id={`filter-bhk-${b}`}
-                onClick={() => onFilterChange('bhk', b)}
+      {/* Expandable Advanced Filters */}
+      {filtersOpen && (
+        <div style={{
+          paddingTop: '12px',
+          borderTop: '1px solid var(--border-subtle)',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '14px'
+        }}>
+          {/* BHK Row */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+            <span style={{ fontSize: '12px', fontWeight: 700, color: 'var(--text-secondary)', flexShrink: 0 }}>Bedrooms:</span>
+            <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+              {BHK_OPTIONS.map(b => (
+                <button
+                  key={b}
+                  id={`filter-bhk-${b}`}
+                  onClick={() => onFilterChange('bhk', b)}
+                  style={{
+                    background: filters.bhk === b ? 'var(--accent-primary)' : 'var(--bg-secondary)',
+                    color: filters.bhk === b ? '#ffffff' : 'var(--text-primary)',
+                    fontWeight: 700,
+                    fontSize: '12px',
+                    padding: '6px 14px',
+                    borderRadius: 'var(--radius-full)',
+                    border: 'none',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s ease',
+                    boxShadow: filters.bhk === b ? '0 2px 8px rgba(11, 28, 61, 0.3)' : 'none'
+                  }}
+                >
+                  {b === 'all' ? 'All' : b === '5' ? '5+ BHK' : `${b} BHK`}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Type + Budget Row */}
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '14px', alignItems: 'center' }}>
+            {/* Property Type */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span style={{ fontSize: '12px', fontWeight: 700, color: 'var(--text-secondary)' }}>Type:</span>
+              <select
+                id="select-type"
+                value={filters.propertyType}
+                onChange={(e) => onFilterChange('propertyType', e.target.value)}
                 style={{
-                  background: filters.bhk === b ? 'var(--accent-primary)' : 'var(--bg-secondary)',
-                  color: filters.bhk === b ? '#ffffff' : 'var(--text-primary)',
-                  fontWeight: 700,
-                  fontSize: '12px',
-                  padding: '6px 12px',
+                  background: 'var(--bg-secondary)',
+                  border: '1px solid var(--border-subtle)',
                   borderRadius: 'var(--radius-full)',
-                  border: 'none',
-                  cursor: 'pointer',
-                  transition: 'all 0.2s ease',
-                  boxShadow: filters.bhk === b ? '0 2px 8px rgba(11, 28, 61, 0.3)' : 'none'
+                  color: 'var(--text-primary)',
+                  padding: '6px 10px',
+                  fontSize: '12px',
+                  fontWeight: 600,
+                  outline: 'none',
+                  cursor: 'pointer'
                 }}
               >
-                {b === 'all' ? 'All BHK' : b === '5' ? '5+ BHK' : `${b} BHK`}
-              </button>
-            ))}
+                {TYPE_OPTIONS.map(t => (
+                  <option key={t.value} value={t.value}>{t.label}</option>
+                ))}
+              </select>
+            </div>
+
+            {/* Budget Slider */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flex: 1, minWidth: '180px' }}>
+              <span style={{ fontSize: '12px', fontWeight: 700, color: 'var(--text-secondary)', flexShrink: 0 }}>Budget:</span>
+              <input
+                id="slider-max-price"
+                type="range"
+                min="50000000"
+                max="650000000"
+                step="10000000"
+                value={filters.maxPrice}
+                onChange={(e) => onFilterChange('maxPrice', e.target.value)}
+                style={{ accentColor: 'var(--accent-primary)', cursor: 'pointer', flex: 1 }}
+              />
+              <span style={{ fontSize: '12px', fontWeight: 800, color: 'var(--accent-primary)', minWidth: '52px', flexShrink: 0 }}>
+                {filters.maxPrice >= 650000000 ? 'Any' : `₹${(filters.maxPrice / 10000000).toFixed(0)} Cr`}
+              </span>
+            </div>
+          </div>
+
+          {/* Results + Reset Row */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px' }}>
+            <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>
+              Showing <span style={{ color: 'var(--accent-primary)', fontWeight: 800 }}>{totalResults}</span> curated estates
+            </span>
+            <button
+              onClick={onResetFilters}
+              style={{
+                background: 'transparent',
+                border: '1px solid var(--border-subtle)',
+                borderRadius: 'var(--radius-full)',
+                color: 'var(--text-secondary)',
+                padding: '6px 14px',
+                fontSize: '12px',
+                fontWeight: 600,
+                cursor: 'pointer'
+              }}
+            >
+              Reset Filters
+            </button>
           </div>
         </div>
+      )}
 
-        {/* Property Type Dropdown */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <span style={{ fontSize: '12px', fontWeight: 700, color: 'var(--text-secondary)' }}>Type:</span>
-          <select
-            id="select-type"
-            value={filters.propertyType}
-            onChange={(e) => onFilterChange('propertyType', e.target.value)}
-            style={{
-              background: 'var(--bg-secondary)',
-              border: '1px solid var(--border-subtle)',
-              borderRadius: 'var(--radius-full)',
-              color: 'var(--text-primary)',
-              padding: '6px 12px',
-              fontSize: '12px',
-              fontWeight: 600,
-              outline: 'none',
-              cursor: 'pointer'
-            }}
-          >
-            {TYPE_OPTIONS.map(t => (
-              <option key={t.value} value={t.value}>
-                {t.label}
-              </option>
-            ))}
-          </select>
+      {/* Always visible result count when filters closed */}
+      {!filtersOpen && (
+        <div style={{ fontSize: '11px', color: 'var(--text-muted)', marginTop: '2px' }}>
+          <span style={{ color: 'var(--accent-primary)', fontWeight: 800 }}>{totalResults}</span> curated luxury estates
         </div>
-
-        {/* Max Budget Slider */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', minWidth: '220px' }}>
-          <span style={{ fontSize: '12px', fontWeight: 700, color: 'var(--text-secondary)' }}>Budget Up To:</span>
-          <input
-            id="slider-max-price"
-            type="range"
-            min="50000000"
-            max="650000000"
-            step="10000000"
-            value={filters.maxPrice}
-            onChange={(e) => onFilterChange('maxPrice', e.target.value)}
-            style={{
-              accentColor: 'var(--accent-primary)',
-              cursor: 'pointer',
-              flex: 1
-            }}
-          />
-          <span style={{ fontSize: '13px', fontWeight: 800, color: 'var(--accent-primary)', minWidth: '60px' }}>
-            {filters.maxPrice >= 650000000 ? 'Any' : `₹${(filters.maxPrice / 10000000).toFixed(0)} Cr`}
-          </span>
-        </div>
-
-        {/* Live Inventory Counter Badge */}
-        <div style={{ marginLeft: 'auto', fontSize: '13px', color: 'var(--text-muted)' }}>
-          Showing <span style={{ color: 'var(--accent-primary)', fontWeight: 800 }}>{totalResults}</span> curated luxury estates
-        </div>
-      </div>
+      )}
     </div>
   );
 }
