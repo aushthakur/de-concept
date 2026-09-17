@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { API_BASE } from './config';
 import Navbar from './components/Navbar';
 import LocationDetectorModal from './components/LocationDetectorModal';
 import ReelCatalogue from './components/ReelCatalogue';
@@ -81,7 +82,7 @@ export default function App() {
 
   const detectLocationDefault = async () => {
     try {
-      const res = await fetch('/api/location/detect');
+      const res = await fetch(`${API_BASE}/api/location/detect`);
       const data = await res.json();
       setDetectedLocation(data);
       if (data.city) {
@@ -102,7 +103,7 @@ export default function App() {
     navigator.geolocation.getCurrentPosition(
       async (pos) => {
         try {
-          const res = await fetch(`/api/location/detect?lat=${pos.coords.latitude}&lng=${pos.coords.longitude}`);
+          const res = await fetch(`${API_BASE}/api/location/detect?lat=${pos.coords.latitude}&lng=${pos.coords.longitude}`);
           const data = await res.json();
           setDetectedLocation(data);
           if (data.city) {
@@ -145,7 +146,7 @@ export default function App() {
       if (filters.maxPrice) params.append('maxPrice', filters.maxPrice.toString());
       if (filters.sort) params.append('sort', filters.sort);
 
-      const res = await fetch(`/api/properties?${params.toString()}`);
+      const res = await fetch(`${API_BASE}/api/properties?${params.toString()}`);
       const data = await res.json();
       setProperties(data.properties || []);
     } catch (err) {
@@ -161,7 +162,7 @@ export default function App() {
       if (currentCity && currentCity !== 'all' && currentCity !== 'All Cities') {
         params.append('city', currentCity);
       }
-      const res = await fetch(`/api/properties/reels?${params.toString()}`);
+      const res = await fetch(`${API_BASE}/api/properties/reels?${params.toString()}`);
       const data = await res.json();
       setReels(data.reels || []);
     } catch (err) {

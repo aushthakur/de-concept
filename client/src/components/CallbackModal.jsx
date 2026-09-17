@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { API_BASE } from '../config';
 import { 
   X, 
   PhoneCall, 
@@ -45,7 +46,7 @@ export default function CallbackModal({
     setErrorMsg('');
 
     try {
-      const res = await fetch('/api/leads/callback', {
+      const res = await fetch(`${API_BASE}/api/leads/callback`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

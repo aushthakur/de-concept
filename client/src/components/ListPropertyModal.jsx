@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { API_BASE } from '../config';
 import { 
   X, 
   Building2, 
@@ -113,7 +114,7 @@ export default function ListPropertyModal({
     };
 
     try {
-      const res = await fetch('/api/properties', {
+      const res = await fetch(`${API_BASE}/api/properties`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)

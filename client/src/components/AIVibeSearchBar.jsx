@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { API_BASE } from '../config';
 import { Sparkles, Search, X, Clapperboard } from 'lucide-react';
 
 export default function AIVibeSearchBar({
@@ -30,7 +31,7 @@ export default function AIVibeSearchBar({
     if (text) setPrompt(text);
 
     try {
-      const res = await fetch('/api/ai/vibe-search', {
+      const res = await fetch(`${API_BASE}/api/ai/vibe-search`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ prompt: q })

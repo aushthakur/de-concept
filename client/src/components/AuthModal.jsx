@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { API_BASE } from '../config';
 import { X, User, Mail, Phone, Lock, Building, CheckCircle2, ShieldCheck, ArrowRight } from 'lucide-react';
 
 export default function AuthModal({
@@ -38,7 +39,7 @@ export default function AuthModal({
     setErrorMsg('');
 
     try {
-      const res = await fetch('/api/auth/profile', {
+      const res = await fetch(`${API_BASE}/api/auth/profile`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
