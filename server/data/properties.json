@@ -1,0 +1,1459 @@
+[
+  {
+    "id": "prop-user-mu58vmwa",
+    "title": "The Sterling Royal Sky-Villa",
+    "tagline": "Newly Listed Luxury Property by Owner",
+    "propertyType": "Penthouse",
+    "bhk": 5,
+    "baths": 5,
+    "price": 485000000,
+    "priceFormatted": "₹48.50 Cr",
+    "pricePerSqFt": "₹78,226/sq.ft",
+    "areaSqFt": 6200,
+    "carpetAreaSqFt": 5300,
+    "location": {
+      "city": "Mumbai",
+      "locality": "Worli Sea Face",
+      "address": "Worli Sea Face, Mumbai",
+      "coordinates": {
+        "lat": 19.076,
+        "lng": 72.8777
+      }
+    },
+    "status": "Ready to Move",
+    "possession": "Immediate",
+    "furnishing": "Fully Furnished",
+    "facing": "North-East",
+    "floor": "Upper Level",
+    "builder": {
+      "name": "Alexander Sterling (Property Owner)",
+      "experience": "Direct Listing",
+      "reraId": "VERIFIED-OWNER"
+    },
+    "relationshipManager": {
+      "name": "Alexander Sterling",
+      "role": "Property Owner",
+      "phone": "+91 98201 99999",
+      "rating": 5,
+      "photo": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80",
+      "whatsapp": "919820199999"
+    },
+    "reelVideo": "https://assets.mixkit.co/videos/preview/mixkit-modern-luxury-house-exterior-at-night-42998-large.mp4",
+    "images": [
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "virtualTour360": {
+      "enabled": true,
+      "preview": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80",
+      "rooms": [
+        "Living Room",
+        "Balcony Deck",
+        "Master Suite",
+        "Dining Area"
+      ]
+    },
+    "floorPlanUrl": "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=800&q=80",
+    "amenities": [
+      "Private Infinity Pool",
+      "Sea View Terrace",
+      "Private Lift",
+      "Smart Home Automation"
+    ],
+    "neighborhoodRadar": {
+      "walkScore": 92,
+      "transitScore": 88,
+      "schools": "Nearby Elite Academy (5 mins)",
+      "hospital": "Super Speciality Hospital (10 mins)",
+      "airport": "International Airport (20 mins)",
+      "lifestyle": "Shopping & Dining Promenade (5 mins)"
+    },
+    "financials": {
+      "estimatedMonthlyRent": "₹194,000",
+      "grossRentalYield": "5.2%",
+      "projectedCapitalAppreciation5Yr": "+45%"
+    },
+    "verified": true,
+    "isOwnerListing": true,
+    "likesCount": 12,
+    "viewsCount": 140,
+    "createdAt": "2026-09-17T08:05:24.010Z"
+  },
+  {
+    "id": "prop-user-mu58gp8d",
+    "title": "Imperial Sea Horizon Penthouse",
+    "tagline": "Newly Listed Luxury Property by Owner",
+    "propertyType": "Penthouse",
+    "bhk": 4,
+    "baths": 3,
+    "price": 125000000,
+    "priceFormatted": "₹12.50 Cr",
+    "pricePerSqFt": "₹32,895/sq.ft",
+    "areaSqFt": 3800,
+    "carpetAreaSqFt": 2100,
+    "location": {
+      "city": "Mumbai",
+      "locality": "Worli",
+      "address": "Worli, Mumbai",
+      "coordinates": {
+        "lat": 19.076,
+        "lng": 72.8777
+      }
+    },
+    "status": "Ready to Move",
+    "possession": "Immediate",
+    "furnishing": "Fully Furnished",
+    "facing": "North-East",
+    "floor": "Upper Level",
+    "builder": {
+      "name": "Aarav Kapoor (Property Owner)",
+      "experience": "Direct Listing",
+      "reraId": "VERIFIED-OWNER"
+    },
+    "relationshipManager": {
+      "name": "Aarav Kapoor",
+      "role": "Property Owner",
+      "phone": "+919820011223",
+      "rating": 5,
+      "photo": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80",
+      "whatsapp": "919820011223"
+    },
+    "reelVideo": "/videos/reel_worli_sea_face.mp4",
+    "images": [
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "virtualTour360": {
+      "enabled": true,
+      "preview": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1600&q=80",
+      "rooms": [
+        "Living Room",
+        "Balcony Deck",
+        "Master Suite",
+        "Dining Area"
+      ]
+    },
+    "floorPlanUrl": "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=800&q=80",
+    "amenities": [
+      "Smart Home",
+      "24/7 Security",
+      "Covered Parking"
+    ],
+    "neighborhoodRadar": {
+      "walkScore": 92,
+      "transitScore": 88,
+      "schools": "Nearby Elite Academy (5 mins)",
+      "hospital": "Super Speciality Hospital (10 mins)",
+      "airport": "International Airport (20 mins)",
+      "lifestyle": "Shopping & Dining Promenade (5 mins)"
+    },
+    "financials": {
+      "estimatedMonthlyRent": "₹50,000",
+      "grossRentalYield": "5.2%",
+      "projectedCapitalAppreciation5Yr": "+45%"
+    },
+    "verified": true,
+    "isOwnerListing": true,
+    "likesCount": 12,
+    "viewsCount": 140,
+    "createdAt": "2026-09-17T07:53:47.211Z"
+  },
+  {
+    "id": "prop-101",
+    "title": "The Sky Deck Penthouse at Worli Sea Face",
+    "tagline": "Unobstructed 270° Arabian Sea Panoramas & Private Infinity Pool",
+    "propertyType": "Penthouse",
+    "bhk": 4,
+    "baths": 5,
+    "price": 145000000,
+    "priceFormatted": "₹14.50 Cr",
+    "pricePerSqFt": "₹34,500/sq.ft",
+    "areaSqFt": 4200,
+    "carpetAreaSqFt": 3650,
+    "location": {
+      "city": "Mumbai",
+      "locality": "Worli Sea Face",
+      "address": "Signature Tower 1, Worli Sea Face, South Mumbai",
+      "coordinates": {
+        "lat": 19.0178,
+        "lng": 72.8166
+      }
+    },
+    "status": "Ready to Move",
+    "possession": "Immediate",
+    "furnishing": "Fully Furnished Designer",
+    "facing": "West Sea Facing",
+    "floor": "44th of 50 Floors",
+    "builder": {
+      "name": "Lodha Altamount Group",
+      "experience": "26 Yrs",
+      "reraId": "P51900028491"
+    },
+    "relationshipManager": {
+      "name": "Aditya Mehra",
+      "role": "Director - Ultra Luxury Estates",
+      "phone": "+91 98200 14820",
+      "rating": 4.96,
+      "photo": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80",
+      "whatsapp": "919820014820"
+    },
+    "reelVideo": "/videos/reel_worli_sea_face.mp4",
+    "images": [
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "virtualTour360": {
+      "enabled": true,
+      "preview": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1600&q=80",
+      "rooms": [
+        "Grand Foyer",
+        "270° Sea Lounge",
+        "Italian Chef's Kitchen",
+        "Master Spa Suite",
+        "Private Sunset Infinity Pool"
+      ]
+    },
+    "floorPlanUrl": "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=800&q=80",
+    "amenities": [
+      "Private Infinity Pool",
+      "Helipad Access",
+      "Private High-Speed Elevator",
+      "Smart Home Automation",
+      "24/7 White-Glove Concierge",
+      "Temperature Controlled Wine Cellar",
+      "Bespoke Italian Marble",
+      "4 Reserved EV Car Parks"
+    ],
+    "neighborhoodRadar": {
+      "walkScore": 94,
+      "transitScore": 90,
+      "schools": "The Cathedral & John Connon (12 mins)",
+      "hospital": "Hinduja & Lilavati (8 mins)",
+      "airport": "CSMIA International (25 mins)",
+      "lifestyle": "Palladium Mall & High Street Phoenix (6 mins)"
+    },
+    "financials": {
+      "estimatedMonthlyRent": "₹7,50,000",
+      "grossRentalYield": "6.2%",
+      "projectedCapitalAppreciation5Yr": "+48%"
+    },
+    "verified": true,
+    "trending": true,
+    "likesCount": 4210,
+    "viewsCount": 38400
+  },
+  {
+    "id": "prop-102",
+    "title": "The Camellias Signature Golf Duplex",
+    "tagline": "Private Lakefront Terrace Overlooking Arnold Palmer Golf Course",
+    "propertyType": "Luxury Villa",
+    "bhk": 5,
+    "baths": 6,
+    "price": 285000000,
+    "priceFormatted": "₹28.50 Cr",
+    "pricePerSqFt": "₹38,000/sq.ft",
+    "areaSqFt": 7500,
+    "carpetAreaSqFt": 6800,
+    "location": {
+      "city": "Delhi NCR",
+      "locality": "Golf Course Road, Gurgaon",
+      "address": "DLF The Camellias, Sector 42, Golf Course Road, Gurugram",
+      "coordinates": {
+        "lat": 28.4595,
+        "lng": 77.0945
+      }
+    },
+    "status": "Ready to Move",
+    "possession": "Immediate",
+    "furnishing": "Bespoke Designer",
+    "facing": "East Golf Greens Facing",
+    "floor": "Duplex 28th & 29th Floor",
+    "builder": {
+      "name": "DLF Luxury Super Homes",
+      "experience": "75 Yrs",
+      "reraId": "HRERA-PKL-GGM-142-2018"
+    },
+    "relationshipManager": {
+      "name": "Kabir Singhania",
+      "role": "VP - Private Clients",
+      "phone": "+91 99100 88231",
+      "rating": 4.98,
+      "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80",
+      "whatsapp": "919910088231"
+    },
+    "reelVideo": "/videos/reel_dlf_camellias.mp4",
+    "images": [
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "virtualTour360": {
+      "enabled": true,
+      "preview": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=80",
+      "rooms": [
+        "Double Height Living Hall",
+        "Golf View Sun Deck",
+        "Private Cigar Lounge",
+        "Presidential Suite",
+        "Indoor Heated Pool"
+      ]
+    },
+    "floorPlanUrl": "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=800&q=80",
+    "amenities": [
+      "PGA Championship Golf Access",
+      "Olympic Size Heated Pool",
+      "Private Theatre Room",
+      "Cigar & Wine Tasting Room",
+      "State-of-the-Art Spa & Wellness",
+      "Biometric Double Elevator",
+      "Solar Powered Zero-Emission Energy",
+      "6 Luxury Covered Car Parks"
+    ],
+    "neighborhoodRadar": {
+      "walkScore": 88,
+      "transitScore": 92,
+      "schools": "The Shri Ram School Aravali (5 mins)",
+      "hospital": "Medanta The Medicity & Fortis (10 mins)",
+      "airport": "IGI International Airport T3 (18 mins)",
+      "lifestyle": "Horizon Plaza & DLF Club5 (2 mins)"
+    },
+    "financials": {
+      "estimatedMonthlyRent": "₹12,00,000",
+      "grossRentalYield": "5.1%",
+      "projectedCapitalAppreciation5Yr": "+55%"
+    },
+    "verified": true,
+    "trending": true,
+    "likesCount": 5890,
+    "viewsCount": 52100
+  },
+  {
+    "id": "prop-103",
+    "title": "The Palm Villa & Private Beach Haven",
+    "tagline": "Private Arabian Gulf Beachfront with Floating Pool & Yacht Mooring",
+    "propertyType": "Luxury Villa",
+    "bhk": 6,
+    "baths": 7,
+    "price": 620000000,
+    "priceFormatted": "₹62.00 Cr / $7.4M",
+    "pricePerSqFt": "₹68,800/sq.ft",
+    "areaSqFt": 9000,
+    "carpetAreaSqFt": 8200,
+    "location": {
+      "city": "Dubai",
+      "locality": "Palm Jumeirah",
+      "address": "Frond N, Palm Jumeirah, Dubai, UAE",
+      "coordinates": {
+        "lat": 25.1124,
+        "lng": 55.139
+      }
+    },
+    "status": "Ready to Move",
+    "possession": "Immediate",
+    "furnishing": "Fully Furnished Designer",
+    "facing": "North Private Beach Facing",
+    "floor": "G+2 Standalone Mansion",
+    "builder": {
+      "name": "Emaar Signature Prime",
+      "experience": "30 Yrs",
+      "reraId": "DED-DXB-774902"
+    },
+    "relationshipManager": {
+      "name": "Zainab Al-Maktoum",
+      "role": "Director - Gulf Private Office",
+      "phone": "+971 50 123 4567",
+      "rating": 5,
+      "photo": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80",
+      "whatsapp": "971501234567"
+    },
+    "reelVideo": "/videos/reel_palm_jumeirah.mp4",
+    "images": [
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "virtualTour360": {
+      "enabled": true,
+      "preview": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1600&q=80",
+      "rooms": [
+        "Private Beach Deck",
+        "Marble Living Pavilion",
+        "Sky Lounge",
+        "Master Ocean Suite",
+        "Zen Courtyard"
+      ]
+    },
+    "floorPlanUrl": "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=800&q=80",
+    "amenities": [
+      "Private Direct Beach Access",
+      "Private Yacht Mooring Deck",
+      "Infinity Glass Pool",
+      "Rooftop Sunset Lounge",
+      "Full Smart Automation",
+      "Chef's Commercial Kitchen",
+      "Golden Visa Assistance Eligible"
+    ],
+    "neighborhoodRadar": {
+      "walkScore": 82,
+      "transitScore": 85,
+      "schools": "Dubai College & GEMS Wellington (10 mins)",
+      "hospital": "American Hospital Dubai (15 mins)",
+      "airport": "Dubai International DXB (25 mins)",
+      "lifestyle": "Atlantis The Royal & Nakheel Mall (4 mins)"
+    },
+    "financials": {
+      "estimatedMonthlyRent": "₹28,00,000",
+      "grossRentalYield": "7.8%",
+      "projectedCapitalAppreciation5Yr": "+60%"
+    },
+    "verified": true,
+    "trending": true,
+    "likesCount": 8940,
+    "viewsCount": 78200
+  },
+  {
+    "id": "prop-104",
+    "title": "Villa Azure Oceanfront Sanctuary",
+    "tagline": "Portuguese Heritage Meets Minimalist Luxury on Candolim Cliffs",
+    "propertyType": "Luxury Villa",
+    "bhk": 4,
+    "baths": 5,
+    "price": 185000000,
+    "priceFormatted": "₹18.50 Cr",
+    "pricePerSqFt": "₹32,450/sq.ft",
+    "areaSqFt": 5700,
+    "carpetAreaSqFt": 5100,
+    "location": {
+      "city": "Goa",
+      "locality": "Candolim Beachfront",
+      "address": "Fort Aguada Cliff Road, Candolim, North Goa",
+      "coordinates": {
+        "lat": 15.5188,
+        "lng": 73.7667
+      }
+    },
+    "status": "Ready to Move",
+    "possession": "Immediate",
+    "furnishing": "Fully Furnished Designer",
+    "facing": "West Sunset Ocean Facing",
+    "floor": "Standalone Multi-Level Villa",
+    "builder": {
+      "name": "Boutique Goa Living",
+      "experience": "18 Yrs",
+      "reraId": "GOARERA09180123"
+    },
+    "relationshipManager": {
+      "name": "Rohan Fernandes",
+      "role": "Head of Coastal Luxury",
+      "phone": "+91 98230 45678",
+      "rating": 4.95,
+      "photo": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80",
+      "whatsapp": "919823045678"
+    },
+    "reelVideo": "/videos/reel_goa_beach_villa.mp4",
+    "images": [
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "virtualTour360": {
+      "enabled": true,
+      "preview": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=80",
+      "rooms": [
+        "Oceanview Deck",
+        "Open-Plan Living",
+        "Outdoor Gazebo & Bar",
+        "Master Suite with Plunge Pool"
+      ]
+    },
+    "floorPlanUrl": "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=800&q=80",
+    "amenities": [
+      "Cliffside Heated Infinity Pool",
+      "Private Beach Access Trail",
+      "Alfresco Barbecue Gazebo",
+      "Full Solar Backup 24/7",
+      "Dedicated Butler & Estate Staff Quarters",
+      "Landscaped Tropical Gardens"
+    ],
+    "neighborhoodRadar": {
+      "walkScore": 86,
+      "transitScore": 75,
+      "schools": "The Gera School (20 mins)",
+      "hospital": "Manipal Hospital Goa (15 mins)",
+      "airport": "MOPA Goa Airport (35 mins)",
+      "lifestyle": "Calamari Beach Shack & Thalassa (10 mins)"
+    },
+    "financials": {
+      "estimatedMonthlyRent": "₹8,00,000",
+      "grossRentalYield": "8.5%",
+      "projectedCapitalAppreciation5Yr": "+65%"
+    },
+    "verified": true,
+    "trending": true,
+    "likesCount": 6120,
+    "viewsCount": 49000
+  },
+  {
+    "id": "prop-105",
+    "title": "The Glass Pavilion at Prestige Golfshire",
+    "tagline": "Panoramic Nandi Hills Backdrop & 18-Hole Championship Fairways",
+    "propertyType": "Luxury Villa",
+    "bhk": 4,
+    "baths": 5,
+    "price": 168000000,
+    "priceFormatted": "₹16.80 Cr",
+    "pricePerSqFt": "₹28,000/sq.ft",
+    "areaSqFt": 6000,
+    "carpetAreaSqFt": 5400,
+    "location": {
+      "city": "Bangalore",
+      "locality": "Nandi Hills Road, Devanahalli",
+      "address": "Prestige Golfshire, Nandi Hills Road, North Bengaluru",
+      "coordinates": {
+        "lat": 13.3702,
+        "lng": 77.6835
+      }
+    },
+    "status": "Ready to Move",
+    "possession": "Immediate",
+    "furnishing": "Semi-Furnished",
+    "facing": "North Hills Facing",
+    "floor": "G+1 Private Estate",
+    "builder": {
+      "name": "Prestige Group",
+      "experience": "38 Yrs",
+      "reraId": "PRM/KA/RERA/1250/303/PR/170915/000221"
+    },
+    "relationshipManager": {
+      "name": "Ananya Rao",
+      "role": "Principal Consultant",
+      "phone": "+91 99000 32190",
+      "rating": 4.93,
+      "photo": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80",
+      "whatsapp": "919900032190"
+    },
+    "reelVideo": "/videos/reel_bangalore_golfshire.mp4",
+    "images": [
+      "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "virtualTour360": {
+      "enabled": true,
+      "preview": "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1600&q=80",
+      "rooms": [
+        "Glass Atrium",
+        "Hillview Terrace",
+        "Lap Pool",
+        "Master Jacuzzi Suite"
+      ]
+    },
+    "floorPlanUrl": "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=800&q=80",
+    "amenities": [
+      "Falcon Golf Club Membership",
+      "JW Marriott Resort Privileges",
+      "Private Temperature Heated Pool",
+      "Putting Green in Lawn",
+      "Smart Irrigation System",
+      "EV Charging Port"
+    ],
+    "neighborhoodRadar": {
+      "walkScore": 76,
+      "transitScore": 82,
+      "schools": "Stonehill International School (15 mins)",
+      "hospital": "Aster CMI Hospital (20 mins)",
+      "airport": "Kempegowda International BLR (15 mins)",
+      "lifestyle": "Nandi Hills Eco Trails & Vineyards (5 mins)"
+    },
+    "financials": {
+      "estimatedMonthlyRent": "₹6,00,000",
+      "grossRentalYield": "5.5%",
+      "projectedCapitalAppreciation5Yr": "+52%"
+    },
+    "verified": true,
+    "trending": false,
+    "likesCount": 3810,
+    "viewsCount": 31200
+  },
+  {
+    "id": "prop-106",
+    "title": "Bandra West Celebrity Penthouse",
+    "tagline": "Ultra-Chic Minimalist Residence with Arabian Sea Breeze in Pali Hill",
+    "propertyType": "Penthouse",
+    "bhk": 3,
+    "baths": 4,
+    "price": 220000000,
+    "priceFormatted": "₹22.00 Cr",
+    "pricePerSqFt": "₹62,800/sq.ft",
+    "areaSqFt": 3500,
+    "carpetAreaSqFt": 3100,
+    "location": {
+      "city": "Mumbai",
+      "locality": "Bandra West",
+      "address": "Pali Hill, Bandra West, Mumbai",
+      "coordinates": {
+        "lat": 19.0607,
+        "lng": 72.8258
+      }
+    },
+    "status": "Ready to Move",
+    "possession": "Immediate",
+    "furnishing": "Fully Furnished Designer",
+    "facing": "North-West Sea Facing",
+    "floor": "16th of 16 Floors",
+    "builder": {
+      "name": "K Raheja Corp",
+      "experience": "40 Yrs",
+      "reraId": "P51800004512"
+    },
+    "relationshipManager": {
+      "name": "Aditya Mehra",
+      "role": "Director - Ultra Luxury Estates",
+      "phone": "+91 98200 14820",
+      "rating": 4.96,
+      "photo": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80",
+      "whatsapp": "919820014820"
+    },
+    "reelVideo": "/videos/reel_bandra_duplex.mp4",
+    "images": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "virtualTour360": {
+      "enabled": true,
+      "preview": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",
+      "rooms": [
+        "Designer Lounge",
+        "Terrace Garden",
+        "Chef's Kitchen",
+        "Master Dressing Suite"
+      ]
+    },
+    "floorPlanUrl": "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=800&q=80",
+    "amenities": [
+      "Rooftop Infinity Spa",
+      "Private Elevators",
+      "Acoustic Sound-Proof Glazing",
+      "Designer Walk-In Closet",
+      "24/7 Concierge & Security Valet"
+    ],
+    "neighborhoodRadar": {
+      "walkScore": 98,
+      "transitScore": 95,
+      "schools": "St. Stanislaus & American School (10 mins)",
+      "hospital": "Lilavati Hospital (5 mins)",
+      "airport": "CSMIA T2 (20 mins)",
+      "lifestyle": "Carter Road Promenade & Pali Village Cafes (2 mins)"
+    },
+    "financials": {
+      "estimatedMonthlyRent": "₹9,50,000",
+      "grossRentalYield": "5.8%",
+      "projectedCapitalAppreciation5Yr": "+50%"
+    },
+    "verified": true,
+    "trending": true,
+    "likesCount": 7450,
+    "viewsCount": 63900
+  },
+  {
+    "id": "prop-107",
+    "title": "The Jubilee Hills Cantilever Villa",
+    "tagline": "Modernist Architectural Marvel with Cascading Waterfalls & Skyline Views",
+    "propertyType": "Luxury Villa",
+    "bhk": 5,
+    "baths": 6,
+    "price": 310000000,
+    "priceFormatted": "₹31.00 Cr",
+    "pricePerSqFt": "₹36,500/sq.ft",
+    "areaSqFt": 8500,
+    "carpetAreaSqFt": 7600,
+    "location": {
+      "city": "Hyderabad",
+      "locality": "Jubilee Hills",
+      "address": "Road No. 36, Jubilee Hills, Hyderabad",
+      "coordinates": {
+        "lat": 17.4319,
+        "lng": 78.4073
+      }
+    },
+    "status": "Ready to Move",
+    "possession": "Immediate",
+    "furnishing": "Fully Furnished Designer",
+    "facing": "East City Lights Facing",
+    "floor": "G+2 Multi-Tier Villa",
+    "builder": {
+      "name": "My Home Group Luxury",
+      "experience": "35 Yrs",
+      "reraId": "P02500001089"
+    },
+    "relationshipManager": {
+      "name": "Vikramaditya Reddy",
+      "role": "Senior Vice President",
+      "phone": "+91 98490 67123",
+      "rating": 4.97,
+      "photo": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=300&q=80",
+      "whatsapp": "919849067123"
+    },
+    "reelVideo": "/videos/reel_jubilee_hills.mp4",
+    "images": [
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "virtualTour360": {
+      "enabled": true,
+      "preview": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1600&q=80",
+      "rooms": [
+        "Atrium Hall",
+        "Cantilever Deck",
+        "Indoor Courtyard",
+        "Grand Suite",
+        "Home Cinema"
+      ]
+    },
+    "floorPlanUrl": "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=800&q=80",
+    "amenities": [
+      "Private 12-Seater 4K Dolby Cinema",
+      "Cascading Water Wall & Koi Pond",
+      "Temperature Controlled Wine Cellar",
+      "Full Home Crestron Automation",
+      "6 Car Basements with Turntable"
+    ],
+    "neighborhoodRadar": {
+      "walkScore": 90,
+      "transitScore": 88,
+      "schools": "Oakridge International (10 mins)",
+      "hospital": "Apollo Health City Jubilee Hills (4 mins)",
+      "airport": "RGIA Hyderabad (30 mins)",
+      "lifestyle": "Jubilee Hills International Club (2 mins)"
+    },
+    "financials": {
+      "estimatedMonthlyRent": "₹11,00,000",
+      "grossRentalYield": "4.9%",
+      "projectedCapitalAppreciation5Yr": "+58%"
+    },
+    "verified": true,
+    "trending": false,
+    "likesCount": 4910,
+    "viewsCount": 39800
+  },
+  {
+    "id": "prop-108",
+    "title": "The Shanti Niketan Diplomatic Estate",
+    "tagline": "Private Gated Lutyens-Adjacent Sanctuary with Lush Verandahs",
+    "propertyType": "Garden Estate",
+    "bhk": 6,
+    "baths": 7,
+    "price": 540000000,
+    "priceFormatted": "₹54.00 Cr",
+    "pricePerSqFt": "₹54,000/sq.ft",
+    "areaSqFt": 10000,
+    "carpetAreaSqFt": 8900,
+    "location": {
+      "city": "Delhi NCR",
+      "locality": "Shanti Niketan, South Delhi",
+      "address": "Diplomatic Enclave Border, Shanti Niketan, New Delhi",
+      "coordinates": {
+        "lat": 28.5815,
+        "lng": 77.1685
+      }
+    },
+    "status": "Ready to Move",
+    "possession": "Immediate",
+    "furnishing": "Fully Furnished Heritage",
+    "facing": "North-East Park Facing",
+    "floor": "G+2 Bungalow",
+    "builder": {
+      "name": "Heritage Prime Delhi",
+      "experience": "42 Yrs",
+      "reraId": "DLRERA2019P0081"
+    },
+    "relationshipManager": {
+      "name": "Kabir Singhania",
+      "role": "VP - Private Clients",
+      "phone": "+91 99100 88231",
+      "rating": 4.98,
+      "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80",
+      "whatsapp": "919910088231"
+    },
+    "reelVideo": "/videos/reel_south_delhi_bungalow.mp4",
+    "images": [
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "virtualTour360": {
+      "enabled": true,
+      "preview": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=80",
+      "rooms": [
+        "Colonnade Verandah",
+        "Private Library & Study",
+        "Grand Banquet Hall",
+        "Presidential Suite",
+        "Lush Lawn Pool"
+      ]
+    },
+    "floorPlanUrl": "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=800&q=80",
+    "amenities": [
+      "Half-Acre Landscaped Gardens",
+      "Z-Category Perimeter Security Ready",
+      "Private Heated Swimming Pool",
+      "Gymnasium & Turkish Hammam",
+      "Independent Staff Quarters for 8"
+    ],
+    "neighborhoodRadar": {
+      "walkScore": 92,
+      "transitScore": 90,
+      "schools": "The British School & German School (6 mins)",
+      "hospital": "Max Super Speciality Saket & Fortis (12 mins)",
+      "airport": "IGI Airport Terminal 3 (15 mins)",
+      "lifestyle": "The Chanakya & Santushti Complex (5 mins)"
+    },
+    "financials": {
+      "estimatedMonthlyRent": "₹22,00,000",
+      "grossRentalYield": "4.5%",
+      "projectedCapitalAppreciation5Yr": "+45%"
+    },
+    "verified": true,
+    "trending": true,
+    "likesCount": 6730,
+    "viewsCount": 54200
+  },
+  {
+    "id": "prop-109",
+    "title": "The Sky Manor at Lower Parel",
+    "tagline": "Modernist High-Rise Condo Overlooking Mumbai Racecourse",
+    "propertyType": "Penthouse",
+    "bhk": 3,
+    "baths": 3,
+    "price": 82000000,
+    "priceFormatted": "₹8.20 Cr",
+    "pricePerSqFt": "₹37,200/sq.ft",
+    "areaSqFt": 2200,
+    "carpetAreaSqFt": 1850,
+    "location": {
+      "city": "Mumbai",
+      "locality": "Lower Parel",
+      "address": "One Avighna Park, Lower Parel, Mumbai",
+      "coordinates": {
+        "lat": 18.9953,
+        "lng": 72.8318
+      }
+    },
+    "status": "Ready to Move",
+    "possession": "Immediate",
+    "furnishing": "Fully Furnished Designer",
+    "facing": "East Racecourse Facing",
+    "floor": "38th of 60 Floors",
+    "builder": {
+      "name": "Avighna India",
+      "experience": "22 Yrs",
+      "reraId": "P51900000109"
+    },
+    "relationshipManager": {
+      "name": "Aditya Mehra",
+      "role": "Director - Ultra Luxury Estates",
+      "phone": "+91 98200 14820",
+      "rating": 4.96,
+      "photo": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80",
+      "whatsapp": "919820014820"
+    },
+    "reelVideo": "/videos/reel_worli_sea_face.mp4",
+    "images": [
+      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "virtualTour360": {
+      "enabled": true,
+      "preview": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1600&q=80",
+      "rooms": [
+        "Living Room",
+        "Viewing Balcony",
+        "Open Kitchen",
+        "Master Bedroom"
+      ]
+    },
+    "floorPlanUrl": "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=800&q=80",
+    "amenities": [
+      "Clubhouse & Squash Court",
+      "Temperature Controlled Swimming Pool",
+      "Sky Gymnasium",
+      "3-Tier Biometric Security"
+    ],
+    "neighborhoodRadar": {
+      "walkScore": 95,
+      "transitScore": 92,
+      "schools": "Bombay Scottish (15 mins)",
+      "hospital": "Global Hospitals (5 mins)",
+      "airport": "CSMIA T2 (25 mins)",
+      "lifestyle": "The St. Regis & Palladium (3 mins)"
+    },
+    "financials": {
+      "estimatedMonthlyRent": "₹3,80,000",
+      "grossRentalYield": "5.6%",
+      "projectedCapitalAppreciation5Yr": "+40%"
+    },
+    "verified": true,
+    "trending": false,
+    "likesCount": 2190,
+    "viewsCount": 18400
+  },
+  {
+    "id": "prop-110",
+    "title": "The Courtyard Estate at Whitefield",
+    "tagline": "Modernist Gated Community Villa with Private Citrus Orchard",
+    "propertyType": "Luxury Villa",
+    "bhk": 4,
+    "baths": 4,
+    "price": 68000000,
+    "priceFormatted": "₹6.80 Cr",
+    "pricePerSqFt": "₹15,100/sq.ft",
+    "areaSqFt": 4500,
+    "carpetAreaSqFt": 3950,
+    "location": {
+      "city": "Bangalore",
+      "locality": "Whitefield",
+      "address": "Channasandra Main Road, Whitefield, Bengaluru",
+      "coordinates": {
+        "lat": 12.9845,
+        "lng": 77.7523
+      }
+    },
+    "status": "Ready to Move",
+    "possession": "Immediate",
+    "furnishing": "Semi-Furnished",
+    "facing": "East Garden Facing",
+    "floor": "G+1 Standalone Villa",
+    "builder": {
+      "name": "Total Environment Living",
+      "experience": "25 Yrs",
+      "reraId": "PRM/KA/RERA/1251/446/PR/171014/000432"
+    },
+    "relationshipManager": {
+      "name": "Ananya Rao",
+      "role": "Principal Consultant",
+      "phone": "+91 99000 32190",
+      "rating": 4.93,
+      "photo": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80",
+      "whatsapp": "919900032190"
+    },
+    "reelVideo": "/videos/reel_bangalore_golfshire.mp4",
+    "images": [
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "virtualTour360": {
+      "enabled": true,
+      "preview": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1600&q=80",
+      "rooms": [
+        "Green Courtyard",
+        "Living Room",
+        "Terrace Garden",
+        "Master Suite"
+      ]
+    },
+    "floorPlanUrl": "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=800&q=80",
+    "amenities": [
+      "Private Earth Garden",
+      "Heated Plunge Pool",
+      "Rooftop Solar Plant",
+      "Clubhouse & Tennis Courts"
+    ],
+    "neighborhoodRadar": {
+      "walkScore": 85,
+      "transitScore": 89,
+      "schools": "Inventure Academy & Greenwood High (12 mins)",
+      "hospital": "Manipal Whitefield (8 mins)",
+      "airport": "Kempegowda BLR (40 mins)",
+      "lifestyle": "Nexus Shantiniketan & Windmills (6 mins)"
+    },
+    "financials": {
+      "estimatedMonthlyRent": "₹2,80,000",
+      "grossRentalYield": "5.0%",
+      "projectedCapitalAppreciation5Yr": "+45%"
+    },
+    "verified": true,
+    "trending": false,
+    "likesCount": 1820,
+    "viewsCount": 16400
+  },
+  {
+    "id": "prop-111",
+    "title": "The Heritage Villa at Assagao",
+    "tagline": "Restored 19th-Century Indo-Portuguese Villa with Private Plunge Pool",
+    "propertyType": "Luxury Villa",
+    "bhk": 3,
+    "baths": 4,
+    "price": 95000000,
+    "priceFormatted": "₹9.50 Cr",
+    "pricePerSqFt": "₹28,700/sq.ft",
+    "areaSqFt": 3300,
+    "carpetAreaSqFt": 2900,
+    "location": {
+      "city": "Goa",
+      "locality": "Assagao, North Goa",
+      "address": "Badem Road, Assagao, North Goa",
+      "coordinates": {
+        "lat": 15.5908,
+        "lng": 73.7745
+      }
+    },
+    "status": "Ready to Move",
+    "possession": "Immediate",
+    "furnishing": "Fully Furnished Heritage",
+    "facing": "North Forest Facing",
+    "floor": "Single Level Heritage Manor",
+    "builder": {
+      "name": "Isprava Luxury Homes",
+      "experience": "12 Yrs",
+      "reraId": "GOARERA10200876"
+    },
+    "relationshipManager": {
+      "name": "Rohan Fernandes",
+      "role": "Head of Coastal Luxury",
+      "phone": "+91 98230 45678",
+      "rating": 4.95,
+      "photo": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80",
+      "whatsapp": "919823045678"
+    },
+    "reelVideo": "/videos/reel_goa_beach_villa.mp4",
+    "images": [
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "virtualTour360": {
+      "enabled": true,
+      "preview": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=80",
+      "rooms": [
+        "Verandah Balcao",
+        "Heritage High Ceiling Hall",
+        "Courtyard Pool",
+        "Master Suite"
+      ]
+    },
+    "floorPlanUrl": "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=800&q=80",
+    "amenities": [
+      "Cobblestone Courtyard & Plunge Pool",
+      "Original Handcrafted Teakwood Trusses",
+      "24/7 Estate Property Management",
+      "High-Speed Fiber Optic Internet"
+    ],
+    "neighborhoodRadar": {
+      "walkScore": 88,
+      "transitScore": 72,
+      "schools": "Vidya Aranya School (15 mins)",
+      "hospital": "Galaxy Hospital Mapusa (10 mins)",
+      "airport": "MOPA Airport (25 mins)",
+      "lifestyle": "Gunpowder & Jamun Goa (3 mins)"
+    },
+    "financials": {
+      "estimatedMonthlyRent": "₹4,20,000",
+      "grossRentalYield": "7.5%",
+      "projectedCapitalAppreciation5Yr": "+62%"
+    },
+    "verified": true,
+    "trending": true,
+    "likesCount": 5120,
+    "viewsCount": 41500
+  },
+  {
+    "id": "prop-112",
+    "title": "The Knightsbridge Terrace Residence",
+    "tagline": "Grade II Listed Victorian Penthouse Overlooking Hyde Park",
+    "propertyType": "Penthouse",
+    "bhk": 3,
+    "baths": 3,
+    "price": 480000000,
+    "priceFormatted": "£4.50M / ₹48.0 Cr",
+    "pricePerSqFt": "£1,800/sq.ft",
+    "areaSqFt": 2500,
+    "carpetAreaSqFt": 2250,
+    "location": {
+      "city": "London",
+      "locality": "Knightsbridge, London",
+      "address": "Rutland Gate, Knightsbridge, London SW7, UK",
+      "coordinates": {
+        "lat": 51.5014,
+        "lng": -0.1658
+      }
+    },
+    "status": "Ready to Move",
+    "possession": "Immediate",
+    "furnishing": "Fully Furnished Designer",
+    "facing": "North Hyde Park Facing",
+    "floor": "4th & 5th Floor Duplex",
+    "builder": {
+      "name": "Grosvenor Prime Residences",
+      "experience": "60 Yrs",
+      "reraId": "UK-LON-KNT-4401"
+    },
+    "relationshipManager": {
+      "name": "Eleanor Sterling",
+      "role": "Director - Prime Central London",
+      "phone": "+44 20 7946 0912",
+      "rating": 4.99,
+      "photo": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80",
+      "whatsapp": "442079460912"
+    },
+    "reelVideo": "/videos/reel_bandra_duplex.mp4",
+    "images": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "virtualTour360": {
+      "enabled": true,
+      "preview": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",
+      "rooms": [
+        "Drawing Room",
+        "Private Terrace Deck",
+        "Bespoke Boffi Kitchen",
+        "Master Bedroom Suite"
+      ]
+    },
+    "floorPlanUrl": "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=800&q=80",
+    "amenities": [
+      "Direct Private Key Access to Hyde Park Gardens",
+      "Resident Uniformed Porter",
+      "Direct Lift Access into Apartment",
+      "Bespoke Marble Fireplace"
+    ],
+    "neighborhoodRadar": {
+      "walkScore": 99,
+      "transitScore": 98,
+      "schools": "Imperial College London & Knightsbridge School (4 mins)",
+      "hospital": "Chelsea & Westminster Hospital (10 mins)",
+      "airport": "London Heathrow LHR (35 mins)",
+      "lifestyle": "Harrods & Harvey Nichols (5 mins walk)"
+    },
+    "financials": {
+      "estimatedMonthlyRent": "£18,000 (~₹19.2L)",
+      "grossRentalYield": "4.8%",
+      "projectedCapitalAppreciation5Yr": "+38%"
+    },
+    "verified": true,
+    "trending": true,
+    "likesCount": 6390,
+    "viewsCount": 51000
+  },
+  {
+    "id": "prop-113",
+    "title": "The DLF Magnolias Panoramic Condo",
+    "tagline": "Unobstructed Views of DLF Golf Course with Wrap-Around Glass Balconies",
+    "propertyType": "Penthouse",
+    "bhk": 4,
+    "baths": 5,
+    "price": 195000000,
+    "priceFormatted": "₹19.50 Cr",
+    "pricePerSqFt": "₹32,500/sq.ft",
+    "areaSqFt": 6000,
+    "carpetAreaSqFt": 5300,
+    "location": {
+      "city": "Delhi NCR",
+      "locality": "Golf Course Road, Gurgaon",
+      "address": "DLF The Magnolias, Sector 42, Gurugram",
+      "coordinates": {
+        "lat": 28.4578,
+        "lng": 77.0912
+      }
+    },
+    "status": "Ready to Move",
+    "possession": "Immediate",
+    "furnishing": "Fully Furnished Designer",
+    "facing": "East Golf Course Facing",
+    "floor": "22nd of 26 Floors",
+    "builder": {
+      "name": "DLF Luxury Super Homes",
+      "experience": "75 Yrs",
+      "reraId": "HRERA-PKL-GGM-142-2018"
+    },
+    "relationshipManager": {
+      "name": "Kabir Singhania",
+      "role": "VP - Private Clients",
+      "phone": "+91 99100 88231",
+      "rating": 4.98,
+      "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80",
+      "whatsapp": "919910088231"
+    },
+    "reelVideo": "/videos/reel_dlf_camellias.mp4",
+    "images": [
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "virtualTour360": {
+      "enabled": true,
+      "preview": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=80",
+      "rooms": [
+        "Expansive Living Area",
+        "Golf Course Balcony",
+        "Open Chef Kitchen",
+        "Master Bedroom"
+      ]
+    },
+    "floorPlanUrl": "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=800&q=80",
+    "amenities": [
+      "Golf Academy Access",
+      "Multi-Cuisine Clubhouse Restaurants",
+      "Squash & Tennis Courts",
+      "Private Elevators & High Security"
+    ],
+    "neighborhoodRadar": {
+      "walkScore": 87,
+      "transitScore": 90,
+      "schools": "The Shri Ram School Aravali (6 mins)",
+      "hospital": "Medanta (12 mins)",
+      "airport": "IGI Airport (20 mins)",
+      "lifestyle": "Horizon One & Two (3 mins)"
+    },
+    "financials": {
+      "estimatedMonthlyRent": "₹8,50,000",
+      "grossRentalYield": "5.2%",
+      "projectedCapitalAppreciation5Yr": "+50%"
+    },
+    "verified": true,
+    "trending": false,
+    "likesCount": 3520,
+    "viewsCount": 29800
+  },
+  {
+    "id": "prop-114",
+    "title": "Juhu Sea View Designer Duplex",
+    "tagline": "Sun-Kissed Modernist Penthouse Facing Juhu Beach with Private Plunge Pool",
+    "propertyType": "Penthouse",
+    "bhk": 4,
+    "baths": 5,
+    "price": 275000000,
+    "priceFormatted": "₹27.50 Cr",
+    "pricePerSqFt": "₹55,000/sq.ft",
+    "areaSqFt": 5000,
+    "carpetAreaSqFt": 4400,
+    "location": {
+      "city": "Mumbai",
+      "locality": "Juhu Tara Road",
+      "address": "Opposite Sun-n-Sand, Juhu Tara Road, Mumbai",
+      "coordinates": {
+        "lat": 19.1026,
+        "lng": 72.8262
+      }
+    },
+    "status": "Ready to Move",
+    "possession": "Immediate",
+    "furnishing": "Fully Furnished Designer",
+    "facing": "West Juhu Beach Facing",
+    "floor": "12th & 13th Floor Duplex",
+    "builder": {
+      "name": "Rustomjee Luxury",
+      "experience": "28 Yrs",
+      "reraId": "P51800002901"
+    },
+    "relationshipManager": {
+      "name": "Aditya Mehra",
+      "role": "Director - Ultra Luxury Estates",
+      "phone": "+91 98200 14820",
+      "rating": 4.96,
+      "photo": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80",
+      "whatsapp": "919820014820"
+    },
+    "reelVideo": "/videos/reel_worli_sea_face.mp4",
+    "images": [
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "virtualTour360": {
+      "enabled": true,
+      "preview": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1600&q=80",
+      "rooms": [
+        "Sunset Balcony",
+        "Beachfront Living Room",
+        "Designer Bar",
+        "Master Suite"
+      ]
+    },
+    "floorPlanUrl": "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=800&q=80",
+    "amenities": [
+      "Direct Beachfront Views",
+      "Rooftop Private Plunge Pool",
+      "Custom Italian Modular Kitchen",
+      "Smart Mood Lighting & Thermostat"
+    ],
+    "neighborhoodRadar": {
+      "walkScore": 96,
+      "transitScore": 92,
+      "schools": "Maneckji Cooper & Jamnabai Narsee (6 mins)",
+      "hospital": "Nanavati Max Super Speciality (8 mins)",
+      "airport": "CSMIA Domestic & T2 (15 mins)",
+      "lifestyle": "JW Marriott Juhu & Soho House (2 mins)"
+    },
+    "financials": {
+      "estimatedMonthlyRent": "₹10,50,000",
+      "grossRentalYield": "4.6%",
+      "projectedCapitalAppreciation5Yr": "+48%"
+    },
+    "verified": true,
+    "trending": true,
+    "likesCount": 5400,
+    "viewsCount": 46000
+  },
+  {
+    "id": "prop-115",
+    "title": "Banjara Hills Contemporary Sky Mansion",
+    "tagline": "Sculptural Hilltop Mansion with Infinity Reflection Pool",
+    "propertyType": "Luxury Villa",
+    "bhk": 4,
+    "baths": 5,
+    "price": 245000000,
+    "priceFormatted": "₹24.50 Cr",
+    "pricePerSqFt": "₹35,000/sq.ft",
+    "areaSqFt": 7000,
+    "carpetAreaSqFt": 6200,
+    "location": {
+      "city": "Hyderabad",
+      "locality": "Banjara Hills",
+      "address": "Road No. 12, Banjara Hills, Hyderabad",
+      "coordinates": {
+        "lat": 17.4156,
+        "lng": 78.435
+      }
+    },
+    "status": "Ready to Move",
+    "possession": "Immediate",
+    "furnishing": "Fully Furnished Designer",
+    "facing": "North Hilltop Facing",
+    "floor": "G+2 Standalone Residence",
+    "builder": {
+      "name": "Aparna Luxury Division",
+      "experience": "32 Yrs",
+      "reraId": "P02500002134"
+    },
+    "relationshipManager": {
+      "name": "Vikramaditya Reddy",
+      "role": "Senior Vice President",
+      "phone": "+91 98490 67123",
+      "rating": 4.97,
+      "photo": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=300&q=80",
+      "whatsapp": "919849067123"
+    },
+    "reelVideo": "/videos/reel_jubilee_hills.mp4",
+    "images": [
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "virtualTour360": {
+      "enabled": true,
+      "preview": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1600&q=80",
+      "rooms": [
+        "Hilltop Deck",
+        "Sculptural Living Room",
+        "Private Spa",
+        "Master Suite"
+      ]
+    },
+    "floorPlanUrl": "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=800&q=80",
+    "amenities": [
+      "Infinity Reflection Pool",
+      "Zen Meditation Pavilion",
+      "Automated Solar Glass Shading",
+      "Private Fitness Studio"
+    ],
+    "neighborhoodRadar": {
+      "walkScore": 89,
+      "transitScore": 86,
+      "schools": "Chirec International (12 mins)",
+      "hospital": "Care Hospitals & Star Hospital (5 mins)",
+      "airport": "RGIA Hyderabad (30 mins)",
+      "lifestyle": "Taj Krishna & GVK One Mall (4 mins)"
+    },
+    "financials": {
+      "estimatedMonthlyRent": "₹8,50,000",
+      "grossRentalYield": "4.2%",
+      "projectedCapitalAppreciation5Yr": "+52%"
+    },
+    "verified": true,
+    "trending": false,
+    "likesCount": 3100,
+    "viewsCount": 27500
+  },
+  {
+    "id": "prop-116",
+    "title": "The Downtown Burj Crown Residence",
+    "tagline": "Direct View of Burj Khalifa & Dubai Opera from High-Floor Corner Terrace",
+    "propertyType": "Penthouse",
+    "bhk": 3,
+    "baths": 4,
+    "price": 380000000,
+    "priceFormatted": "₹38.00 Cr / $4.55M",
+    "pricePerSqFt": "₹95,000/sq.ft",
+    "areaSqFt": 4000,
+    "carpetAreaSqFt": 3600,
+    "location": {
+      "city": "Dubai",
+      "locality": "Downtown Dubai",
+      "address": "Opera District, Downtown Dubai, UAE",
+      "coordinates": {
+        "lat": 25.1972,
+        "lng": 55.2744
+      }
+    },
+    "status": "Ready to Move",
+    "possession": "Immediate",
+    "furnishing": "Fully Furnished Designer",
+    "facing": "Burj Khalifa & Fountain Facing",
+    "floor": "52nd of 58 Floors",
+    "builder": {
+      "name": "Emaar Properties",
+      "experience": "28 Yrs",
+      "reraId": "DED-DXB-998811"
+    },
+    "relationshipManager": {
+      "name": "Zainab Al-Maktoum",
+      "role": "Director - Gulf Private Office",
+      "phone": "+971 50 123 4567",
+      "rating": 5,
+      "photo": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80",
+      "whatsapp": "971501234567"
+    },
+    "reelVideo": "/videos/reel_palm_jumeirah.mp4",
+    "images": [
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "virtualTour360": {
+      "enabled": true,
+      "preview": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=80",
+      "rooms": [
+        "Fountain Deck",
+        "Burj View Salon",
+        "Open Gourmet Kitchen",
+        "Master Sky Suite"
+      ]
+    },
+    "floorPlanUrl": "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=800&q=80",
+    "amenities": [
+      "Unobstructed Burj Khalifa Light Show Views",
+      "Direct Bridge Link to Dubai Mall",
+      "Rooftop Infinity Deck",
+      "24/7 Dedicated Valet & Concierge",
+      "UAE Golden Visa Eligible"
+    ],
+    "neighborhoodRadar": {
+      "walkScore": 97,
+      "transitScore": 95,
+      "schools": "Hartland International (10 mins)",
+      "hospital": "Mediclinic The Dubai Mall (3 mins)",
+      "airport": "DXB International Airport (15 mins)",
+      "lifestyle": "Dubai Opera & Armani Ristorante (2 mins)"
+    },
+    "financials": {
+      "estimatedMonthlyRent": "₹16,50,000",
+      "grossRentalYield": "7.2%",
+      "projectedCapitalAppreciation5Yr": "+55%"
+    },
+    "verified": true,
+    "trending": true,
+    "likesCount": 7820,
+    "viewsCount": 68900
+  }
+]

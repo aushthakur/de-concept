@@ -1,0 +1,545 @@
+:root {
+  /* Ultra-Crisp Light Theme Luxury Design System */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  --bg-card: #ffffff;
+  --bg-glass: rgba(255, 255, 255, 0.9);
+  --bg-glass-heavy: rgba(255, 255, 255, 0.98);
+
+  /* Primary Button & Brand: Deep Dark Navy Blue */
+  --accent-primary: #0b1c3d;
+  --accent-primary-hover: #061126;
+  --accent-primary-light: #1e3a8a;
+  --accent-sapphire: #2563eb;
+  --accent-ice: #e2e8f0;
+  --accent-emerald: #059669;
+  --accent-rose: #e11d48;
+
+  /* Typography */
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
+
+  /* Borders & Shadows */
+  --border-subtle: rgba(15, 23, 42, 0.1);
+  --border-card: rgba(15, 23, 42, 0.08);
+  --border-primary: rgba(11, 28, 61, 0.3);
+  --shadow-sm: 0 2px 8px -2px rgba(11, 28, 61, 0.06);
+  --shadow-md: 0 8px 25px -4px rgba(11, 28, 61, 0.08);
+  --shadow-lg: 0 20px 40px -10px rgba(11, 28, 61, 0.12);
+  --shadow-primary: 0 8px 20px -3px rgba(11, 28, 61, 0.35);
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  /* Fonts */
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-display: 'Outfit', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.2);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
+
+/* Glass & Card Utilities */
+.glass-panel {
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.glass-panel-heavy {
+  background: var(--bg-glass-heavy);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Primary Button: Dark Blue with White Text */
+.btn-primary {
+  background: var(--accent-primary);
+  color: #ffffff;
+  font-weight: 700;
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+  padding: 10px 20px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--accent-primary);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-primary);
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background: var(--accent-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px -4px rgba(11, 28, 61, 0.45);
+}
+
+/* Secondary Button: Clean White with Dark Navy Border & Text */
+.btn-secondary {
+  background: #ffffff;
+  color: var(--accent-primary);
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(11, 28, 61, 0.2);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background: var(--bg-secondary);
+  border-color: var(--accent-primary);
+  transform: translateY(-1px);
+}
+
+/* WhatsApp Accent Button */
+.btn-whatsapp {
+  background: #25d366;
+  color: #ffffff;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+  text-decoration: none;
+}
+
+.btn-whatsapp:hover {
+  background: #1eb956;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.45);
+}
+
+/* Pulse indicator for live GPS */
+@keyframes pulseIndicator {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6); }
+  70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.live-pulse {
+  animation: pulseIndicator 2s infinite;
+}
+
+@keyframes soundWave {
+  0%, 100% { height: 4px; }
+  50% { height: 16px; }
+}
+
+.soundwave-bar {
+  width: 3px;
+  background: #2563eb;
+  border-radius: 2px;
+  animation: soundWave 1.1s ease-in-out infinite;
+}
+.soundwave-bar:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.soundwave-bar:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Reel Specific Full-Width Horizon Slider & Mobile Reel UI */
+.reels-wrapper {
+  height: calc(100vh - 74px);
+  width: 100%;
+  position: relative;
+  background: #ffffff;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Unified Reel Main Container */
+.reels-main-container {
+  width: 100%;
+  height: 100%;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+}
+
+.reels-main-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Desktop Horizontal Floating Navigation Arrows */
+.slider-arrow-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid rgba(11, 28, 61, 0.12);
+  color: var(--accent-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 35;
+  box-shadow: 0 8px 26px rgba(11, 28, 61, 0.16);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slider-arrow-btn:hover:not(:disabled) {
+  background: #ffffff;
+  transform: translateY(-50%) scale(1.12);
+  box-shadow: 0 12px 36px rgba(11, 28, 61, 0.28);
+  border-color: var(--accent-primary);
+}
+
+.slider-arrow-btn:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+  transform: translateY(-50%) scale(0.95);
+  box-shadow: none;
+}
+
+.slider-arrow-btn.prev {
+  left: calc(480px + 24px);
+}
+
+.slider-arrow-btn.next {
+  right: 28px;
+}
+
+/* Desktop Bottom Slider Dock */
+.reels-slider-dock {
+  position: absolute;
+  bottom: 24px;
+  left: calc(480px + 24px);
+  right: 28px;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 10px 20px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 6px 24px rgba(11, 28, 61, 0.12);
+}
+
+/* DESKTOP VIEW (Full Width & Height Horizontal Slider, Zero Blank Areas) */
+@media (min-width: 769px) {
+  .reels-main-container {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+  }
+
+  .reel-slide {
+    min-width: 100%;
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    background: #ffffff;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Desktop Left Luxury Info Master Panel */
+  .reel-desktop-info-panel {
+    width: 480px;
+    min-width: 420px;
+    max-width: 40%;
+    height: 100%;
+    background: #ffffff;
+    border-right: 1px solid var(--border-subtle);
+    padding: 28px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 10;
+    box-shadow: 6px 0 30px rgba(11, 28, 61, 0.05);
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+
+  /* Desktop Right Cinematic Video Panel */
+  .reel-desktop-video-panel {
+    flex: 1;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    background: #020617;
+  }
+
+  .reel-desktop-video-panel video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .reel-desktop-video-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      rgba(2, 6, 23, 0.3) 0%,
+      transparent 25%,
+      transparent 75%,
+      rgba(2, 6, 23, 0.25) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(2, 6, 23, 0.35) 0%,
+      transparent 20%,
+      transparent 75%,
+      rgba(2, 6, 23, 0.4) 100%
+    );
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .reel-mobile-view {
+    display: none !important;
+  }
+}
+
+/* MOBILE VIEW (Vertical Snap Reels, 9:16 Fullscreen) */
+@media (max-width: 768px) {
+  .reels-wrapper {
+    height: calc(100vh - 128px);
+  }
+
+  .reels-main-container {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+  }
+
+  .reel-slide {
+    min-height: 100%;
+    height: 100%;
+    width: 100%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    position: relative;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .reel-desktop-info-panel,
+  .reel-desktop-video-panel {
+    display: none !important;
+  }
+
+  .reel-mobile-view {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .reel-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
+
+  .reel-gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(255, 255, 255, 0) 25%,
+      rgba(255, 255, 255, 0) 55%,
+      rgba(255, 255, 255, 0.2) 75%,
+      rgba(255, 255, 255, 0.85) 100%
+    );
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .reel-actions-column {
+    position: absolute;
+    right: 12px;
+    bottom: 210px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    z-index: 10;
+  }
+
+  .reel-action-btn {
+    background: #ffffff;
+    border: 1px solid var(--border-subtle);
+    color: var(--accent-primary);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(11, 28, 61, 0.12);
+  }
+
+  .reel-action-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--accent-primary);
+    background: #ffffff;
+    border: 1px solid var(--border-subtle);
+    padding: 1px 6px;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(11, 28, 61, 0.08);
+    margin-top: 3px;
+    text-align: center;
+  }
+
+  .reel-meta-content {
+    position: relative;
+    z-index: 5;
+    background: #ffffff;
+    border-top: 1px solid var(--border-subtle);
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 -8px 25px rgba(11, 28, 61, 0.08);
+    padding: 16px 18px 20px 18px;
+  }
+}
+
+/* Modals & Drawers (Light Theme) */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  animation: floatUp 0.25s ease-out;
+}
+
+.drawer-right {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 540px;
+  background: #ffffff;
+  border-left: 1px solid var(--border-subtle);
+  z-index: 110;
+  overflow-y: auto;
+  box-shadow: -10px 0 50px rgba(11, 28, 61, 0.18);
+  animation: floatUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes floatUp {
+  0% { opacity: 0; transform: translateY(14px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Mobile Navigation & Adjustments */
+@media (max-width: 768px) {
+  .reels-scroll-container {
+    max-width: 100%;
+  }
+  .drawer-right {
+    max-width: 100%;
+  }
+  .hidden-mobile {
+    display: none !important;
+  }
+  .reels-wrapper {
+    height: calc(100vh - 128px); /* accounts for top navbar + mobile bottom bar */
+  }
+  .reel-actions-column {
+    bottom: 90px;
+    right: 10px;
+    gap: 12px;
+  }
+}
+
+@media (min-width: 769px) {
+  .hidden-desktop {
+    display: none !important;
+  }
+}

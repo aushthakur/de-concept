@@ -1,0 +1,26 @@
+[
+  {
+    "id": "CALL-MU57XLL2-4392",
+    "propertyId": "prop-101",
+    "propertyTitle": "The Sky Deck Penthouse at Worli Sea Face",
+    "propertyCity": "Mumbai",
+    "client": {
+      "name": "Aarav Sharma",
+      "phone": "+919876543210",
+      "email": "Not provided",
+      "preferredTime": "Instant Callback (Next 5 Mins)",
+      "channel": "Call",
+      "notes": ""
+    },
+    "relationshipManager": {
+      "name": "Aditya Mehra",
+      "role": "Director - Ultra Luxury Estates",
+      "phone": "+91 98200 14820",
+      "rating": 4.96,
+      "photo": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80",
+      "whatsapp": "919820014820"
+    },
+    "status": "Assigned",
+    "createdAt": "2026-09-17T07:38:56.006Z"
+  }
+]
