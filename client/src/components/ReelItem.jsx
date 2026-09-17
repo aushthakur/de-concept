@@ -765,11 +765,12 @@ export default function ReelItem({
                 width: '42px',
                 height: '42px',
                 borderRadius: '50%',
-                background: '#2563eb',
+                background: '#0b1c3d',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                boxShadow: '0 4px 14px rgba(0,0,0,0.45)'
+                boxShadow: '0 4px 16px rgba(0,0,0,0.55)',
+                border: '1.5px solid rgba(255,255,255,0.18)'
               }}>
                 <Info size={22} color="#ffffff" strokeWidth={2.4} />
               </div>
