@@ -323,30 +323,6 @@ export default function Navbar({
 
       {/* Right: Actions Cluster (Zero Overflow on Mobile) */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexShrink: 0 }}>
-        {/* Search Icon Button (Opens Search Modal) */}
-        <button
-          id="btn-navbar-search"
-          onClick={onOpenAISearch}
-          style={{
-            background: 'var(--bg-secondary)',
-            border: '1px solid var(--border-subtle)',
-            borderRadius: 'var(--radius-full)',
-            width: '34px',
-            height: '34px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: 'var(--accent-primary)',
-            cursor: 'pointer',
-            padding: 0,
-            transition: 'all 0.2s ease',
-            flexShrink: 0
-          }}
-          title="Search Properties, Vibes & Locations"
-        >
-          <Search size={15} />
-        </button>
-
         {/* Mobile-Only Compact City Switcher Badge */}
         <button
           onClick={onOpenLocationModal}

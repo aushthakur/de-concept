@@ -12,6 +12,8 @@ import AIVibeSearchBar from './components/AIVibeSearchBar';
 import AuthModal from './components/AuthModal';
 import ListPropertyModal from './components/ListPropertyModal';
 import MobileBottomNav from './components/MobileBottomNav';
+import TopSearchFilterStrip from './components/TopSearchFilterStrip';
+import FilterModal from './components/FilterModal';
 
 export default function App() {
   const [viewMode, setViewMode] = useState('reels'); // 'reels' or 'catalogue'
@@ -40,9 +42,12 @@ export default function App() {
   // Filters State
   const [filters, setFilters] = useState({
     search: '',
+    purpose: 'all',
     bhk: 'all',
     propertyType: 'all',
     maxPrice: 650000000,
+    facing: 'all',
+    status: 'all',
     sort: 'popular'
   });
 
@@ -61,6 +66,7 @@ export default function App() {
 
   // Modals
   const [isLocationModalOpen, setIsLocationModalOpen] = useState(false);
+  const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
   const [isWishlistOpen, setIsWishlistOpen] = useState(false);
   const [isAISearchOpen, setIsAISearchOpen] = useState(false);
   const [activeDetailProperty, setActiveDetailProperty] = useState(null);
@@ -163,8 +169,11 @@ export default function App() {
         params.append('city', currentCity);
       }
       if (filters.search) params.append('search', filters.search);
+      if (filters.purpose && filters.purpose !== 'all') params.append('purpose', filters.purpose);
       if (filters.bhk && filters.bhk !== 'all') params.append('bhk', filters.bhk);
       if (filters.propertyType && filters.propertyType !== 'all') params.append('propertyType', filters.propertyType);
+      if (filters.facing && filters.facing !== 'all') params.append('facing', filters.facing);
+      if (filters.status && filters.status !== 'all') params.append('status', filters.status);
       if (filters.maxPrice) params.append('maxPrice', filters.maxPrice.toString());
       if (filters.sort) params.append('sort', filters.sort);
 
@@ -270,6 +279,15 @@ export default function App() {
     setViewMode('catalogue');
   };
 
+  const activeFilterCount = [
+    filters.purpose && filters.purpose !== 'all',
+    filters.bhk && filters.bhk !== 'all',
+    filters.propertyType && filters.propertyType !== 'all',
+    filters.facing && filters.facing !== 'all',
+    filters.status && filters.status !== 'all',
+    filters.maxPrice && filters.maxPrice < 650000000
+  ].filter(Boolean).length;
+
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-primary)', paddingBottom: viewMode === 'reels' ? 0 : '70px' }}>
       {/* Top Sticky Navbar */}
@@ -293,6 +311,14 @@ export default function App() {
         isDetectingGPS={isDetectingGPS}
       />
 
+      {/* Global Sticky Expanded Search & Filter White Strip */}
+      <TopSearchFilterStrip
+        searchQuery={filters.search}
+        onSearchChange={(val) => setFilters(prev => ({ ...prev, search: val }))}
+        onOpenFilterModal={() => setIsFilterModalOpen(true)}
+        activeFilterCount={activeFilterCount}
+      />
+
       {/* Main Content Area */}
       <main>
         {viewMode === 'reels' ? (
@@ -305,6 +331,8 @@ export default function App() {
             onOpenDetail={(prop) => setActiveDetailProperty(prop)}
             onOpenCallback={(prop) => setActiveCallbackProperty(prop)}
             onSwitchToCatalogue={() => setViewMode('catalogue')}
+            searchQuery={filters.search}
+            onResetSearch={() => setFilters(prev => ({ ...prev, search: '' }))}
           />
         ) : (
           <div className="catalogue-page-wrapper">
@@ -312,7 +340,16 @@ export default function App() {
               properties={properties}
               filters={filters}
               onFilterChange={(key, val) => setFilters(prev => ({ ...prev, [key]: val }))}
-              onResetFilters={() => setFilters({ search: '', bhk: 'all', propertyType: 'all', maxPrice: 650000000, sort: 'popular' })}
+              onResetFilters={() => setFilters({
+                search: '',
+                purpose: 'all',
+                bhk: 'all',
+                propertyType: 'all',
+                maxPrice: 650000000,
+                facing: 'all',
+                status: 'all',
+                sort: 'popular'
+              })}
               wishlist={wishlist}
               onToggleWishlist={handleToggleWishlist}
               onOpenDetail={(prop) => setActiveDetailProperty(prop)}
@@ -332,6 +369,26 @@ export default function App() {
         onClear={() => setComparedProperties([])}
         onOpenCallback={(prop) => setActiveCallbackProperty(prop)}
         onOpenDetail={(prop) => setActiveDetailProperty(prop)}
+      />
+
+      {/* Filter Modal */}
+      <FilterModal
+        isOpen={isFilterModalOpen}
+        onClose={() => setIsFilterModalOpen(false)}
+        filters={filters}
+        onApplyFilters={(newFilters) => setFilters(prev => ({ ...prev, ...newFilters }))}
+        onResetFilters={() => setFilters({
+          search: '',
+          purpose: 'all',
+          bhk: 'all',
+          propertyType: 'all',
+          maxPrice: 650000000,
+          facing: 'all',
+          status: 'all',
+          sort: 'popular'
+        })}
+        currentCity={currentCity}
+        onSelectCity={(city) => setCurrentCity(city)}
       />
 
       {/* Location Auto-Detection & City Switcher Modal */}

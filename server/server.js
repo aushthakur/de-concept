@@ -140,6 +140,8 @@ app.get('/api/properties', (req, res) => {
     minPrice,
     maxPrice,
     propertyType,
+    facing,
+    purpose,
     status,
     amenity,
     search,
@@ -166,7 +168,21 @@ app.get('/api/properties', (req, res) => {
 
   // Filter by Property Type
   if (propertyType && propertyType !== 'all') {
-    list = list.filter(p => p.propertyType.toLowerCase() === propertyType.toLowerCase());
+    list = list.filter(p => p.propertyType.toLowerCase().includes(propertyType.toLowerCase()));
+  }
+
+  // Filter by Facing Direction
+  if (facing && facing !== 'all') {
+    list = list.filter(p => (p.facing || '').toLowerCase().includes(facing.toLowerCase()));
+  }
+
+  // Filter by Purpose (Buy / Rent / Commercial)
+  if (purpose && purpose !== 'all') {
+    list = list.filter(p => {
+      if (purpose === 'rent') return (p.priceFormatted || '').includes('/mo') || (p.title || '').toLowerCase().includes('rent');
+      if (purpose === 'commercial') return (p.propertyType || '').toLowerCase().includes('commercial') || (p.title || '').toLowerCase().includes('office');
+      return true;
+    });
   }
 
   // Filter by Status
@@ -202,6 +218,7 @@ app.get('/api/properties', (req, res) => {
       p.tagline.toLowerCase().includes(q) ||
       p.location.locality.toLowerCase().includes(q) ||
       p.location.city.toLowerCase().includes(q) ||
+      (p.facing && p.facing.toLowerCase().includes(q)) ||
       p.builder.name.toLowerCase().includes(q) ||
       p.amenities.some(a => a.toLowerCase().includes(q))
     );

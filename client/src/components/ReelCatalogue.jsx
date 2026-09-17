@@ -20,12 +20,13 @@ export default function ReelCatalogue({
   onToggleWishlist,
   onOpenDetail,
   onOpenCallback,
-  onSwitchToCatalogue
+  onSwitchToCatalogue,
+  searchQuery = '',
+  onResetSearch
 }) {
   const containerRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isMuted, setIsMuted] = useState(true);
-  const [searchQuery, setSearchQuery] = useState('');
   const [isMobile, setIsMobile] = useState(() => 
     typeof window !== 'undefined' ? window.innerWidth <= 768 : false
   );
@@ -41,7 +42,7 @@ export default function ReelCatalogue({
 
   // Filter Instants dynamically by search query (locality, address, city, title, bhk, type)
   const filteredReels = reels.filter(prop => {
-    if (!searchQuery.trim()) return true;
+    if (!searchQuery || !searchQuery.trim()) return true;
     const q = searchQuery.toLowerCase().trim();
     const title = (prop.title || '').toLowerCase();
     const locality = (prop.location?.locality || '').toLowerCase();
