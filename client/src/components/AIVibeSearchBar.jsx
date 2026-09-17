@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { API_BASE } from '../config';
-import { Sparkles, Search, X, Clapperboard } from 'lucide-react';
+import { Sparkles, Search, X, Zap } from 'lucide-react';
 
 export default function AIVibeSearchBar({
   isOpen,
@@ -274,8 +274,8 @@ export default function AIVibeSearchBar({
                           className="btn-secondary"
                           style={{ fontSize: '11px', padding: '6px 10px' }}
                         >
-                          <Clapperboard size={13} />
-                          Reel
+                          <Zap size={13} />
+                          Instant
                         </button>
                       )}
 

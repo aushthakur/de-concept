@@ -75,9 +75,9 @@ export default function App() {
     }
   }, [wishlist]);
 
-  // Initial Auto-Location Detection on App Load
+  // Initial Auto-Location Detection on App Load with GPS Precision
   useEffect(() => {
-    detectLocationDefault();
+    handleDetectGPS(true);
   }, []);
 
   const detectLocationDefault = async () => {
@@ -93,9 +93,10 @@ export default function App() {
     }
   };
 
-  const handleDetectGPS = () => {
+  const handleDetectGPS = (isSilent = false) => {
     if (!navigator.geolocation) {
-      alert('Geolocation is not supported by your browser.');
+      if (!isSilent) alert('Geolocation is not supported by your browser.');
+      detectLocationDefault();
       return;
     }
 
@@ -103,23 +104,44 @@ export default function App() {
     navigator.geolocation.getCurrentPosition(
       async (pos) => {
         try {
-          const res = await fetch(`${API_BASE}/api/location/detect?lat=${pos.coords.latitude}&lng=${pos.coords.longitude}`);
+          const lat = pos.coords.latitude;
+          const lng = pos.coords.longitude;
+          const res = await fetch(`${API_BASE}/api/location/detect?lat=${lat}&lng=${lng}`);
           const data = await res.json();
+
+          // High accuracy reverse geocoding for precise locality
+          try {
+            const revRes = await fetch(
+              `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}&localityLanguage=en`
+            );
+            if (revRes.ok) {
+              const revData = await revRes.json();
+              const localityName = revData.locality || revData.city || revData.principalSubdivision;
+              if (localityName) {
+                data.locality = localityName;
+              }
+            }
+          } catch {
+            // fallback to server locality
+          }
+
           setDetectedLocation(data);
           if (data.city) {
             setCurrentCity(data.city);
           }
         } catch (e) {
-          console.error(e);
+          console.error('GPS detection fetch error:', e);
+          detectLocationDefault();
         } finally {
           setIsDetectingGPS(false);
         }
       },
       (err) => {
-        console.warn('Geolocation permission denied or error:', err.message);
+        console.warn('Geolocation permission not granted or timeout:', err.message);
         setIsDetectingGPS(false);
+        detectLocationDefault();
       },
-      { timeout: 8000 }
+      { enableHighAccuracy: true, timeout: 8000, maximumAge: 60000 }
     );
   };
 
@@ -128,10 +150,10 @@ export default function App() {
     fetchProperties();
   }, [currentCity, filters]);
 
-  // Fetch reels whenever city changes
+  // Fetch all reels on mount and keep available for transparent area search
   useEffect(() => {
     fetchReels();
-  }, [currentCity]);
+  }, []);
 
   const fetchProperties = async () => {
     setLoading(true);
@@ -158,11 +180,7 @@ export default function App() {
 
   const fetchReels = async () => {
     try {
-      const params = new URLSearchParams();
-      if (currentCity && currentCity !== 'all' && currentCity !== 'All Cities') {
-        params.append('city', currentCity);
-      }
-      const res = await fetch(`${API_BASE}/api/properties/reels?${params.toString()}`);
+      const res = await fetch(`${API_BASE}/api/properties/reels`);
       const data = await res.json();
       setReels(data.reels || []);
     } catch (err) {

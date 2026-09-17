@@ -3,7 +3,9 @@ import {
   ChevronLeft, 
   ChevronRight, 
   Sparkles, 
-  Clapperboard, 
+  Zap, 
+  Search, 
+  X, 
   LayoutGrid, 
   Compass,
   ArrowRight
@@ -23,6 +25,7 @@ export default function ReelCatalogue({
   const containerRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isMuted, setIsMuted] = useState(true);
+  const [searchQuery, setSearchQuery] = useState('');
   const [isMobile, setIsMobile] = useState(() => 
     typeof window !== 'undefined' ? window.innerWidth <= 768 : false
   );
@@ -35,6 +38,38 @@ export default function ReelCatalogue({
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  // Filter Instants dynamically by search query (locality, address, city, title, bhk, type)
+  const filteredReels = reels.filter(prop => {
+    if (!searchQuery.trim()) return true;
+    const q = searchQuery.toLowerCase().trim();
+    const title = (prop.title || '').toLowerCase();
+    const locality = (prop.location?.locality || '').toLowerCase();
+    const address = (prop.location?.address || '').toLowerCase();
+    const city = (prop.location?.city || '').toLowerCase();
+    const bhk = `${prop.bhk || ''} bhk`;
+    const type = (prop.propertyType || '').toLowerCase();
+    return (
+      locality.includes(q) ||
+      address.includes(q) ||
+      city.includes(q) ||
+      title.includes(q) ||
+      bhk.includes(q) ||
+      type.includes(q)
+    );
+  });
+
+  // Reset active index when search changes
+  useEffect(() => {
+    setActiveIndex(0);
+    if (containerRef.current) {
+      if (isMobile) {
+        containerRef.current.scrollTop = 0;
+      } else {
+        containerRef.current.scrollLeft = 0;
+      }
+    }
+  }, [searchQuery]);
 
   // Sync Active Slide via Intersection Observer
   useEffect(() => {
@@ -61,11 +96,11 @@ export default function ReelCatalogue({
 
     slides.forEach((s) => observer.observe(s));
     return () => observer.disconnect();
-  }, [reels, isMobile]);
+  }, [filteredReels, isMobile]);
 
   // Robust Scroll To Index Helper
   const scrollToIndex = (index) => {
-    if (!containerRef.current || index < 0 || index >= reels.length) return;
+    if (!containerRef.current || index < 0 || index >= filteredReels.length) return;
     const container = containerRef.current;
     const slides = container.querySelectorAll('.reel-slide');
     const targetSlide = slides[index];
@@ -86,7 +121,7 @@ export default function ReelCatalogue({
   };
 
   const scrollNext = () => {
-    if (activeIndex < reels.length - 1) {
+    if (activeIndex < filteredReels.length - 1) {
       scrollToIndex(activeIndex + 1);
     }
   };
@@ -105,23 +140,17 @@ export default function ReelCatalogue({
         return;
       }
 
-      if (e.key === 'ArrowRight') {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
         e.preventDefault();
         scrollNext();
-      } else if (e.key === 'ArrowLeft') {
-        e.preventDefault();
-        scrollPrev();
-      } else if (e.key === 'ArrowDown') {
-        e.preventDefault();
-        scrollNext();
-      } else if (e.key === 'ArrowUp') {
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
         e.preventDefault();
         scrollPrev();
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [activeIndex, reels.length, isMobile]);
+  }, [activeIndex, filteredReels.length, isMobile]);
 
   // Mouse Wheel / Trackpad sideways navigation on Desktop
   useEffect(() => {
@@ -133,8 +162,8 @@ export default function ReelCatalogue({
     let wheelTimeout = null;
 
     const handleWheel = (e) => {
-      // Ignore if user is hovering inside the scrollable master info panel
-      if (e.target.closest('.reel-desktop-info-panel')) return;
+      // Ignore if user is hovering inside the scrollable master info panel or search input
+      if (e.target.closest('.reel-desktop-info-panel') || e.target.closest('input')) return;
 
       const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
       if (Math.abs(delta) < 25) return;
@@ -158,9 +187,9 @@ export default function ReelCatalogue({
       container.removeEventListener('wheel', handleWheel);
       clearTimeout(wheelTimeout);
     };
-  }, [activeIndex, reels.length, isMobile]);
+  }, [activeIndex, filteredReels.length, isMobile]);
 
-  // Touch Swipe Gesture Support (Horizontal on desktop/tablets, vertical on mobile)
+  // Touch Swipe Gesture Support
   const touchStartPos = useRef({ x: 0, y: 0 });
 
   const handleTouchStart = (e) => {
@@ -185,66 +214,94 @@ export default function ReelCatalogue({
     }
   };
 
-  const cityTabs = ['All Cities', 'Mumbai', 'Delhi NCR', 'Dubai', 'Goa', 'Bangalore', 'Hyderabad'];
-  const nextProperty = activeIndex < reels.length - 1 ? reels[activeIndex + 1] : null;
+  const nextProperty = activeIndex < filteredReels.length - 1 ? filteredReels[activeIndex + 1] : null;
 
   return (
     <div className="reels-wrapper">
-      {/* Floating City Filter Bar */}
-      <div style={{
-        position: 'absolute',
-        top: '16px',
-        left: isMobile ? '50%' : 'calc(480px + 32px)',
-        transform: isMobile ? 'translateX(-50%)' : 'none',
-        zIndex: 35,
-        display: 'flex',
-        alignItems: 'center',
-        gap: '6px',
-        background: 'rgba(255, 255, 255, 0.95)',
-        backdropFilter: 'blur(16px)',
-        WebkitBackdropFilter: 'blur(16px)',
-        padding: '5px 8px',
-        borderRadius: 'var(--radius-full)',
-        border: '1px solid var(--border-subtle)',
-        boxShadow: '0 4px 20px rgba(11, 28, 61, 0.12)',
-        maxWidth: isMobile ? '92vw' : 'calc(100vw - 540px)',
-        overflowX: 'auto',
-        scrollbarWidth: 'none'
-      }}>
-        {cityTabs.map(c => {
-          const isSelected = (currentCity === c) || (currentCity === 'all' && c === 'All Cities');
-          return (
+      {/* Floating Transparent Glass Search Bar */}
+      <div 
+        className="instants-floating-search-wrap"
+        style={{
+          position: 'absolute',
+          top: isMobile ? '12px' : '20px',
+          left: isMobile ? '50%' : 'calc(480px + 32px)',
+          transform: isMobile ? 'translateX(-50%)' : 'none',
+          zIndex: 35,
+          width: isMobile ? 'calc(100% - 32px)' : '440px',
+          maxWidth: '520px',
+          pointerEvents: 'auto'
+        }}
+      >
+        <div 
+          className="instants-transparent-search-bar"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            background: isMobile ? 'rgba(15, 23, 42, 0.45)' : 'rgba(255, 255, 255, 0.4)',
+            backdropFilter: 'blur(24px)',
+            WebkitBackdropFilter: 'blur(24px)',
+            border: isMobile ? '1px solid rgba(255, 255, 255, 0.25)' : '1px solid rgba(255, 255, 255, 0.65)',
+            borderRadius: 'var(--radius-full)',
+            padding: '5px 14px',
+            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.16)',
+            transition: 'all 0.25s ease'
+          }}
+        >
+          <Search 
+            size={16} 
+            color={isMobile ? 'rgba(255, 255, 255, 0.85)' : 'var(--accent-primary)'} 
+            style={{ flexShrink: 0, marginRight: '10px' }} 
+          />
+          <input
+            id="input-instants-area-search"
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Search area, locality or property..."
+            style={{
+              width: '100%',
+              background: 'transparent',
+              border: 'none',
+              outline: 'none',
+              fontSize: isMobile ? '13px' : '13.5px',
+              fontWeight: 600,
+              color: isMobile ? '#ffffff' : 'var(--text-primary)',
+              padding: '6px 0',
+            }}
+          />
+          {searchQuery && (
             <button
-              key={c}
-              onClick={() => onSelectCity(c === 'All Cities' ? 'all' : c)}
+              onClick={() => setSearchQuery('')}
               style={{
-                background: isSelected ? 'var(--accent-primary)' : 'transparent',
-                color: isSelected ? '#ffffff' : 'var(--text-secondary)',
+                background: 'rgba(255, 255, 255, 0.25)',
                 border: 'none',
-                borderRadius: 'var(--radius-full)',
-                padding: '6px 14px',
-                fontSize: '12px',
-                fontWeight: 700,
+                color: '#ffffff',
+                borderRadius: '50%',
+                width: '20px',
+                height: '20px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
                 cursor: 'pointer',
-                whiteSpace: 'nowrap',
-                transition: 'all 0.2s ease',
-                boxShadow: isSelected ? 'var(--shadow-sm)' : 'none'
+                flexShrink: 0,
+                marginLeft: '6px'
               }}
+              title="Clear search"
             >
-              {c}
+              <X size={12} />
             </button>
-          );
-        })}
+          )}
+        </div>
       </div>
 
-      {/* Main Reels Slider / Reel Viewport Container */}
+      {/* Main Instants Slider / Viewport Container */}
       <div 
         ref={containerRef} 
         className="reels-main-container"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
-        {reels.length === 0 ? (
+        {filteredReels.length === 0 ? (
           <div style={{
             height: '100%',
             width: '100%',
@@ -257,19 +314,28 @@ export default function ReelCatalogue({
             textAlign: 'center',
             background: '#ffffff'
           }}>
-            <Sparkles size={44} color="var(--accent-primary)" style={{ marginBottom: '16px' }} />
+            <Zap size={44} color="var(--accent-primary)" style={{ marginBottom: '16px' }} />
             <h3 style={{ color: 'var(--text-primary)', marginBottom: '8px', fontSize: '20px', fontWeight: 800 }}>
-              No Video Reels in {currentCity}
+              {searchQuery ? `No Instants Found in "${searchQuery}"` : 'No Instants in this Region'}
             </h3>
             <p style={{ fontSize: '13px', marginBottom: '20px', maxWidth: '420px', lineHeight: 1.5 }}>
-              Try selecting "All Cities" to view prime properties in Mumbai, Delhi NCR, Dubai, and Goa.
+              {searchQuery 
+                ? 'Try searching by other prime areas like Worli, Bandra, DLF Phase 5, Palm Jumeirah, or Goa.'
+                : 'Browse all prime properties in Mumbai, Delhi NCR, Dubai, and Goa.'
+              }
             </p>
-            <button onClick={() => onSelectCity('all')} className="btn-primary">
-              Show All Reels
-            </button>
+            {searchQuery ? (
+              <button onClick={() => setSearchQuery('')} className="btn-primary">
+                Clear Search Filter
+              </button>
+            ) : (
+              <button onClick={() => onSelectCity('all')} className="btn-primary">
+                Browse All Instants
+              </button>
+            )}
           </div>
         ) : (
-          reels.map((prop, idx) => (
+          filteredReels.map((prop, idx) => (
             <ReelItem
               key={prop.id}
               property={prop}
@@ -287,7 +353,7 @@ export default function ReelCatalogue({
       </div>
 
       {/* Desktop Horizontal Floating Arrow: Previous */}
-      {!isMobile && reels.length > 1 && (
+      {!isMobile && filteredReels.length > 1 && (
         <button
           id="btn-reel-slider-prev"
           className="slider-arrow-btn prev"
@@ -300,12 +366,12 @@ export default function ReelCatalogue({
       )}
 
       {/* Desktop Horizontal Floating Arrow: Next */}
-      {!isMobile && reels.length > 1 && (
+      {!isMobile && filteredReels.length > 1 && (
         <button
           id="btn-reel-slider-next"
           className="slider-arrow-btn next"
           onClick={scrollNext}
-          disabled={activeIndex >= reels.length - 1}
+          disabled={activeIndex >= filteredReels.length - 1}
           title="Next Luxury Estate (Arrow Right)"
         >
           <ChevronRight size={26} strokeWidth={2.4} />
@@ -313,7 +379,7 @@ export default function ReelCatalogue({
       )}
 
       {/* Desktop Bottom Slider Dock */}
-      {!isMobile && reels.length > 0 && (
+      {!isMobile && filteredReels.length > 0 && (
         <div className="reels-slider-dock">
           {/* Active Slide Counter */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -330,13 +396,13 @@ export default function ReelCatalogue({
               <span>{String(activeIndex + 1).padStart(2, '0')}</span>
               <span style={{ fontSize: '13px', color: 'var(--text-muted)', fontWeight: 500 }}>/</span>
               <span style={{ fontSize: '13px', color: 'var(--text-muted)', fontWeight: 500 }}>
-                {String(reels.length).padStart(2, '0')}
+                {String(filteredReels.length).padStart(2, '0')}
               </span>
             </div>
 
             {/* Clickable Progress Dashes */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '5px', marginLeft: '6px' }}>
-              {reels.map((_, i) => (
+              {filteredReels.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => scrollToIndex(i)}
@@ -400,7 +466,7 @@ export default function ReelCatalogue({
             }}
           >
             <LayoutGrid size={14} />
-            <span>Full Inventory Grid ({reels.length})</span>
+            <span>Full Inventory Grid ({filteredReels.length})</span>
           </button>
         </div>
       )}

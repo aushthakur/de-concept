@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   X, 
   Heart, 
@@ -9,7 +9,8 @@ import {
   Sparkles,
   Share2,
   MessageCircle,
-  CheckCircle2
+  CheckCircle2,
+  Zap
 } from 'lucide-react';
 
 export default function PropertyDetailModal({
@@ -23,6 +24,17 @@ export default function PropertyDetailModal({
 
   const [activeTab, setActiveTab] = useState('overview');
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(() => 
+    typeof window !== 'undefined' ? window.innerWidth <= 768 : false
+  );
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // EMI Calculator State
   const [downpaymentPercent, setDownpaymentPercent] = useState(20);
@@ -56,16 +68,16 @@ export default function PropertyDetailModal({
   };
 
   return (
-    <div className="modal-backdrop" onClick={onClose}>
+    <div className="modal-backdrop" onClick={onClose} style={{ padding: isMobile ? '8px' : '20px' }}>
       <div 
         className="glass-panel-heavy"
         onClick={e => e.stopPropagation()}
         style={{
           width: '100%',
-          maxWidth: '880px',
-          maxHeight: '92vh',
+          maxWidth: isMobile ? '100%' : '880px',
+          maxHeight: isMobile ? '94vh' : '92vh',
           overflowY: 'auto',
-          borderRadius: 'var(--radius-lg)',
+          borderRadius: isMobile ? '16px' : 'var(--radius-lg)',
           position: 'relative',
           padding: 0,
           background: '#ffffff',
@@ -78,37 +90,44 @@ export default function PropertyDetailModal({
           top: 0,
           background: '#ffffff',
           borderBottom: '1px solid var(--border-subtle)',
-          padding: '14px 24px',
+          padding: isMobile ? '10px 14px' : '14px 24px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
           zIndex: 20
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
             <span style={{
               background: 'var(--bg-secondary)',
               border: '1px solid var(--border-subtle)',
               color: 'var(--accent-primary)',
-              padding: '4px 12px',
+              padding: '3px 10px',
               borderRadius: 'var(--radius-sm)',
               fontSize: '11px',
-              fontWeight: 800
+              fontWeight: 800,
+              whiteSpace: 'nowrap'
             }}>
               {property.propertyType}
             </span>
-            <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>
+            <span style={{ 
+              fontSize: isMobile ? '11px' : '12px', 
+              color: 'var(--text-muted)',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              whiteSpace: 'nowrap'
+            }}>
               RERA: {property.builder.reraId}
             </span>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
             <button
               onClick={handleShareWhatsApp}
               className="btn-whatsapp"
-              style={{ fontSize: '11px', padding: '6px 12px' }}
+              style={{ fontSize: '11px', padding: '5px 10px', gap: '4px' }}
               title="Share via WhatsApp"
             >
-              <MessageCircle size={14} />
+              <MessageCircle size={13} />
               <span>Share</span>
             </button>
 
@@ -118,16 +137,17 @@ export default function PropertyDetailModal({
                 background: isWishlisted ? '#fee2e2' : 'var(--bg-secondary)',
                 border: '1px solid var(--border-subtle)',
                 color: isWishlisted ? '#e11d48' : 'var(--text-secondary)',
-                width: '36px',
-                height: '36px',
+                width: '34px',
+                height: '34px',
                 borderRadius: '50%',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 cursor: 'pointer'
               }}
+              title={isWishlisted ? "Remove from Wishlist" : "Add to Wishlist"}
             >
-              <Heart size={18} fill={isWishlisted ? 'currentColor' : 'none'} />
+              <Heart size={16} fill={isWishlisted ? 'currentColor' : 'none'} />
             </button>
 
             <button
@@ -136,14 +156,15 @@ export default function PropertyDetailModal({
                 background: 'var(--bg-secondary)',
                 border: 'none',
                 color: 'var(--text-muted)',
-                width: '36px',
-                height: '36px',
+                width: '34px',
+                height: '34px',
                 borderRadius: '50%',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 cursor: 'pointer'
               }}
+              title="Close modal"
             >
               <X size={18} />
             </button>
@@ -151,14 +172,18 @@ export default function PropertyDetailModal({
         </div>
 
         {/* Hero Gallery / 360 / Floorplan Container */}
-        <div style={{ padding: '24px 24px 0' }}>
-          {/* Navigation Tabs (Dark Blue Active) */}
+        <div style={{ padding: isMobile ? '14px 14px 0' : '24px 24px 0' }}>
+          {/* Navigation Tabs (Horizontal Scrollable on Mobile) */}
           <div style={{
             display: 'flex',
             gap: '8px',
-            marginBottom: '16px',
+            marginBottom: '14px',
             borderBottom: '1px solid var(--border-subtle)',
-            paddingBottom: '12px'
+            paddingBottom: '10px',
+            overflowX: 'auto',
+            flexWrap: 'nowrap',
+            WebkitOverflowScrolling: 'touch',
+            scrollbarWidth: 'none'
           }}>
             <button
               onClick={() => setActiveTab('overview')}
@@ -166,11 +191,13 @@ export default function PropertyDetailModal({
                 background: activeTab === 'overview' ? 'var(--accent-primary)' : 'var(--bg-secondary)',
                 color: activeTab === 'overview' ? '#ffffff' : 'var(--text-secondary)',
                 border: 'none',
-                padding: '8px 16px',
+                padding: isMobile ? '6px 14px' : '8px 16px',
                 borderRadius: 'var(--radius-full)',
-                fontSize: '13px',
+                fontSize: isMobile ? '12px' : '13px',
                 fontWeight: 700,
-                cursor: 'pointer'
+                cursor: 'pointer',
+                whiteSpace: 'nowrap',
+                flexShrink: 0
               }}
             >
               Gallery & Overview
@@ -182,14 +209,16 @@ export default function PropertyDetailModal({
                 background: activeTab === '360tour' ? 'var(--accent-primary)' : 'var(--bg-secondary)',
                 color: activeTab === '360tour' ? '#ffffff' : 'var(--text-secondary)',
                 border: 'none',
-                padding: '8px 16px',
+                padding: isMobile ? '6px 14px' : '8px 16px',
                 borderRadius: 'var(--radius-full)',
-                fontSize: '13px',
+                fontSize: isMobile ? '12px' : '13px',
                 fontWeight: 700,
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '6px'
+                gap: '6px',
+                whiteSpace: 'nowrap',
+                flexShrink: 0
               }}
             >
               <Compass size={14} />
@@ -202,11 +231,13 @@ export default function PropertyDetailModal({
                 background: activeTab === 'floorplan' ? 'var(--accent-primary)' : 'var(--bg-secondary)',
                 color: activeTab === 'floorplan' ? '#ffffff' : 'var(--text-secondary)',
                 border: 'none',
-                padding: '8px 16px',
+                padding: isMobile ? '6px 14px' : '8px 16px',
                 borderRadius: 'var(--radius-full)',
-                fontSize: '13px',
+                fontSize: isMobile ? '12px' : '13px',
                 fontWeight: 700,
-                cursor: 'pointer'
+                cursor: 'pointer',
+                whiteSpace: 'nowrap',
+                flexShrink: 0
               }}
             >
               Floor Plan Blueprint
@@ -218,14 +249,16 @@ export default function PropertyDetailModal({
                 background: activeTab === 'calculator' ? 'var(--accent-primary)' : 'var(--bg-secondary)',
                 color: activeTab === 'calculator' ? '#ffffff' : 'var(--text-secondary)',
                 border: 'none',
-                padding: '8px 16px',
+                padding: isMobile ? '6px 14px' : '8px 16px',
                 borderRadius: 'var(--radius-full)',
-                fontSize: '13px',
+                fontSize: isMobile ? '12px' : '13px',
                 fontWeight: 700,
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '6px'
+                gap: '6px',
+                whiteSpace: 'nowrap',
+                flexShrink: 0
               }}
             >
               <Calculator size={14} />
@@ -238,10 +271,10 @@ export default function PropertyDetailModal({
             <div>
               <div style={{
                 position: 'relative',
-                height: '360px',
+                height: isMobile ? '230px' : '360px',
                 borderRadius: 'var(--radius-md)',
                 overflow: 'hidden',
-                marginBottom: '12px'
+                marginBottom: '10px'
               }}>
                 <img
                   src={property.images[selectedPhotoIndex] || property.images[0]}
@@ -250,21 +283,22 @@ export default function PropertyDetailModal({
                 />
                 <div style={{
                   position: 'absolute',
-                  bottom: '12px',
-                  right: '12px',
+                  bottom: '10px',
+                  right: '10px',
                   background: 'rgba(11, 28, 61, 0.85)',
                   backdropFilter: 'blur(8px)',
-                  padding: '4px 12px',
+                  padding: '3px 10px',
                   borderRadius: 'var(--radius-sm)',
-                  fontSize: '11px',
-                  color: '#fff'
+                  fontSize: '10.5px',
+                  color: '#fff',
+                  fontWeight: 600
                 }}>
                   Photo {selectedPhotoIndex + 1} of {property.images.length}
                 </div>
               </div>
 
               {/* Thumbnails Row */}
-              <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '8px' }}>
+              <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '6px', scrollbarWidth: 'none' }}>
                 {property.images.map((img, i) => (
                   <img
                     key={i}
@@ -272,13 +306,14 @@ export default function PropertyDetailModal({
                     alt="Thumbnail"
                     onClick={() => setSelectedPhotoIndex(i)}
                     style={{
-                      width: '72px',
-                      height: '52px',
+                      width: isMobile ? '62px' : '72px',
+                      height: isMobile ? '46px' : '52px',
                       borderRadius: '8px',
                       objectFit: 'cover',
                       cursor: 'pointer',
+                      flexShrink: 0,
                       border: selectedPhotoIndex === i ? '2px solid var(--accent-primary)' : '1px solid var(--border-subtle)',
-                      opacity: selectedPhotoIndex === i ? 1 : 0.6
+                      opacity: selectedPhotoIndex === i ? 1 : 0.65
                     }}
                   />
                 ))}
@@ -292,13 +327,13 @@ export default function PropertyDetailModal({
               background: 'var(--bg-secondary)',
               borderRadius: 'var(--radius-md)',
               border: '1px solid var(--border-subtle)',
-              padding: '20px',
+              padding: isMobile ? '12px' : '20px',
               position: 'relative'
             }}>
               <div style={{
-                height: '360px',
+                height: isMobile ? '230px' : '360px',
                 position: 'relative',
-                borderRadius: '12px',
+                borderRadius: '10px',
                 overflow: 'hidden'
               }}>
                 <img
@@ -312,39 +347,39 @@ export default function PropertyDetailModal({
                 />
                 <div style={{
                   position: 'absolute',
-                  top: '16px',
-                  left: '16px',
+                  top: '12px',
+                  left: '12px',
                   background: 'rgba(255, 255, 255, 0.95)',
-                  padding: '6px 14px',
+                  padding: '4px 10px',
                   borderRadius: 'var(--radius-full)',
-                  fontSize: '12px',
+                  fontSize: '11px',
                   color: 'var(--accent-primary)',
                   fontWeight: 700,
                   display: 'flex',
                   alignItems: 'center',
                   gap: '6px',
-                  boxShadow: '0 2px 10px rgba(0,0,0,0.2)'
+                  boxShadow: '0 2px 10px rgba(0,0,0,0.15)'
                 }}>
-                  <Compass size={14} className="animate-spin" style={{ animationDuration: '6s' }} />
-                  Interactive 360° Walkthrough Simulator
+                  <Compass size={13} className="animate-spin" style={{ animationDuration: '6s' }} />
+                  Interactive 360° Walkthrough
                 </div>
 
                 {/* Hotspots */}
                 <div style={{
                   position: 'absolute',
-                  bottom: '16px',
-                  left: '16px',
-                  right: '16px',
+                  bottom: '10px',
+                  left: '10px',
+                  right: '10px',
                   display: 'flex',
-                  gap: '8px',
+                  gap: '6px',
                   flexWrap: 'wrap',
                   background: 'rgba(255, 255, 255, 0.95)',
-                  padding: '10px',
+                  padding: '8px',
                   borderRadius: 'var(--radius-md)',
                   boxShadow: '0 4px 15px rgba(0,0,0,0.15)'
                 }}>
-                  <span style={{ fontSize: '11px', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', fontWeight: 600 }}>
-                    Jump to Room:
+                  <span style={{ fontSize: '10.5px', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', fontWeight: 600 }}>
+                    Rooms:
                   </span>
                   {property.virtualTour360.rooms.map((room, idx) => (
                     <button
@@ -354,9 +389,9 @@ export default function PropertyDetailModal({
                         background: 'var(--bg-secondary)',
                         border: '1px solid var(--border-subtle)',
                         color: 'var(--accent-primary)',
-                        padding: '4px 12px',
+                        padding: '3px 9px',
                         borderRadius: 'var(--radius-full)',
-                        fontSize: '11px',
+                        fontSize: '10.5px',
                         fontWeight: 600,
                         cursor: 'pointer'
                       }}
@@ -375,28 +410,28 @@ export default function PropertyDetailModal({
               background: 'var(--bg-secondary)',
               borderRadius: 'var(--radius-md)',
               border: '1px solid var(--border-subtle)',
-              padding: '20px',
+              padding: isMobile ? '14px' : '20px',
               textAlign: 'center'
             }}>
-              <h4 style={{ color: 'var(--text-primary)', fontSize: '16px', marginBottom: '6px', fontWeight: 800 }}>
+              <h4 style={{ color: 'var(--text-primary)', fontSize: isMobile ? '14px' : '16px', marginBottom: '4px', fontWeight: 800 }}>
                 Master Floor Plan Architectural Layout
               </h4>
-              <p style={{ fontSize: '12px', color: 'var(--text-muted)', marginBottom: '16px' }}>
-                Super Built-up: {property.areaSqFt} sq.ft | Carpet Area: {property.carpetAreaSqFt} sq.ft | Ceiling Height: 12.5 ft
+              <p style={{ fontSize: isMobile ? '11px' : '12px', color: 'var(--text-muted)', marginBottom: '12px' }}>
+                Super Built-up: {property.areaSqFt} sq.ft | Carpet Area: {property.carpetAreaSqFt} sq.ft
               </p>
               <div style={{
-                maxHeight: '340px',
+                maxHeight: isMobile ? '240px' : '340px',
                 display: 'flex',
                 justifyContent: 'center',
                 background: '#ffffff',
                 borderRadius: '8px',
-                padding: '12px',
+                padding: '10px',
                 border: '1px solid var(--border-subtle)'
               }}>
                 <img
                   src={property.floorPlanUrl}
                   alt="Architectural Blueprint"
-                  style={{ maxHeight: '310px', objectFit: 'contain' }}
+                  style={{ maxHeight: isMobile ? '220px' : '310px', maxWidth: '100%', objectFit: 'contain' }}
                 />
               </div>
             </div>
@@ -408,16 +443,20 @@ export default function PropertyDetailModal({
               background: 'var(--bg-secondary)',
               borderRadius: 'var(--radius-md)',
               border: '1px solid var(--border-subtle)',
-              padding: '24px'
+              padding: isMobile ? '16px' : '24px'
             }}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
+              <div style={{ 
+                display: 'grid', 
+                gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', 
+                gap: isMobile ? '16px' : '24px' 
+              }}>
                 <div>
-                  <h4 style={{ color: 'var(--text-primary)', fontSize: '15px', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 800 }}>
-                    <Calculator size={16} color="var(--accent-primary)" />
-                    Customize Home Loan Parameters
+                  <h4 style={{ color: 'var(--text-primary)', fontSize: '14px', marginBottom: '14px', display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 800 }}>
+                    <Calculator size={15} color="var(--accent-primary)" />
+                    Customize Loan Parameters
                   </h4>
 
-                  <div style={{ marginBottom: '18px' }}>
+                  <div style={{ marginBottom: '14px' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px', marginBottom: '6px' }}>
                       <span style={{ color: 'var(--text-secondary)', fontWeight: 600 }}>Down Payment: {downpaymentPercent}%</span>
                       <span style={{ color: 'var(--accent-primary)', fontWeight: 800 }}>{formatCurrency(downpaymentAmount)}</span>
@@ -433,7 +472,7 @@ export default function PropertyDetailModal({
                     />
                   </div>
 
-                  <div style={{ marginBottom: '18px' }}>
+                  <div style={{ marginBottom: '14px' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px', marginBottom: '6px' }}>
                       <span style={{ color: 'var(--text-secondary)', fontWeight: 600 }}>Loan Tenure</span>
                       <span style={{ color: 'var(--accent-primary)', fontWeight: 800 }}>{loanTenureYears} Years</span>
@@ -450,7 +489,7 @@ export default function PropertyDetailModal({
                   </div>
 
                   <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>
-                    Interest rate benchmarked at 8.50% p.a. Special luxury portfolio rate discounts applicable.
+                    Benchmark interest: 8.50% p.a. Special luxury rates apply.
                   </div>
                 </div>
 
@@ -459,45 +498,46 @@ export default function PropertyDetailModal({
                   background: '#ffffff',
                   border: '1px solid var(--border-subtle)',
                   borderRadius: 'var(--radius-md)',
-                  padding: '20px',
+                  padding: isMobile ? '16px' : '20px',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
-                  boxShadow: 'var(--shadow-sm)'
+                  boxShadow: 'var(--shadow-sm)',
+                  gap: '14px'
                 }}>
                   <div>
-                    <div style={{ fontSize: '12px', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>
+                    <div style={{ fontSize: '11px', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>
                       Estimated Monthly EMI
                     </div>
                     <div style={{
                       fontFamily: 'var(--font-display)',
-                      fontSize: '32px',
+                      fontSize: isMobile ? '26px' : '32px',
                       fontWeight: 800,
                       color: 'var(--accent-primary)',
                       marginTop: '4px'
                     }}>
                       {formatCurrency(monthlyEMI)}
-                      <span style={{ fontSize: '14px', fontWeight: 500, color: 'var(--text-muted)' }}> /mo</span>
+                      <span style={{ fontSize: '13px', fontWeight: 500, color: 'var(--text-muted)' }}> /mo</span>
                     </div>
                   </div>
 
                   <div style={{
                     borderTop: '1px solid var(--border-subtle)',
-                    paddingTop: '14px',
+                    paddingTop: '12px',
                     display: 'grid',
                     gridTemplateColumns: '1fr 1fr',
-                    gap: '12px'
+                    gap: '10px'
                   }}>
                     <div>
-                      <div style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600 }}>Gross Rental Yield</div>
-                      <div style={{ fontSize: '16px', fontWeight: 800, color: 'var(--accent-emerald)' }}>
+                      <div style={{ fontSize: '10.5px', color: 'var(--text-muted)', fontWeight: 600 }}>Gross Rental Yield</div>
+                      <div style={{ fontSize: '15px', fontWeight: 800, color: 'var(--accent-emerald)' }}>
                         {property.financials.grossRentalYield}
                       </div>
                     </div>
 
                     <div>
-                      <div style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600 }}>5-Yr Capital Gain Est.</div>
-                      <div style={{ fontSize: '16px', fontWeight: 800, color: '#2563eb' }}>
+                      <div style={{ fontSize: '10.5px', color: 'var(--text-muted)', fontWeight: 600 }}>5-Yr Capital Gain Est.</div>
+                      <div style={{ fontSize: '15px', fontWeight: 800, color: '#2563eb' }}>
                         {property.financials.projectedCapitalAppreciation5Yr}
                       </div>
                     </div>
@@ -509,72 +549,92 @@ export default function PropertyDetailModal({
         </div>
 
         {/* Detailed Property Specs */}
-        <div style={{ padding: '24px' }}>
-          <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '20px', marginBottom: '16px' }}>
+        <div style={{ padding: isMobile ? '16px 14px' : '24px' }}>
+          {/* Title and Price - Stacks cleanly on mobile */}
+          <div style={{ 
+            display: 'flex', 
+            flexDirection: isMobile ? 'column' : 'row',
+            alignItems: isMobile ? 'flex-start' : 'flex-start', 
+            justifyContent: 'space-between', 
+            gap: isMobile ? '10px' : '20px', 
+            marginBottom: '16px' 
+          }}>
             <div>
-              <h2 style={{ fontSize: '24px', fontWeight: 800, color: 'var(--text-primary)', lineHeight: 1.2, marginBottom: '6px' }}>
+              <h2 style={{ 
+                fontSize: isMobile ? '18px' : '24px', 
+                fontWeight: 800, 
+                color: 'var(--text-primary)', 
+                lineHeight: 1.25, 
+                marginBottom: '4px' 
+              }}>
                 {property.title}
               </h2>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-secondary)', fontSize: '13px' }}>
-                <MapPin size={14} color="#2563eb" />
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-secondary)', fontSize: '12px' }}>
+                <MapPin size={13} color="#2563eb" />
                 {property.location.address}
               </div>
             </div>
 
-            <div style={{ textAlign: 'right' }}>
+            <div style={{ textAlign: isMobile ? 'left' : 'right' }}>
               <div style={{
                 fontFamily: 'var(--font-display)',
-                fontSize: '28px',
+                fontSize: isMobile ? '22px' : '28px',
                 fontWeight: 800,
                 color: 'var(--accent-primary)'
               }}>
                 {property.priceFormatted}
               </div>
-              <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>
+              <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>
                 {property.pricePerSqFt}
               </div>
             </div>
           </div>
 
-          {/* Quick Attribute Pills */}
+          {/* Quick Attribute Pills - Responsive Grid */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
-            gap: '12px',
-            marginBottom: '24px'
+            gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(auto-fit, minmax(130px, 1fr))',
+            gap: isMobile ? '8px' : '12px',
+            marginBottom: '20px'
           }}>
             <div style={{ background: 'var(--bg-secondary)', border: '1px solid var(--border-subtle)', borderRadius: '10px', padding: '10px' }}>
-              <div style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600 }}>Bedrooms</div>
-              <div style={{ fontSize: '14px', fontWeight: 800, color: 'var(--text-primary)', marginTop: '2px' }}>{property.bhk} BHK Luxury</div>
+              <div style={{ fontSize: '10.5px', color: 'var(--text-muted)', fontWeight: 600 }}>Bedrooms</div>
+              <div style={{ fontSize: '13px', fontWeight: 800, color: 'var(--text-primary)', marginTop: '2px' }}>{property.bhk} BHK Luxury</div>
             </div>
 
             <div style={{ background: 'var(--bg-secondary)', border: '1px solid var(--border-subtle)', borderRadius: '10px', padding: '10px' }}>
-              <div style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600 }}>Carpet Area</div>
-              <div style={{ fontSize: '14px', fontWeight: 800, color: 'var(--text-primary)', marginTop: '2px' }}>{property.carpetAreaSqFt} sq.ft</div>
+              <div style={{ fontSize: '10.5px', color: 'var(--text-muted)', fontWeight: 600 }}>Carpet Area</div>
+              <div style={{ fontSize: '13px', fontWeight: 800, color: 'var(--text-primary)', marginTop: '2px' }}>{property.carpetAreaSqFt} sq.ft</div>
             </div>
 
             <div style={{ background: 'var(--bg-secondary)', border: '1px solid var(--border-subtle)', borderRadius: '10px', padding: '10px' }}>
-              <div style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600 }}>Facing</div>
-              <div style={{ fontSize: '14px', fontWeight: 800, color: 'var(--text-primary)', marginTop: '2px' }}>{property.facing}</div>
+              <div style={{ fontSize: '10.5px', color: 'var(--text-muted)', fontWeight: 600 }}>Facing</div>
+              <div style={{ fontSize: '13px', fontWeight: 800, color: 'var(--text-primary)', marginTop: '2px' }}>{property.facing}</div>
             </div>
 
             <div style={{ background: 'var(--bg-secondary)', border: '1px solid var(--border-subtle)', borderRadius: '10px', padding: '10px' }}>
-              <div style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600 }}>Floor Level</div>
-              <div style={{ fontSize: '14px', fontWeight: 800, color: 'var(--text-primary)', marginTop: '2px' }}>{property.floor}</div>
+              <div style={{ fontSize: '10.5px', color: 'var(--text-muted)', fontWeight: 600 }}>Floor Level</div>
+              <div style={{ fontSize: '13px', fontWeight: 800, color: 'var(--text-primary)', marginTop: '2px' }}>{property.floor}</div>
             </div>
 
-            <div style={{ background: 'var(--bg-secondary)', border: '1px solid var(--border-subtle)', borderRadius: '10px', padding: '10px' }}>
-              <div style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600 }}>Possession</div>
-              <div style={{ fontSize: '14px', fontWeight: 800, color: 'var(--text-primary)', marginTop: '2px' }}>{property.possession}</div>
+            <div style={{ 
+              background: 'var(--bg-secondary)', 
+              border: '1px solid var(--border-subtle)', 
+              borderRadius: '10px', 
+              padding: '10px',
+              gridColumn: isMobile ? 'span 2' : 'auto'
+            }}>
+              <div style={{ fontSize: '10.5px', color: 'var(--text-muted)', fontWeight: 600 }}>Possession Status</div>
+              <div style={{ fontSize: '13px', fontWeight: 800, color: 'var(--text-primary)', marginTop: '2px' }}>{property.possession}</div>
             </div>
           </div>
 
           {/* Amenities Grid */}
-          <div style={{ marginBottom: '24px' }}>
-            <h4 style={{ color: 'var(--text-primary)', fontSize: '15px', fontWeight: 700, marginBottom: '12px' }}>
+          <div style={{ marginBottom: '20px' }}>
+            <h4 style={{ color: 'var(--text-primary)', fontSize: '14px', fontWeight: 700, marginBottom: '10px' }}>
               Signature Amenities & Lifestyle Privileges
             </h4>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
               {property.amenities.map((amenity) => (
                 <span
                   key={amenity}
@@ -582,16 +642,16 @@ export default function PropertyDetailModal({
                     background: 'var(--bg-secondary)',
                     border: '1px solid var(--border-subtle)',
                     color: 'var(--text-primary)',
-                    padding: '6px 14px',
+                    padding: '5px 12px',
                     borderRadius: 'var(--radius-full)',
-                    fontSize: '12px',
+                    fontSize: '11px',
                     fontWeight: 600,
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '6px'
+                    gap: '5px'
                   }}
                 >
-                  <Sparkles size={12} color="#2563eb" />
+                  <Sparkles size={11} color="#2563eb" />
                   {amenity}
                 </span>
               ))}
@@ -603,55 +663,61 @@ export default function PropertyDetailModal({
             background: 'var(--bg-secondary)',
             border: '1px solid var(--border-subtle)',
             borderRadius: 'var(--radius-md)',
-            padding: '16px 20px',
+            padding: isMobile ? '12px' : '16px 20px',
             display: 'flex',
-            alignItems: 'center',
+            flexDirection: isMobile ? 'column' : 'row',
+            alignItems: isMobile ? 'stretch' : 'center',
             justifyContent: 'space-between',
-            gap: '16px',
-            flexWrap: 'wrap'
+            gap: isMobile ? '12px' : '16px'
           }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
               <img
                 src={property.relationshipManager.photo}
                 alt={property.relationshipManager.name}
                 style={{
-                  width: '52px',
-                  height: '52px',
+                  width: '46px',
+                  height: '46px',
                   borderRadius: '50%',
                   objectFit: 'cover',
-                  border: '2px solid var(--accent-primary)'
+                  border: '2px solid var(--accent-primary)',
+                  flexShrink: 0
                 }}
               />
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <span style={{ fontSize: '15px', fontWeight: 800, color: 'var(--text-primary)' }}>
+                  <span style={{ fontSize: '14px', fontWeight: 800, color: 'var(--text-primary)' }}>
                     {property.relationshipManager.name}
                   </span>
                   <span style={{
-                    fontSize: '10px',
+                    fontSize: '9.5px',
                     background: '#e0e7ff',
                     color: '#3730a3',
-                    padding: '2px 6px',
+                    padding: '1px 5px',
                     borderRadius: '4px',
                     fontWeight: 700
                   }}>
                     ★ {property.relationshipManager.rating}
                   </span>
                 </div>
-                <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>
+                <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>
                   {property.relationshipManager.role}
                 </div>
               </div>
             </div>
 
-            <div style={{ display: 'flex', gap: '10px' }}>
+            <div style={{ display: 'flex', gap: '8px', width: isMobile ? '100%' : 'auto' }}>
               <button
                 onClick={handleShareWhatsApp}
                 className="btn-whatsapp"
-                style={{ fontSize: '12px', padding: '9px 16px' }}
+                style={{ 
+                  flex: isMobile ? 1 : 'initial',
+                  justifyContent: 'center',
+                  fontSize: '11.5px', 
+                  padding: '8px 14px' 
+                }}
               >
-                <MessageCircle size={15} />
-                WhatsApp Advisor
+                <MessageCircle size={14} />
+                WhatsApp
               </button>
 
               <button
@@ -661,10 +727,15 @@ export default function PropertyDetailModal({
                   onOpenCallback(property);
                 }}
                 className="btn-primary"
-                style={{ fontSize: '13px', padding: '9px 18px' }}
+                style={{ 
+                  flex: isMobile ? 1 : 'initial',
+                  justifyContent: 'center',
+                  fontSize: '11.5px', 
+                  padding: '8px 16px' 
+                }}
               >
-                <PhoneCall size={15} />
-                Get a Call Back
+                <PhoneCall size={14} />
+                Call Back
               </button>
             </div>
           </div>
