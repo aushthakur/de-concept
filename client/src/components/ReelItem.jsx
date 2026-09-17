@@ -602,12 +602,12 @@ export default function ReelItem({
 
         <div className="reel-gradient-overlay" />
 
-        {/* Top Badges: Location & Verification (Positioned safely below logo + search bar) */}
+        {/* Top Badges: Location & Verification (Positioned safely below search bar) */}
         <div style={{
           position: 'absolute',
-          top: '86px',
-          left: '14px',
-          right: '14px',
+          top: '60px',
+          left: '16px',
+          right: '16px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',

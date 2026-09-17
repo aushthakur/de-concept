@@ -1,16 +1,16 @@
 import React from 'react';
 
-export default function OyeLogo({ isMobile = false, isDark = false }) {
+export default function OyeLogo({ isMobile = false }) {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: isMobile ? '8px' : '12px', userSelect: 'none' }}>
       {/* Luxury Architectural Geometric Emblem */}
       <svg
-        width={isMobile ? '32' : '40'}
-        height={isMobile ? '32' : '40'}
+        width={isMobile ? '34' : '40'}
+        height={isMobile ? '34' : '40'}
         viewBox="0 0 100 100"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        style={{ flexShrink: 0, filter: isDark ? 'drop-shadow(0 2px 8px rgba(0, 0, 0, 0.6))' : 'drop-shadow(0 4px 10px rgba(11, 28, 61, 0.18))' }}
+        style={{ flexShrink: 0, filter: 'drop-shadow(0 4px 10px rgba(11, 28, 61, 0.18))' }}
       >
         <defs>
           <linearGradient id="oyeNavyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -67,33 +67,30 @@ export default function OyeLogo({ isMobile = false, isDark = false }) {
         }}>
           <span style={{
             fontFamily: 'var(--font-display)',
-            fontSize: isMobile ? '16px' : '22px',
+            fontSize: isMobile ? '18px' : '22px',
             fontWeight: 900,
-            color: isDark ? '#ffffff' : 'var(--accent-primary)',
-            letterSpacing: '-0.03em',
-            textShadow: isDark ? '0 1px 6px rgba(0,0,0,0.8)' : 'none'
+            color: 'var(--accent-primary)',
+            letterSpacing: '-0.03em'
           }}>
             Oye
           </span>
           <span style={{
             fontFamily: 'var(--font-display)',
-            fontSize: isMobile ? '16px' : '22px',
+            fontSize: isMobile ? '18px' : '22px',
             fontWeight: 700,
-            color: isDark ? '#60a5fa' : '#2563eb',
-            letterSpacing: '-0.02em',
-            textShadow: isDark ? '0 1px 6px rgba(0,0,0,0.8)' : 'none'
+            color: '#2563eb',
+            letterSpacing: '-0.02em'
           }}>
             Properties
           </span>
         </div>
         <div style={{
-          fontSize: isMobile ? '7.5px' : '9px',
+          fontSize: isMobile ? '8px' : '9px',
           fontWeight: 800,
-          color: isDark ? 'rgba(255, 255, 255, 0.8)' : 'var(--text-muted)',
+          color: 'var(--text-muted)',
           letterSpacing: '0.18em',
           textTransform: 'uppercase',
-          marginTop: '2px',
-          textShadow: isDark ? '0 1px 4px rgba(0,0,0,0.8)' : 'none'
+          marginTop: '2px'
         }}>
           Real Estate Portal
         </div>

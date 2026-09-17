@@ -625,11 +625,13 @@ html, body {
     display: none !important;
   }
   .navbar-header {
-    display: none !important;
+    height: 58px;
+    padding: 0 12px !important;
+    display: flex !important;
   }
   .reels-wrapper {
-    height: calc(100vh - 64px);
-    height: calc(100dvh - 64px); /* Full viewport minus mobile bottom navigation */
+    height: calc(100vh - 58px - 64px);
+    height: calc(100dvh - 58px - 64px); /* Viewport minus mobile top navbar (58px) and mobile bottom navigation (64px) */
   }
   .reel-actions-column {
     bottom: 14px;
@@ -641,8 +643,11 @@ html, body {
     align-items: flex-end !important;
     padding: 0 !important;
   }
-  .mobile-brand-header-grid {
-    display: flex !important;
+  .modal-box {
+    max-height: 88dvh !important;
+    border-radius: 24px 24px 0 0 !important;
+    padding: 20px 16px !important;
+    width: 100% !important;
   }
   /* Catalogue page bottom safe area above mobile nav */
   .catalogue-page-wrapper {

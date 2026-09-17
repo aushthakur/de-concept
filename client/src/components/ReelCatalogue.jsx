@@ -7,11 +7,10 @@ import {
   Search, 
   X, 
   LayoutGrid, 
-  Compass, 
+  Compass,
   ArrowRight
 } from 'lucide-react';
 import ReelItem from './ReelItem';
-import OyeLogo from './OyeLogo';
 
 export default function ReelCatalogue({
   reels,
@@ -219,89 +218,39 @@ export default function ReelCatalogue({
 
   return (
     <div className="reels-wrapper">
-      {/* Floating Header on Mobile: Brand Logo + Transparent Glass Search Bar */}
+      {/* Floating Transparent Glass Search Bar */}
       <div 
         className="instants-floating-search-wrap"
         style={{
           position: 'absolute',
-          top: isMobile ? '10px' : '20px',
-          left: isMobile ? '12px' : 'calc(480px + 32px)',
-          right: isMobile ? '12px' : 'auto',
-          transform: 'none',
+          top: isMobile ? '12px' : '20px',
+          left: isMobile ? '50%' : 'calc(480px + 32px)',
+          transform: isMobile ? 'translateX(-50%)' : 'none',
           zIndex: 35,
-          width: isMobile ? 'auto' : '440px',
-          maxWidth: isMobile ? '100%' : '520px',
-          pointerEvents: 'auto',
-          display: 'flex',
-          flexDirection: isMobile ? 'column' : 'row',
-          gap: isMobile ? '8px' : '0'
+          width: isMobile ? 'calc(100% - 32px)' : '440px',
+          maxWidth: '520px',
+          pointerEvents: 'auto'
         }}
       >
-        {/* Mobile Oye Properties Logo Header */}
-        {isMobile && (
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            padding: '2px 4px'
-          }}>
-            <div style={{
-              background: 'rgba(11, 28, 61, 0.65)',
-              backdropFilter: 'blur(16px)',
-              WebkitBackdropFilter: 'blur(16px)',
-              border: '1px solid rgba(255, 255, 255, 0.2)',
-              borderRadius: 'var(--radius-full)',
-              padding: '4px 12px 4px 6px',
-              boxShadow: '0 4px 16px rgba(0,0,0,0.35)',
-              display: 'inline-flex',
-              alignItems: 'center'
-            }}>
-              <OyeLogo isMobile={true} isDark={true} />
-            </div>
-
-            {/* Instants Badge Indicator */}
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '4px',
-              background: 'rgba(37, 99, 235, 0.75)',
-              backdropFilter: 'blur(12px)',
-              WebkitBackdropFilter: 'blur(12px)',
-              border: '1px solid rgba(147, 197, 253, 0.4)',
-              borderRadius: 'var(--radius-full)',
-              padding: '4px 10px',
-              fontSize: '10px',
-              fontWeight: 800,
-              color: '#ffffff',
-              letterSpacing: '0.08em',
-              textTransform: 'uppercase',
-              boxShadow: '0 4px 12px rgba(37, 99, 235, 0.35)'
-            }}>
-              <Sparkles size={11} color="#fde047" />
-              <span>Instants</span>
-            </div>
-          </div>
-        )}
-
         <div 
           className="instants-transparent-search-bar"
           style={{
             display: 'flex',
             alignItems: 'center',
-            background: isMobile ? 'rgba(15, 23, 42, 0.55)' : 'rgba(255, 255, 255, 0.4)',
+            background: isMobile ? 'rgba(15, 23, 42, 0.45)' : 'rgba(255, 255, 255, 0.4)',
             backdropFilter: 'blur(24px)',
             WebkitBackdropFilter: 'blur(24px)',
             border: isMobile ? '1px solid rgba(255, 255, 255, 0.25)' : '1px solid rgba(255, 255, 255, 0.65)',
             borderRadius: 'var(--radius-full)',
-            padding: isMobile ? '4px 12px' : '5px 14px',
+            padding: '5px 14px',
             boxShadow: '0 8px 32px rgba(0, 0, 0, 0.16)',
             transition: 'all 0.25s ease'
           }}
         >
           <Search 
-            size={15} 
+            size={16} 
             color={isMobile ? 'rgba(255, 255, 255, 0.85)' : 'var(--accent-primary)'} 
-            style={{ flexShrink: 0, marginRight: '8px' }} 
+            style={{ flexShrink: 0, marginRight: '10px' }} 
           />
           <input
             id="input-instants-area-search"
@@ -314,10 +263,10 @@ export default function ReelCatalogue({
               background: 'transparent',
               border: 'none',
               outline: 'none',
-              fontSize: isMobile ? '12.5px' : '13.5px',
+              fontSize: isMobile ? '13px' : '13.5px',
               fontWeight: 600,
               color: isMobile ? '#ffffff' : 'var(--text-primary)',
-              padding: isMobile ? '4px 0' : '6px 0',
+              padding: '6px 0',
             }}
           />
           {searchQuery && (
@@ -328,8 +277,8 @@ export default function ReelCatalogue({
                 border: 'none',
                 color: '#ffffff',
                 borderRadius: '50%',
-                width: '18px',
-                height: '18px',
+                width: '20px',
+                height: '20px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -339,7 +288,7 @@ export default function ReelCatalogue({
               }}
               title="Clear search"
             >
-              <X size={11} />
+              <X size={12} />
             </button>
           )}
         </div>

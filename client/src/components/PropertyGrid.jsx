@@ -2,7 +2,6 @@ import React from 'react';
 import PropertyCard from './PropertyCard';
 import FilterBar from './FilterBar';
 import { Building2 } from 'lucide-react';
-import OyeLogo from './OyeLogo';
 
 export default function PropertyGrid({
   properties,
@@ -19,11 +18,6 @@ export default function PropertyGrid({
 }) {
   return (
     <div style={{ maxWidth: '1400px', margin: '0 auto', padding: 'clamp(12px, 4vw, 24px) clamp(12px, 4vw, 20px) 100px' }}>
-      {/* Mobile Branding Bar */}
-      <div className="mobile-brand-header-grid" style={{ marginBottom: '14px', display: 'none' }}>
-        <OyeLogo isMobile={true} />
-      </div>
-
       {/* Title & Introduction Banner */}
       <div style={{ marginBottom: '20px' }}>
         <h1 style={{
