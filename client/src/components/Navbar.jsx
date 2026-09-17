@@ -322,7 +322,7 @@ export default function Navbar({
       </div>
 
       {/* Right: Actions Cluster (Zero Overflow on Mobile) */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexShrink: 0 }}>
         {/* Search Icon Button (Opens Search Modal) */}
         <button
           id="btn-navbar-search"
@@ -344,7 +344,7 @@ export default function Navbar({
           }}
           title="Search Properties, Vibes & Locations"
         >
-          <Search size={16} />
+          <Search size={15} />
         </button>
 
         {/* Mobile-Only Compact City Switcher Badge */}
@@ -355,7 +355,8 @@ export default function Navbar({
             background: 'var(--bg-secondary)',
             border: '1px solid var(--border-subtle)',
             borderRadius: 'var(--radius-full)',
-            padding: '5px 10px',
+            height: '34px',
+            padding: '0 10px',
             display: 'flex',
             alignItems: 'center',
             gap: '4px',
@@ -363,12 +364,14 @@ export default function Navbar({
             fontWeight: 700,
             color: 'var(--accent-primary)',
             cursor: 'pointer',
-            whiteSpace: 'nowrap'
+            whiteSpace: 'nowrap',
+            flexShrink: 0,
+            boxSizing: 'border-box'
           }}
           title="Change City"
         >
           <MapPin size={12} color="#2563eb" />
-          <span style={{ maxWidth: '75px', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+          <span style={{ maxWidth: '65px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
             {currentCity === 'all' ? 'All Cities' : currentCity || 'Mumbai'}
           </span>
         </button>
@@ -377,7 +380,18 @@ export default function Navbar({
         <button
           onClick={handleShareWhatsApp}
           className="btn-whatsapp"
-          style={{ fontSize: '12px', padding: '7px 12px' }}
+          style={{ 
+            height: '34px', 
+            padding: '0 10px', 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'center',
+            gap: '4px',
+            fontSize: '12px',
+            borderRadius: 'var(--radius-full)',
+            boxSizing: 'border-box',
+            flexShrink: 0
+          }}
           title="Share Portal on WhatsApp"
         >
           <Share2 size={13} />

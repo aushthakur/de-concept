@@ -55,7 +55,7 @@ export default function AIVibeSearchBar({
           maxWidth: '740px',
           maxHeight: '90vh',
           overflowY: 'auto',
-          padding: '28px',
+          padding: '24px 20px',
           position: 'relative',
           background: '#ffffff',
           border: '1px solid var(--border-subtle)',
@@ -64,26 +64,27 @@ export default function AIVibeSearchBar({
         }}
       >
         {/* Header */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
+        <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: '18px', gap: '12px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             <div style={{
-              width: '40px',
-              height: '40px',
+              width: '38px',
+              height: '38px',
               borderRadius: '12px',
               background: 'linear-gradient(135deg, #0b1c3d 0%, #1e3a8a 100%)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              boxShadow: '0 4px 12px rgba(11, 28, 61, 0.2)'
+              boxShadow: '0 4px 12px rgba(11, 28, 61, 0.2)',
+              flexShrink: 0
             }}>
-              <Sparkles size={20} color="#ffffff" />
+              <Sparkles size={18} color="#ffffff" />
             </div>
             <div>
-              <h3 style={{ fontSize: '20px', fontWeight: 800, color: 'var(--text-primary)' }}>
+              <h3 style={{ fontSize: '18px', fontWeight: 800, color: 'var(--text-primary)', lineHeight: 1.2 }}>
                 AI Vibe & Architectural Matchmaker
               </h3>
-              <p style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>
-                Describe your dream lifestyle, architectural taste, or preferred aesthetic in plain words
+              <p style={{ fontSize: '12px', color: 'var(--text-secondary)', marginTop: '2px' }}>
+                Search residences by locality, builder, price, or lifestyle vibe
               </p>
             </div>
           </div>
@@ -100,8 +101,10 @@ export default function AIVibeSearchBar({
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'center'
+              justifyContent: 'center',
+              flexShrink: 0
             }}
+            title="Close"
           >
             <X size={16} />
           </button>
@@ -114,44 +117,69 @@ export default function AIVibeSearchBar({
             background: 'var(--bg-secondary)',
             border: '1.5px solid var(--border-subtle)',
             borderRadius: 'var(--radius-full)',
-            padding: '5px',
+            padding: '4px 6px 4px 12px',
             display: 'flex',
             alignItems: 'center',
+            gap: '8px',
             boxShadow: 'inset 0 1px 3px rgba(0,0,0,0.03)'
           }}>
-            <Search size={18} color="var(--text-muted)" style={{ marginLeft: '14px', marginRight: '8px' }} />
+            <Search size={16} color="var(--text-muted)" style={{ flexShrink: 0 }} />
             <input
               id="ai-prompt-input"
               type="text"
-              placeholder="e.g. Find me an oceanfront residence with sunset terrace under 25 Cr..."
+              placeholder="e.g. Sea facing penthouse in Mumbai under 25 Cr..."
               value={prompt}
               onChange={e => setPrompt(e.target.value)}
               style={{
                 flex: 1,
+                minWidth: 0,
                 background: 'transparent',
                 border: 'none',
                 color: 'var(--text-primary)',
-                fontSize: '14px',
+                fontSize: '13.5px',
                 outline: 'none',
-                padding: '10px 0'
+                padding: '8px 0'
               }}
             />
+            {prompt && (
+              <button
+                type="button"
+                onClick={() => setPrompt('')}
+                style={{
+                  background: 'transparent',
+                  border: 'none',
+                  color: 'var(--text-muted)',
+                  cursor: 'pointer',
+                  padding: '4px',
+                  display: 'flex',
+                  alignItems: 'center'
+                }}
+              >
+                <X size={14} />
+              </button>
+            )}
             <button
               id="btn-ai-search-submit"
               type="submit"
               disabled={loading}
               className="btn-primary"
-              style={{ padding: '8px 20px', fontSize: '13px' }}
+              style={{ 
+                padding: '8px 16px', 
+                fontSize: '12.5px', 
+                borderRadius: 'var(--radius-full)',
+                whiteSpace: 'nowrap',
+                flexShrink: 0 
+              }}
             >
-              {loading ? 'Analyzing...' : 'Search Vibes'}
+              {loading ? 'Searching...' : 'Search'}
             </button>
           </div>
         </form>
 
         {/* Suggested Quick Prompts */}
-        <div style={{ marginBottom: '24px' }}>
-          <div style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, textTransform: 'uppercase', marginBottom: '8px' }}>
-            Try one of these curated lifestyles:
+        <div style={{ marginBottom: '20px' }}>
+          <div style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase', marginBottom: '8px', letterSpacing: '0.04em' }}>
+            Popular Lifestyles & Areas:
           </div>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
             {EXAMPLE_PROMPTS.map((ex, i) => (
@@ -163,9 +191,9 @@ export default function AIVibeSearchBar({
                   background: 'var(--bg-secondary)',
                   border: '1px solid var(--border-subtle)',
                   borderRadius: 'var(--radius-full)',
-                  padding: '6px 12px',
+                  padding: '5px 11px',
                   color: 'var(--text-secondary)',
-                  fontSize: '12px',
+                  fontSize: '11.5px',
                   fontWeight: 500,
                   cursor: 'pointer',
                   transition: 'all 0.2s ease',
@@ -192,15 +220,15 @@ export default function AIVibeSearchBar({
         {searched && (
           <div>
             <div style={{ fontSize: '13px', color: 'var(--text-secondary)', fontWeight: 700, marginBottom: '12px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <span>AI Matches Found ({results.length})</span>
+              <span>Matches Found ({results.length})</span>
             </div>
 
             {results.length === 0 ? (
-              <div style={{ textAlign: 'center', padding: '30px', color: 'var(--text-muted)' }}>
-                No direct vibe match. Try searching with terms like "penthouse", "sea view", "golf", or "pool".
+              <div style={{ textAlign: 'center', padding: '24px 12px', color: 'var(--text-muted)', fontSize: '13px' }}>
+                No direct match found. Try searching with terms like "penthouse", "sea view", "Worli", "Bandra", or "pool".
               </div>
             ) : (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                 {results.map(res => (
                   <div
                     key={res.id}
@@ -208,33 +236,34 @@ export default function AIVibeSearchBar({
                       background: '#f8fafc',
                       border: '1px solid var(--border-subtle)',
                       borderRadius: 'var(--radius-md)',
-                      padding: '14px',
+                      padding: '12px',
                       display: 'flex',
+                      flexWrap: 'wrap',
                       alignItems: 'center',
-                      gap: '14px',
+                      gap: '12px',
                       transition: 'all 0.2s ease'
                     }}
                   >
                     <img
                       src={res.images[0]}
                       alt={res.title}
-                      style={{ width: '90px', height: '90px', borderRadius: '10px', objectFit: 'cover' }}
+                      style={{ width: '74px', height: '74px', borderRadius: '10px', objectFit: 'cover', flexShrink: 0 }}
                     />
-                    <div style={{ flex: 1 }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <span style={{ fontSize: '11px', color: 'var(--accent-primary)', fontWeight: 700 }}>
+                    <div style={{ flex: 1, minWidth: '160px' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                        <span style={{ fontSize: '10.5px', color: 'var(--accent-primary)', fontWeight: 700 }}>
                           {res.propertyType}
                         </span>
-                        <span style={{ fontSize: '11px', color: 'var(--text-muted)' }}>
+                        <span style={{ fontSize: '10.5px', color: 'var(--text-muted)' }}>
                           • {res.location.locality}, {res.location.city}
                         </span>
                       </div>
-                      <h4 style={{ fontSize: '15px', fontWeight: 700, color: 'var(--text-primary)', margin: '3px 0' }}>
+                      <h4 style={{ fontSize: '14px', fontWeight: 700, color: 'var(--text-primary)', margin: '2px 0' }}>
                         {res.title}
                       </h4>
                       <div style={{
                         fontFamily: 'var(--font-display)',
-                        fontSize: '17px',
+                        fontSize: '15px',
                         fontWeight: 800,
                         color: 'var(--accent-primary)'
                       }}>
@@ -243,7 +272,7 @@ export default function AIVibeSearchBar({
 
                       {/* AI Vibe Reasons Tags */}
                       {res.matchReasons && res.matchReasons.length > 0 && (
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px', marginTop: '6px' }}>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px', marginTop: '4px' }}>
                           {res.matchReasons.map((reason, idx) => (
                             <span
                               key={idx}
@@ -251,8 +280,8 @@ export default function AIVibeSearchBar({
                                 background: '#eff6ff',
                                 color: '#1d4ed8',
                                 border: '1px solid #bfdbfe',
-                                fontSize: '10px',
-                                padding: '2px 8px',
+                                fontSize: '9.5px',
+                                padding: '2px 6px',
                                 borderRadius: '4px',
                                 fontWeight: 600
                               }}
@@ -264,7 +293,7 @@ export default function AIVibeSearchBar({
                       )}
                     </div>
 
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                    <div style={{ display: 'flex', gap: '6px', marginLeft: 'auto', flexShrink: 0 }}>
                       {res.reelVideo && (
                         <button
                           onClick={() => {
@@ -272,7 +301,7 @@ export default function AIVibeSearchBar({
                             onWatchReel(res);
                           }}
                           className="btn-secondary"
-                          style={{ fontSize: '11px', padding: '6px 10px' }}
+                          style={{ fontSize: '11px', padding: '6px 10px', height: '32px' }}
                         >
                           <Zap size={13} />
                           Instant
@@ -285,9 +314,9 @@ export default function AIVibeSearchBar({
                           onOpenDetail(res);
                         }}
                         className="btn-primary"
-                        style={{ fontSize: '11px', padding: '6px 12px' }}
+                        style={{ fontSize: '11px', padding: '6px 12px', height: '32px' }}
                       >
-                        Know More
+                        Details
                       </button>
                     </div>
                   </div>
