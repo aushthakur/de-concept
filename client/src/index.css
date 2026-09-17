@@ -641,6 +641,9 @@ html, body {
     align-items: flex-end !important;
     padding: 0 !important;
   }
+  .mobile-brand-header-grid {
+    display: flex !important;
+  }
   /* Catalogue page bottom safe area above mobile nav */
   .catalogue-page-wrapper {
     padding-bottom: 80px;
