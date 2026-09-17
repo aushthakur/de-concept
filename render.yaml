@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: lumiere-real-estate
+    name: oye-properties
     runtime: node
     plan: free
     buildCommand: npm run build

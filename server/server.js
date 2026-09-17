@@ -459,7 +459,7 @@ app.post('/api/properties', (req, res) => {
       reraId: 'VERIFIED-OWNER'
     },
     relationshipManager: {
-      name: ownerInfo?.name || 'LUMIÈRE Advisor Desk',
+      name: ownerInfo?.name || 'Oye Properties Advisor Desk',
       role: ownerInfo?.role || 'Direct Owner Representative',
       phone: ownerInfo?.phone || '+91 98200 14820',
       rating: 5.0,
@@ -545,6 +545,6 @@ if (fs.existsSync(clientDistPath)) {
 }
 
 app.listen(PORT, () => {
-  console.log(`DE-Concept Real Estate API server running on http://localhost:${PORT}`);
+  console.log(`Oye Properties Real Estate API server running on http://localhost:${PORT}`);
 });
 

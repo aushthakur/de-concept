@@ -1,4 +1,4 @@
-# LUMIÈRE — Luxury Real Estate Portal & Reel Catalogue
+# Oye Properties — Luxury Real Estate Portal & Reel Catalogue
 
 > **India & Dubai's Next-Gen Architectural Real Estate Experience**  
 > Browse exclusive luxury estates with high-fidelity video reels, auto-detected GPS location, massive inventory catalogue, and 1-click WhatsApp sharing.
@@ -95,4 +95,4 @@ This repository is pre-configured for seamless deployment on [Render](https://re
 ---
 
 ## 📄 License
-MIT License © 2026 LUMIÈRE Real Estate.
+MIT License © 2026 Oye Properties.

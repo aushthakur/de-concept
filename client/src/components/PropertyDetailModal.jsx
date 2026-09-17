@@ -50,7 +50,7 @@ export default function PropertyDetailModal({
 
   const handleShareWhatsApp = () => {
     const text = encodeURIComponent(
-      `🏡 Check out this luxury residence on LUMIÈRE:\n*${property.title}*\n📍 ${property.location.address}\n💰 Asking: ${property.priceFormatted} (${property.pricePerSqFt})\n✨ Specs: ${property.bhk} BHK • ${property.areaSqFt} sq.ft\n🔗 Explore here: ${window.location.origin}?prop=${property.id}`
+      `🏡 Check out this luxury residence on Oye Properties:\n*${property.title}*\n📍 ${property.location.address}\n💰 Asking: ${property.priceFormatted} (${property.pricePerSqFt})\n✨ Specs: ${property.bhk} BHK • ${property.areaSqFt} sq.ft\n🔗 Explore here: ${window.location.origin}?prop=${property.id}`
     );
     window.open(`https://wa.me/?text=${text}`, '_blank');
   };

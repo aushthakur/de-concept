@@ -40,75 +40,34 @@ export default function Navbar({
 
   const handleShareWhatsApp = () => {
     const text = encodeURIComponent(
-      `🌟 Explore LUMIÈRE — India & Dubai's premier luxury real estate catalogue and vertical video reel portal:\n${window.location.origin}`
+      `🌟 Explore Oye Properties — India & Dubai's premier luxury real estate catalogue and vertical video reel portal:\n${window.location.origin}`
     );
     window.open(`https://wa.me/?text=${text}`, '_blank');
   };
 
   return (
-    <header style={{
-      height: '74px',
-      background: '#ffffff',
-      borderBottom: '1px solid rgba(15, 23, 42, 0.08)',
-      position: 'sticky',
-      top: 0,
-      zIndex: 50,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      padding: '0 24px',
-      boxShadow: '0 2px 14px rgba(11, 28, 61, 0.04)'
-    }}>
-      {/* Left: Brand Logo & Navigation Dropdowns */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+    <header className="navbar-header">
+      {/* Left: Brand Logo & Desktop Dropdowns */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '16px', minWidth: 0 }}>
         {/* Brand Logo */}
         <div 
           onClick={() => setViewMode('reels')}
-          style={{ 
-            display: 'flex', 
-            alignItems: 'center', 
-            gap: '12px', 
-            cursor: 'pointer',
-            userSelect: 'none'
-          }}
+          className="brand-logo-container"
         >
-          <div style={{
-            width: '42px',
-            height: '42px',
-            borderRadius: '12px',
-            background: 'var(--accent-primary)',
-            color: '#ffffff',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            boxShadow: '0 4px 14px rgba(11, 28, 61, 0.3)'
-          }}>
-            <Building2 size={22} color="#ffffff" strokeWidth={2.4} />
+          <div className="brand-logo-icon">
+            <Building2 size={20} color="#ffffff" strokeWidth={2.4} />
           </div>
           <div>
-            <div style={{ 
-              fontFamily: 'var(--font-serif)', 
-              fontSize: '22px', 
-              fontWeight: 800, 
-              letterSpacing: '0.04em',
-              color: 'var(--accent-primary)',
-              lineHeight: 1.1
-            }}>
-              LUMIÈRE
+            <div className="brand-logo-title">
+              Oye Properties
             </div>
-            <div style={{ 
-              fontSize: '9px', 
-              letterSpacing: '0.22em', 
-              color: '#3b82f6', 
-              fontWeight: 800,
-              textTransform: 'uppercase'
-            }}>
+            <div className="brand-logo-subtitle">
               Luxury Real Estate
             </div>
           </div>
         </div>
 
-        {/* Dropdown 1: Explore Menu */}
+        {/* Dropdown 1: Explore Menu (Desktop Only) */}
         <div 
           style={{ position: 'relative' }} 
           className="hidden-mobile"
@@ -180,7 +139,7 @@ export default function Navbar({
           )}
         </div>
 
-        {/* Dropdown 2: Services Menu */}
+        {/* Dropdown 2: Services Menu (Desktop Only) */}
         <div 
           style={{ position: 'relative' }} 
           className="hidden-mobile"
@@ -250,16 +209,19 @@ export default function Navbar({
           )}
         </div>
 
-        {/* Real-time GPS Location Fetcher */}
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '4px',
-          background: 'var(--bg-secondary)',
-          border: '1px solid var(--border-subtle)',
-          borderRadius: 'var(--radius-full)',
-          padding: '4px 6px 4px 12px'
-        }}>
+        {/* Real-time GPS Location Fetcher (Desktop Only) */}
+        <div 
+          className="hidden-mobile"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '4px',
+            background: 'var(--bg-secondary)',
+            border: '1px solid var(--border-subtle)',
+            borderRadius: 'var(--radius-full)',
+            padding: '4px 6px 4px 12px'
+          }}
+        >
           <span style={{
             width: '8px',
             height: '8px',
@@ -308,7 +270,7 @@ export default function Navbar({
         </div>
       </div>
 
-      {/* Center: View Switcher (Reels vs Catalogue) */}
+      {/* Center: View Switcher (Desktop Only) */}
       <div 
         className="hidden-mobile"
         style={{
@@ -368,20 +330,46 @@ export default function Navbar({
         </button>
       </div>
 
-      {/* Right Action Cluster */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+      {/* Right: Actions Cluster (Zero Overflow on Mobile) */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
+        {/* Mobile-Only Compact City Switcher Badge */}
+        <button
+          onClick={onOpenLocationModal}
+          className="hidden-desktop"
+          style={{
+            background: 'var(--bg-secondary)',
+            border: '1px solid var(--border-subtle)',
+            borderRadius: 'var(--radius-full)',
+            padding: '5px 10px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '4px',
+            fontSize: '11px',
+            fontWeight: 700,
+            color: 'var(--accent-primary)',
+            cursor: 'pointer',
+            whiteSpace: 'nowrap'
+          }}
+          title="Change City"
+        >
+          <MapPin size={12} color="#2563eb" />
+          <span style={{ maxWidth: '75px', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+            {currentCity === 'all' ? 'All Cities' : currentCity || 'Mumbai'}
+          </span>
+        </button>
+
         {/* WhatsApp Share Button */}
         <button
           onClick={handleShareWhatsApp}
           className="btn-whatsapp"
-          style={{ fontSize: '12px', padding: '7px 14px' }}
+          style={{ fontSize: '12px', padding: '7px 12px' }}
           title="Share Portal on WhatsApp"
         >
           <Share2 size={13} />
           <span className="hidden-mobile">WhatsApp</span>
         </button>
 
-        {/* AI Vibe Search Trigger */}
+        {/* AI Vibe Search Trigger (Desktop Only) */}
         <button
           id="btn-ai-search-trigger"
           onClick={onOpenAISearch}
@@ -392,10 +380,11 @@ export default function Navbar({
           <span>AI Vibe Search</span>
         </button>
 
-        {/* Wishlist Pill */}
+        {/* Wishlist Pill (Desktop Only — on mobile, it's in bottom bar) */}
         <button
           id="btn-wishlist-trigger"
           onClick={onOpenWishlist}
+          className="hidden-mobile"
           style={{
             background: wishlistCount > 0 ? 'rgba(225, 29, 72, 0.08)' : 'var(--bg-secondary)',
             color: wishlistCount > 0 ? 'var(--accent-rose)' : 'var(--text-secondary)',
@@ -411,23 +400,23 @@ export default function Navbar({
           }}
         >
           <Heart size={14} fill={wishlistCount > 0 ? 'currentColor' : 'none'} />
-          <span className="hidden-mobile">Wishlist</span>
+          <span>Wishlist</span>
           <span>({wishlistCount})</span>
         </button>
 
-        {/* List Property CTA (Bold Dark Blue Button) */}
+        {/* List Property CTA (Desktop Only — on mobile, it's the center + button in bottom bar) */}
         <button
           id="btn-navbar-list-property"
           onClick={onOpenListProperty}
-          className="btn-primary"
+          className="btn-primary hidden-mobile"
           style={{ fontSize: '12px', padding: '8px 16px' }}
         >
           <PlusCircle size={15} />
           <span>List Inventory</span>
         </button>
 
-        {/* Profile / Auth Button & Dropdown */}
-        <div style={{ position: 'relative' }}>
+        {/* Profile / Auth Button (Desktop Only — on mobile, it's in bottom bar) */}
+        <div style={{ position: 'relative' }} className="hidden-mobile">
           {currentUser ? (
             <div>
               <button
@@ -448,7 +437,7 @@ export default function Navbar({
                   alt={currentUser.name}
                   style={{ width: '28px', height: '28px', borderRadius: '50%', objectFit: 'cover' }}
                 />
-                <div style={{ textAlign: 'left' }} className="hidden-mobile">
+                <div style={{ textAlign: 'left' }}>
                   <div style={{ fontSize: '12px', fontWeight: 700, color: 'var(--text-primary)', lineHeight: 1.1 }}>
                     {currentUser.name}
                   </div>

@@ -32,7 +32,7 @@ export default function WishlistDrawer({
   const handleShareWhatsApp = () => {
     const listNames = wishlist.map(w => `• ${w.title} (${w.priceFormatted}) in ${w.location.city}`).join('\n');
     const text = encodeURIComponent(
-      `🏡 My Curated Real Estate Portfolio on LUMIÈRE:\nTotal Value: ${totalFormatted}\n\n${listNames}\n\nExplore live: ${window.location.origin}`
+      `🏡 My Curated Real Estate Portfolio on Oye Properties:\nTotal Value: ${totalFormatted}\n\n${listNames}\n\nExplore live: ${window.location.origin}`
     );
     window.open(`https://wa.me/?text=${text}`, '_blank');
   };

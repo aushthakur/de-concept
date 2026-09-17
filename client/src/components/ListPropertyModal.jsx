@@ -214,7 +214,7 @@ export default function ListPropertyModal({
               Your Luxury Property is Now Live!
             </h3>
             <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginBottom: '24px' }}>
-              Your listing has been published to the LUMIÈRE catalogue & reel feed with an verified owner badge.
+              Your listing has been published to the Oye Properties catalogue & reel feed with a verified owner badge.
             </p>
 
             {/* Preview Card */}

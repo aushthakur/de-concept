@@ -146,7 +146,7 @@ export default function AuthModal({
             <User size={24} />
           </div>
           <h3 style={{ fontSize: '20px', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '4px' }}>
-            {mode === 'register' ? 'Create Owner / Broker Profile' : 'Sign In to LUMIÈRE'}
+            {mode === 'register' ? 'Create Owner / Broker Profile' : 'Sign In to Oye Properties'}
           </h3>
           <p style={{ fontSize: '13px', color: 'var(--text-muted)' }}>
             {mode === 'register'

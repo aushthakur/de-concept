@@ -103,7 +103,7 @@ export default function ReelItem({
   const handleShareWhatsApp = (e) => {
     e?.stopPropagation();
     const text = encodeURIComponent(
-      `🏡 Check out this luxury residence on LUMIÈRE:\n*${property.title}*\n📍 ${property.location.locality}, ${property.location.city}\n💰 Asking: ${property.priceFormatted} (${property.pricePerSqFt})\n✨ Specs: ${property.bhk} BHK • ${property.areaSqFt} sq.ft\n🔗 Explore here: ${window.location.origin}?prop=${property.id}`
+      `🏡 Check out this luxury residence on Oye Properties:\n*${property.title}*\n📍 ${property.location.locality}, ${property.location.city}\n💰 Asking: ${property.priceFormatted} (${property.pricePerSqFt})\n✨ Specs: ${property.bhk} BHK • ${property.areaSqFt} sq.ft\n🔗 Explore here: ${window.location.origin}?prop=${property.id}`
     );
     window.open(`https://wa.me/?text=${text}`, '_blank');
   };
@@ -475,7 +475,7 @@ export default function ReelItem({
             zIndex: 20
           }}>
             <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#f43f5e' }} className="live-pulse" />
-            <span>LUMIÈRE 4K HDR • AERIAL TOUR</span>
+            <span>OYE PROPERTIES 4K HDR • AERIAL TOUR</span>
           </div>
 
           {/* Top Right: Soundwave Toggle & Fullscreen Button */}
