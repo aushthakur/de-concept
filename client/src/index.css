@@ -608,13 +608,22 @@ html, body {
   .hidden-mobile {
     display: none !important;
   }
+  .navbar-header {
+    display: none !important;
+  }
   .reels-wrapper {
-    height: calc(100vh - 128px); /* accounts for top navbar + mobile bottom bar */
+    height: calc(100vh - 64px);
+    height: calc(100dvh - 64px); /* Full viewport minus mobile bottom navigation */
   }
   .reel-actions-column {
-    bottom: 90px;
-    right: 10px;
-    gap: 12px;
+    bottom: 95px;
+    right: 12px;
+    gap: 10px;
+    z-index: 20;
+  }
+  .modal-backdrop {
+    align-items: flex-end !important;
+    padding: 0 !important;
   }
 }
 

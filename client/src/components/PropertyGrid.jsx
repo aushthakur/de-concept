@@ -24,7 +24,7 @@ export default function PropertyGrid({
           fontFamily: 'var(--font-serif)',
           fontSize: '32px',
           fontWeight: 700,
-          color: '#fff',
+          color: 'var(--text-primary)',
           marginBottom: '6px'
         }}>
           Curated Luxury Inventory & Residences
@@ -45,15 +45,15 @@ export default function PropertyGrid({
       {/* Properties Grid */}
       {properties.length === 0 ? (
         <div style={{
-          background: 'rgba(18, 24, 38, 0.5)',
+          background: 'var(--bg-secondary)',
           border: '1px solid var(--border-subtle)',
           borderRadius: 'var(--radius-lg)',
           padding: '60px 20px',
           textAlign: 'center',
           color: 'var(--text-secondary)'
         }}>
-          <Building2 size={42} color="var(--accent-gold)" style={{ margin: '0 auto 16px' }} />
-          <h3 style={{ fontSize: '20px', color: '#fff', marginBottom: '8px' }}>No properties match your current filters</h3>
+          <Building2 size={42} color="var(--accent-primary)" style={{ margin: '0 auto 16px' }} />
+          <h3 style={{ fontSize: '20px', color: 'var(--text-primary)', marginBottom: '8px' }}>No properties match your current filters</h3>
           <p style={{ fontSize: '14px', marginBottom: '20px' }}>Try widening your budget slider or clearing the keyword search.</p>
           <button onClick={onResetFilters} className="btn-primary">
             Clear All Filters

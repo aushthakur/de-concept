@@ -592,66 +592,76 @@ export default function ReelItem({
 
         <div className="reel-gradient-overlay" />
 
-        {/* Top Badges: Location & Verification */}
+        {/* Top Badges: Location & Verification (Positioned safely below search bar) */}
         <div style={{
           position: 'absolute',
-          top: '18px',
-          left: '18px',
-          right: '18px',
+          top: '60px',
+          left: '16px',
+          right: '16px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          zIndex: 10
+          zIndex: 10,
+          pointerEvents: 'none'
         }}>
           <div style={{
-            background: '#ffffff',
-            border: '1px solid var(--border-subtle)',
-            padding: '6px 14px',
+            background: 'rgba(0, 0, 0, 0.55)',
+            backdropFilter: 'blur(10px)',
+            WebkitBackdropFilter: 'blur(10px)',
+            border: '1px solid rgba(255, 255, 255, 0.25)',
+            padding: '5px 12px',
             borderRadius: 'var(--radius-full)',
             display: 'flex',
             alignItems: 'center',
-            gap: '6px',
-            fontSize: '12px',
-            color: 'var(--accent-primary)',
+            gap: '5px',
+            fontSize: '11px',
+            color: '#ffffff',
             fontWeight: 700,
-            boxShadow: '0 4px 14px rgba(11, 28, 61, 0.1)'
+            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.35)',
+            pointerEvents: 'auto'
           }}>
-            <MapPin size={13} color="#2563eb" />
+            <MapPin size={12} color="#38bdf8" />
             <span>{property.location.locality}, {property.location.city}</span>
           </div>
 
           {property.isOwnerListing ? (
             <div style={{
-              background: '#eff6ff',
-              border: '1px solid #bfdbfe',
-              color: '#1d4ed8',
-              padding: '5px 12px',
+              background: 'rgba(30, 58, 138, 0.75)',
+              backdropFilter: 'blur(10px)',
+              WebkitBackdropFilter: 'blur(10px)',
+              border: '1px solid rgba(147, 197, 253, 0.4)',
+              color: '#dbeafe',
+              padding: '4px 10px',
               borderRadius: 'var(--radius-full)',
-              fontSize: '11px',
+              fontSize: '10.5px',
               fontWeight: 700,
               display: 'flex',
               alignItems: 'center',
               gap: '4px',
-              boxShadow: '0 4px 12px rgba(11, 28, 61, 0.08)'
+              boxShadow: '0 4px 12px rgba(0, 0, 0, 0.25)',
+              pointerEvents: 'auto'
             }}>
-              <CheckCircle2 size={12} />
+              <CheckCircle2 size={11} />
               Owner Listed
             </div>
           ) : (
             <div style={{
-              background: '#ecfdf5',
-              border: '1px solid #a7f3d0',
-              color: '#047857',
-              padding: '5px 12px',
+              background: 'rgba(6, 78, 59, 0.75)',
+              backdropFilter: 'blur(10px)',
+              WebkitBackdropFilter: 'blur(10px)',
+              border: '1px solid rgba(110, 231, 183, 0.4)',
+              color: '#d1fae5',
+              padding: '4px 10px',
               borderRadius: 'var(--radius-full)',
-              fontSize: '11px',
+              fontSize: '10.5px',
               fontWeight: 700,
               display: 'flex',
               alignItems: 'center',
               gap: '4px',
-              boxShadow: '0 4px 12px rgba(11, 28, 61, 0.08)'
+              boxShadow: '0 4px 12px rgba(0, 0, 0, 0.25)',
+              pointerEvents: 'auto'
             }}>
-              <ShieldCheck size={12} />
+              <ShieldCheck size={11} />
               Verified Estate
             </div>
           )}
@@ -838,11 +848,11 @@ export default function ReelItem({
           </div>
         </div>
 
-        {/* Reel Bottom Meta Overlay: Transparent & Short so Video is 100% Visible */}
+        {/* Reel Bottom Meta Overlay: Transparent & Positioned safely above mobile bottom bar */}
         <div style={{
           position: 'absolute',
-          bottom: '12px',
-          left: '16px',
+          bottom: '76px',
+          left: '14px',
           right: '72px',
           zIndex: 15,
           color: '#ffffff',

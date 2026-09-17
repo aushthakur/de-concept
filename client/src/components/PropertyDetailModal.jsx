@@ -68,22 +68,56 @@ export default function PropertyDetailModal({
   };
 
   return (
-    <div className="modal-backdrop" onClick={onClose} style={{ padding: isMobile ? '8px' : '20px' }}>
+    <div 
+      className="modal-backdrop" 
+      onClick={onClose} 
+      style={{ 
+        padding: isMobile ? 0 : '20px',
+        alignItems: isMobile ? 'flex-end' : 'center',
+        justifyContent: 'center'
+      }}
+    >
       <div 
         className="glass-panel-heavy"
         onClick={e => e.stopPropagation()}
         style={{
           width: '100%',
           maxWidth: isMobile ? '100%' : '880px',
-          maxHeight: isMobile ? '94vh' : '92vh',
+          height: isMobile ? '86vh' : 'auto',
+          maxHeight: isMobile ? '86vh' : '92vh',
           overflowY: 'auto',
-          borderRadius: isMobile ? '16px' : 'var(--radius-lg)',
+          overscrollBehavior: 'contain',
+          borderTopLeftRadius: isMobile ? '24px' : 'var(--radius-lg)',
+          borderTopRightRadius: isMobile ? '24px' : 'var(--radius-lg)',
+          borderBottomLeftRadius: isMobile ? 0 : 'var(--radius-lg)',
+          borderBottomRightRadius: isMobile ? 0 : 'var(--radius-lg)',
           position: 'relative',
           padding: 0,
           background: '#ffffff',
-          boxShadow: 'var(--shadow-lg)'
+          boxShadow: isMobile ? '0 -10px 40px rgba(0,0,0,0.35)' : 'var(--shadow-lg)',
+          margin: 0
         }}
       >
+        {/* Mobile Pull Handle */}
+        {isMobile && (
+          <div style={{
+            width: '100%',
+            display: 'flex',
+            justifyContent: 'center',
+            paddingTop: '8px',
+            paddingBottom: '2px',
+            background: '#ffffff',
+            borderTopLeftRadius: '24px',
+            borderTopRightRadius: '24px'
+          }}>
+            <div style={{
+              width: '42px',
+              height: '4.5px',
+              borderRadius: 'var(--radius-full)',
+              background: 'rgba(0, 0, 0, 0.2)'
+            }} />
+          </div>
+        )}
         {/* Top Header Sticky Bar */}
         <div style={{
           position: 'sticky',
